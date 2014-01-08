@@ -1,4 +1,4 @@
-## perusteita
+## Rubyn perusteita
 
 Ruby on dynaamisesti tyypitetty tulkattu erittäin olio-orientoitunut kieli. 
 
