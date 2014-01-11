@@ -85,7 +85,7 @@ Osa viikon tehtävistä on käytännössä pakollisia, muuten eteneminen pysäht
 
 ## Railsin asennus
 
-Asennusohje osoitteessa https://github.com/mluukkai/wadror2014-stage/wiki/railsin-asennus
+Asennusohje osoitteessa https://github.com/mluukkai/WebPalvelinohjelmointi2014/wiki/railsin-asennus
 
 ## Sovelluksen luominen
 
@@ -180,7 +180,7 @@ HUOM: **Tarkoituksena on, että tätä dokumenttia lukiessasi teet koko ajan sam
 >
 > Luo sovellusta varten repositorio Githubiin ja liitä se etärepositorioksi sovelluksesi hakemiston repositorioon 
 >
-> Ohjeita gitin ja Githubin käyttöön https://github.com/mluukkai/wadror2014-stage/wiki/versionhallinta
+> Ohjeita gitin ja Githubin käyttöön https://github.com/mluukkai/WebPalvelinohjelmointi2014/wiki/versionhallinta
 >
 > Tämän dokumentin lopussa on ohje varsinaisen palautuksen tekemiseksi
 
@@ -380,7 +380,7 @@ Seuraavassa muutamia esimerkkejä, kokeile kaikkia konsolista:
     t = Brewery.where :name => "Koff"
     t.first.year          # t.first sama kuin t[0]
 
-Lisää Rubyn taulukosta ks. https://github.com/mluukkai/wadror2014-stage/wiki/ruby-intro#taulukko
+Lisää Rubyn taulukosta ks. https://github.com/mluukkai/WebPalvelinohjelmointi2014/wiki/ruby-intro#taulukko
 
 Huomaa, että jätimme edellä kaikissa esimerkeissä metodikutsuista sulut pois. <code>Brewery.find 1</code> siis tarkoitaa samaa kuin <code>Brewery.find(1)</code>
 
@@ -878,13 +878,13 @@ Viritellään lopuksi kaikkien oluiden listaa.
 
 Lopputuloksen pitäisi näyttää seuraavalta:
 
-![kuva](https://github.com/mluukkai/wadror2014-stage/raw/master/images/brewery-w1-3.png)
+![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/brewery-w1-3.png)
 
 ## nil
 
 Saatat törmätä seuraavanlaiseen virheilmoitukseen
 
-![kuva](https://github.com/mluukkai/wadror2014-stage/raw/master/images/brewery-w1-2.png)
+![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/brewery-w1-2.png)
 
 Kyse on oikeastaan klassisesta nullpointer-poikkeuksesta, tai sen Ruby-versiosta nilpointer-poikkeuksesta. Rails vihjaa, että olet yrittänyt kutsua nil:ille (joka on Rubyssä olio!) metodia name, ja että sellaista ei ole. Syynä tälle on todennäköisesti se, että tietokannassasi on oluita joihin ei liity panimoa tai että niihin liittyvä panimo on poistettu. 
 
