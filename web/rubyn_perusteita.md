@@ -1,4 +1,4 @@
-## Rubyn perusteita
+## perusteita
 
 Ruby on dynaamisesti tyypitetty tulkattu erittäin olio-orientoitunut kieli. 
 
@@ -8,7 +8,7 @@ Koodi kirjoitetaan rb-päätteisiin tiedostoihin ja suoritetaan (normaalin Ruby-
 
 Ruby-ohjelmoijan paras ystävä on interaktiivinen tulkki IRB joka käynnistyy komennolla irb. Railsin konsoli vastaa irb:tä, mutta sitä suoritetaan Rails-sovelluksen kontekstissa.
 
-Verkosta löytyy runsaasti Ruby-tutoreiaaleja, ks. http://www.ruby-lang.org/en/
+Verkosta löytyy runsaasti Ruby-tutoriaaleja, ks. http://www.ruby-lang.org/en/
 
 Heti alkuun kannattaa tehdä seuraavat
 * http://tryruby.org/levels/1/challenges/0
@@ -53,7 +53,7 @@ irb(main):006:0> h[:osoite]
 irb(main):007:0> 
 ```
 
-Seuraavassa luodaan hash joka saa sisältönsä luonin yhteydessä:
+Seuraavassa luodaan hash joka saa sisältönsä luonnin yhteydessä:
 
 ```ruby
 irb(main):010:0> h2 = { nimi:"Arto", ika:36 }
@@ -122,7 +122,7 @@ lue seuraavista ainakin ensimmäinen
 
 Vaikka Rubystä löytyvät tutut for- ja while-lauseet niitä käytetään erittäin harvoin. Erityisesti erilaisten kokoelmien, esim. taulukoiden läpikäynti hoidetaan käytännössä aina each-iteraattorin avulla.
 
-each-iteraattorilla on yksinkertainen. Kutsuttaessa taulukolle, iteraattori palauttaa taulukon alkiot yksi kerrallaan ja antaa ne nimetyn muuttujan avulla iteraattoria seuraavalle koodilohkolle. Esim. seuraavassa {}:lla määritellyssä lohkossa oleva muuttuja <code>alkio</code> saa arvokseen yksi kerrallaan kunkin taulukon <code>t</code> alkiosta:
+each-iteraattorin toimintaperiaate on seuraava. Kutsuttaessa eachia taulukolle, iteraattori palauttaa taulukon alkiot yksi kerrallaan ja antaa ne nimetyn muuttujan avulla iteraattoria seuraavalle koodilohkolle. Esim. seuraavassa {}:lla määritellyssä lohkossa oleva muuttuja <code>alkio</code> saa arvokseen yksi kerrallaan kunkin taulukon <code>t</code> alkiosta:
 
 
 ```ruby
