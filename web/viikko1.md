@@ -1214,4 +1214,4 @@ sqlite3 gem on siis käytössä ainoastaan development- ja test-ympäristöissä
 
 Commitoi kaikki tekemäsi muutokset ja pushaa koodi Githubiin. Lisää Githubin readme-tiedostoon linkki sovelluksen Heroku-instanssiin. Oletusarvoisesti Rails-sovelluksen readme-tiedostoon generoituvan sisältö kannattanee poistaa.
 
-Tehtävät kirjataan palautetuksi osoitteeseen http://rorwadstats-2013.herokuapp.com/
+Tehtävät kirjataan palautetuksi osoitteeseen http://wadrorstats2014.herokuapp.com/courses/1
