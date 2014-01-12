@@ -254,6 +254,13 @@ Avaa konsoli antamalla komentoriviltä (sovelluksen sisältävästä hakemistost
 
     rails console
 
+Jos konsoli antaa virheilmoituksen, johon sisältyy teksti "cannot load such file -- readline (LoadError), niin ainakin Ubuntu 13.10 -ympäristössä tämä korjataan asentamalla libreadline-dev ja kääntämällä ruby uudelleen
+
+    apt-get install libreadline-dev
+
+    rbenv install 2.0.0-p353
+
+
 Tee kaikki seuraavat komennot myös itse:
 
 ```ruby
@@ -1215,3 +1222,4 @@ sqlite3 gem on siis käytössä ainoastaan development- ja test-ympäristöissä
 Commitoi kaikki tekemäsi muutokset ja pushaa koodi Githubiin. Lisää Githubin readme-tiedostoon linkki sovelluksen Heroku-instanssiin. Oletusarvoisesti Rails-sovelluksen readme-tiedostoon generoituvan sisältö kannattanee poistaa.
 
 Tehtävät kirjataan palautetuksi osoitteeseen http://wadrorstats2014.herokuapp.com/courses/1
+
