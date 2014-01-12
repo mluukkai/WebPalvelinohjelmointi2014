@@ -380,11 +380,13 @@ Seuraavassa muutamia esimerkkejä, kokeile kaikkia konsolista:
     Brewery.where name:"Koff" # palauttaa taulukon, johon on sijoitettu kaikki Koff-nimiset panimot
 
     Brewery.where year:1900..2000  # palauttaa taulukon, jossa vuosina 1900-2000 perustetut panimot
+
+    Brewery.where "year<1900"      # palauttaa taulukon, jossa ennen vuotta 1900 perustetut panimot
    
-    b = Brewery.where :name => "Koff"
+    b = Brewery.where name:"Koff"
     b.year                # operaatio ei toimi, sillä where palauttaa taulukon, jossa Koff sijaitsee 
 
-    t = Brewery.where :name => "Koff"
+    t = Brewery.where name:"Koff"
     t.first.year          # t.first sama kuin t[0]
 
 Lisää Rubyn taulukosta ks. https://github.com/mluukkai/WebPalvelinohjelmointi2014/wiki/ruby-intro#taulukko
