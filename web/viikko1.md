@@ -452,9 +452,9 @@ irb(main):035:0> Beer
 => Beer(id: integer, name: string, style: string, brewery_id: integer, created_at: datetime, updated_at: datetime)
 ```
 
-Oluella on siis luonnollisesti myös kaikille ActiveRecord-olioille automaattisesti lisättävät kentät eli id, created_at ja updated_at.
+Oluella on siis luonnollisesti myös kaikille ActiveRecord-olioille automaattisesti lisättävät kentät eli <code>id</code>, <code>created_at</code> ja <code>updated_at</code>.
 
-Luodaan konsolista käsin muutama olut ja liitetään ne panimoon vierasavaimen <code>brewery_id</code> avulla (huom: jos konsolisi oli jo auki, saatat joutua antamaan konsolissa komennon <code>reload!</code, joka lataa oluiden ohjelmakoodin konsolin käytettäväksi):
+Luodaan konsolista käsin muutama olut ja liitetään ne panimoon vierasavaimen <code>brewery_id</code> avulla (huom: jos konsolisi oli jo auki, saatat joutua antamaan konsolissa komennon <code>reload!</code>, joka lataa oluiden ohjelmakoodin konsolin käytettäväksi):
 
 ```ruby
 irb(main):038:0> koff = Brewery.first
