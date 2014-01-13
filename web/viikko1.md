@@ -1137,6 +1137,8 @@ Syynä on siis se, että tietokantaa ei ole luotu. Meidän on siis suoritettava 
 
 Ja nyt sovellus toimii!
 
+Kuten huomaat, tietokannassa olevat oluet ja panimot eivät siirry Herokuun. Syy tälle selviää seuraavasta luvusta.
+
 Jatkossakin on siis aina muistettava suorittaa migraatiot deployatessamme sovellusta Herokuun.
 
 Voimme myös avata Rails-konsolin Herokussa sijaitsevalle sovellukselle komennolla
@@ -1186,7 +1188,7 @@ Jokaisessa suoritusympäristössä on käytössä oma tietokanta ja Rails toimii
 
 Normaalisti ohjelmoija työskentelee siten että sovellusta suoritetaan development-ympäristössä. Tällöin Rails tarjoaa mm. sovelluskehittäjän työtä helpottavia virheilmoituksia. Myös sovelluksen koodi ladataan aina suoritettaessa uudelleen. Tämän ansiosta sovellusta ei tarvitse käynnistää uudelleen koodia muutettaessa vaan muutettu ja lisätty koodi on aina "automaattisesti" sovelluksen käytössä.
 
-Herokuun deployattaessa sovellus alkaa toimia production-ympäristössä joka sisältää useita suorituskykyä optimoivia eroja development-ympäristöön nähden. Myös sovelluksen virheilmoitukset ovat erilaiset, virheen syyn ja sijainnin sijaan ilmoitetaan ainoastaan "Something went wrong...".
+Herokuun deployattaessa sovellus alkaa toimia production-ympäristössä, joka sisältää useita suorituskykyä optimoivia eroja development-ympäristöön nähden. Myös sovelluksen virheilmoitukset ovat erilaiset, virheen syyn ja sijainnin sijaan ilmoitetaan ainoastaan "Something went wrong...".
 
 Testausympäristöön tutustumme kurssin viikolla 4.
 
