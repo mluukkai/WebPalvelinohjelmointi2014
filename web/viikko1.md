@@ -176,7 +176,7 @@ HUOM: **Tarkoituksena on, että tätä dokumenttia lukiessasi teet koko ajan sam
 > 
 > Talletamme kurssilla tehtävän sovelluksen Githubissa sijaitsevaan repositorioon. 
 >
-> Tee sovelluksesi hakemistosta git-repositorio suorittamalla hakemistossa komento <code>git init</code> 
+> Tee sovelluksesi hakemistosta (eli siitä hakemistosta jonka komento rails new luo) git-repositorio suorittamalla hakemistossa komento <code>git init</code> 
 >
 > Luo sovellusta varten repositorio Githubiin ja liitä se etärepositorioksi sovelluksesi hakemiston repositorioon 
 >
