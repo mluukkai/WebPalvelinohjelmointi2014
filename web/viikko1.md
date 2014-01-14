@@ -1008,9 +1008,7 @@ Asenna herokun komentoriviliittymän sisältävä Heroku Toolbelt sivun https://
 * pura sivulta https://github.com/heroku/heroku löytyvä Tarball sopivaan paikkaan kotihakemistosi alle
 * lisää purettu hakemisto PATH:iin eli suorituspolulle, eli lisäämällä kotihakemistossasi olevaan <code>.bash_profile</code> tiedostoon rivi <code>export PATH=$PATH:~/heroku-client</code> (olettaen että purit Tarballin kotihakemistoon)
 
-**HUOM**
-
-Herokun käytössä laitoksen luokkien koneilta saattaa olla ongelmia. Jos komento <code>heroku create</code> ei toimi, tee seuraavasti:
+**Huom2:** Herokun käytössä laitoksen luokkien koneilta saattaa olla ongelmia. Jos komento <code>heroku create</code> ei toimi, tee seuraavasti:
 * kloonaa sovelluksesi repositorio melkkiin
 * asenna heroku commancline -työkalu melkille
 * suorita ao. toimenpiteet melkistä käsin
