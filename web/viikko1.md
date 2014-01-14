@@ -240,7 +240,7 @@ mbp-18:ratebeer mluukkai$ rake db:migrate
 ==  CreateBreweries: migrated (0.0011s) =======================================
 ```
 
-Panimot tallettava tietokantataulu on nyt luoto ja sovelluksen pitäisi toimia.
+Panimot tallettava tietokantataulu on nyt luotu ja sovelluksen pitäisi toimia.
 
 Refreshaa panimot näyttävä sivu [http://localhost:3000/breweries](http://localhost:3000/breweries) ja lisää sitä käyttäen tietokantaan nyt kolme panimoa.
 
