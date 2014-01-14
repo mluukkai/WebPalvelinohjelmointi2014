@@ -24,18 +24,18 @@ Kurssilla kaikki tehtävät ovat upotettu tähän materiaaliin. Seuraavaa tehtä
 > 
 > Erityisesti selainpuolen toiminnallisuuden toteuttamisessa selaimien developer-työkalut ovat erittäin tärkeä työskentelyväline. Selaimista kehittäjäystävällisin on chrome, ja oletamme tässä että käytät chromea. Vastaava toiminnallisuus löytyy muistakin selaimista. 
 >
-> Avaa chromen developer tool painamalla yhtä aikaa Shift, Control ja i. Pääset developer tooliin myös valikon Tools-kautta. Avaa välilehti Network. Välilehti näyttää selaimen lähettämät HTTP-pyynnöt ja palvelimen niihin lähettämät vastaukset.
+> Avaa chromen developer tool painamalla yhtä aikaa Shift, Control ja i (tai F12). Pääset developer tooliin myös valikon Tools-kautta. Avaa välilehti Network. Välilehti näyttää selaimen lähettämät HTTP-pyynnöt ja palvelimen niihin lähettämät vastaukset.
 >
 > Copypastaa selaimen osoiteriville http://www.cs.helsinki.fi/courses ja paina enter.
 > Ylimpänä näet sivun pyynnön aiheuttaneen GET-pyynnön. Avaa se (klikkaamalla kutsua) ja tutki mitä kaikkea pyynnön mukana menee. Tutki erityisesti headereja ja response-osaa. Developer tools näyttää erikseen pyyntöön liittyvät (request headers) ja vastaukseen liittyvät (response headers) headerit. 
 >
 > Pyyntö palauttaa siis välilehdellä response näytettävän HTML-koodin. Koodi sisältää viitteitä css-tyylitiedostoihin, javascript-tiedostoihin sekä kuviin. Sivua renderöitäessä selain hakee kunkin näistä omalla GET-pyynnöllä.
 >
-> Pidä edelleen sama networking-välilehti auki. Tyhjennä välilehti painamalla vasemman alareunan halkaistu pallo -symbolia. Kirjoita jotain "hae tältä sivustolta"-lomakkeelle ja paina nappia "hae". Lomakkeen tietojen lähetys palvelimelle tapahtuu HTTP-protokollan POST-metodin sisältävän pyynnön avulla.
+> Pidä edelleen sama networking-välilehti auki. Tyhjennä välilehti painamalla vasemman alareunan halkaistu pallo -symbolia (:no_entry_sign:). Kirjoita jotain "hae tältä sivustolta"-lomakkeelle ja paina nappia "hae". Lomakkeen tietojen lähetys palvelimelle tapahtuu HTTP-protokollan POST-metodin sisältävän pyynnön avulla.
 >
 > Tutki POST-pyynnön sisältöä (listalla ylimpänä). Huomaat Headereista, että pyyntöön vastattiin statuskoodilla 302, joka taas tarkoittaa sitä että palvelin tekee selaimelle __uudelleenohjauksen__, eli pyytää selainta menemään vastauksen headereissa ilmoittamaan osoitteeseen. POST-pyynnön vastaus ei siis sisällä ollenkaan HTML-koodia jonka selain voisi renderöidä käyttäjälle. Heti POST-kutsun perään selain tekeekin automaattisesti GET-kutsun POST:in vastauksen headerissa __Location__ olevaan osoitteeseen. Vasta tämän uudelleenohjauksen aiheuttaman pyynnön vastauksena tullut sivu renderöidään käyttäjälle.
 >
-> Tutki vielä joillekin muille sivuille tekemien pyyntöjen aiheuttamaa HTTP-protokolan viestintää.
+> Tutki vielä joillekin muille sivuille tekemien pyyntöjen aiheuttamaa HTTP-protokollan viestintää.
 
 ## Ruby on Railsin perusteita
 
