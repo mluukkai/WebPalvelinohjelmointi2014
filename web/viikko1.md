@@ -35,7 +35,7 @@ Kurssilla kaikki tehtävät ovat upotettu tähän materiaaliin. Seuraavaa tehtä
 >
 > Tutki POST-pyynnön sisältöä (listalla ylimpänä). Huomaat Headereista, että pyyntöön vastattiin statuskoodilla 302, joka taas tarkoittaa sitä että palvelin tekee selaimelle __uudelleenohjauksen__, eli pyytää selainta menemään vastauksen headereissa ilmoittamaan osoitteeseen. POST-pyynnön vastaus ei siis sisällä ollenkaan HTML-koodia jonka selain voisi renderöidä käyttäjälle. Heti POST-kutsun perään selain tekeekin automaattisesti GET-kutsun POST:in vastauksen headerissa __Location__ olevaan osoitteeseen. Vasta tämän uudelleenohjauksen aiheuttaman pyynnön vastauksena tullut sivu renderöidään käyttäjälle.
 >
-> Tutki vielä joillekin muille sivuille tekemien pyyntöjen aiheuttamaa HTTP-protokolan viestintää.
+> Tutki vielä joillekin muille sivuille tekemien pyyntöjen aiheuttamaa HTTP-protokollan viestintää.
 
 ## Ruby on Railsin perusteita
 
