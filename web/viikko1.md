@@ -389,7 +389,7 @@ Seuraavassa muutamia esimerkkejä, kokeile kaikkia konsolista:
     t = Brewery.where name:"Koff"
     t.first.year          # t.first sama kuin t[0]
 
-Lisää Rubyn taulukosta ks. https://github.com/mluukkai/WebPalvelinohjelmointi2014/wiki/ruby-intro#taulukko
+Lisää Rubyn taulukosta ks. https://github.com/mluukkai/WebPalvelinohjelmointi2014/blob/master/web/rubyn_perusteita.md#taulukko
 
 Huomaa, että jätimme edellä kaikissa esimerkeissä metodikutsuista sulut pois. <code>Brewery.find 1</code> siis tarkoitaa samaa kuin <code>Brewery.find(1)</code>
 
