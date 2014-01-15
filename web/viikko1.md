@@ -1141,7 +1141,9 @@ Syynä on siis se, että tietokantaa ei ole luotu. Meidän on siis suoritettava 
 
 Ja nyt sovellus toimii!
 
-Kuten huomaat, tietokannassa olevat oluet ja panimot eivät siirry Herokuun. Syy tälle selviää seuraavasta luvusta.
+Kuten huomaat, tietokannassa olevat oluet ja panimot eivät siirry Herokuun. Jos haluat <code>seed.rb</code> tiedostossa määritellyt oliot tietokantaan, voit antaa komennon
+
+    heroku run rake db:seed
 
 Jatkossakin on siis aina muistettava suorittaa migraatiot deployatessamme sovellusta Herokuun.
 
