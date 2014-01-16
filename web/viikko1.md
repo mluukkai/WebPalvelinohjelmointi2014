@@ -844,7 +844,7 @@ Sivun yläosassa oleva id:llä __notice__ varustettu osa on tarkoitettu näyttä
 > Lisätään sivulle tieto panimoon liittyvien oluiden määrästä eli renderöi sivun sisällä <code>@brewery.beers.count</code>
 >
 >
-> Muokkaa valmista sivua siten, että panimon nimestä tulee h2-tason otsikko ja vuosi ilmoitetaan kursivoituna tyyliin "_Established_ _at_ _1897_".
+> Muokkaa valmista sivua siten, että panimon nimestä tulee h2-tason otsikko ja vuosi ilmoitetaan kursivoituna tyyliin "_Established_ _in_ _1897_".
 
 Jatketaan muutosten tekemistä.
 
