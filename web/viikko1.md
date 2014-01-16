@@ -1005,12 +1005,12 @@ Asenna herokun komentoriviliittymän sisältävä Heroku Toolbelt sivun https://
 
 **Huom:** Heroku Toolbeltin asentaminen vaatii admin-oikeuksia ja näinollen asennus laitoksen koneille ei onnistu. Saat kuitenkin asennettua Herokun komentorivikäyttöliittymän laitoksen koneille seuraavasti:
 * pura sivulta https://github.com/heroku/heroku löytyvä Tarball sopivaan paikkaan kotihakemistosi alle
-* lisää purettu hakemisto PATH:iin eli suorituspolulle, eli lisäämällä kotihakemistossasi olevaan <code>.bash_profile</code> tiedostoon rivi <code>export PATH=$PATH:~/heroku-client</code> (olettaen että purit Tarballin kotihakemistoon)
+* lisää purettu hakemisto PATH:iin eli suorituspolulle, eli lisäämällä kotihakemistossasi olevaan <code>.bash_profile</code> tiedostoon rivi <code>export PATH=$PATH:~/heroku-client/bin</code> (olettaen että purit Tarballin kotihakemistoon)
 
 **Huom2:** saadakseksi Heroku clientin toimimaan laitoksen pajan koneissa, toimi seuraavasti:
 * poista pajan koneeen kotihakemistosta tiedosto <code>.netrc</code>
-* luo fs-kotihakemistoon samanniminen tyhjä tiedosto. fs-kotihakemistosi on polulla <code>/home/tktl-csfs/fs/home/omakayttajatunnus</code> tai  <code>/home/tktl-csfs/fs2/home/omakayttajatunnus</code>
-* luo symbolinen linkki suorittamalla seuraava komento pajakoneen kotihakemistosta <code>/home/tktl-csfs/fs2/home/omakayttajatunnus/.netrc .</code> (fs tai fs2 riippuen kummasta hakemistosta kotihakemistosi löytyy)
+* luo fs-kotihakemistoon samanniminen tyhjä tiedosto. fs-kotihakemistosi on polulla <code>/home/tktl-csfs/fs/home/omakayttajatunnus</code> tai <code>/home/tktl-csfs/fs2/home/omakayttajatunnus</code>
+* luo symbolinen linkki suorittamalla seuraava komento pajakoneen kotihakemistosta <code>ln -s /home/tktl-csfs/fs2/home/omakayttajatunnus/.netrc .</code> (fs tai fs2 riippuen kummasta hakemistosta kotihakemistosi löytyy)
 
 Mene sitten sovelluksen juurihakemistoon, ja luo sovellusta varten heroku-instanssi:
 
