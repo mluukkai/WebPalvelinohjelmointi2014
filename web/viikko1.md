@@ -1069,7 +1069,7 @@ mbp-18:viikko1 mluukkai$ git commit -m"updated Gemfile for Heroku"
  2 files changed, 16 insertions(+), 2 deletions(-)
 ```
 
-Nyt olemme valmiina käynnistämään sovelluksen herokussa. Sovellus käynnistetään suorittamalla komentoriviltä operaatio <code>git push</code>
+Nyt olemme valmiina käynnistämään sovelluksen herokussa. Sovellus käynnistetään suorittamalla komentoriviltä operaatio <code>git push heroku master</code>
 
 ```ruby
 mbp-18:viikko1 mluukkai$ git push heroku master
