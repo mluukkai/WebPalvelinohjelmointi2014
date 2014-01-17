@@ -24,18 +24,18 @@ Kurssilla kaikki tehtävät ovat upotettu tähän materiaaliin. Seuraavaa tehtä
 > 
 > Erityisesti selainpuolen toiminnallisuuden toteuttamisessa selaimien developer-työkalut ovat erittäin tärkeä työskentelyväline. Selaimista kehittäjäystävällisin on chrome, ja oletamme tässä että käytät chromea. Vastaava toiminnallisuus löytyy muistakin selaimista. 
 >
-> Avaa chromen developer tool painamalla yhtä aikaa Shift, Control ja i. Pääset developer tooliin myös valikon Tools-kautta. Avaa välilehti Network. Välilehti näyttää selaimen lähettämät HTTP-pyynnöt ja palvelimen niihin lähettämät vastaukset.
+> Avaa chromen developer tool painamalla yhtä aikaa Shift, Control ja i (tai F12). Pääset developer tooliin myös valikon Tools-kautta. Avaa välilehti Network. Välilehti näyttää selaimen lähettämät HTTP-pyynnöt ja palvelimen niihin lähettämät vastaukset.
 >
 > Copypastaa selaimen osoiteriville http://www.cs.helsinki.fi/courses ja paina enter.
 > Ylimpänä näet sivun pyynnön aiheuttaneen GET-pyynnön. Avaa se (klikkaamalla kutsua) ja tutki mitä kaikkea pyynnön mukana menee. Tutki erityisesti headereja ja response-osaa. Developer tools näyttää erikseen pyyntöön liittyvät (request headers) ja vastaukseen liittyvät (response headers) headerit. 
 >
 > Pyyntö palauttaa siis välilehdellä response näytettävän HTML-koodin. Koodi sisältää viitteitä css-tyylitiedostoihin, javascript-tiedostoihin sekä kuviin. Sivua renderöitäessä selain hakee kunkin näistä omalla GET-pyynnöllä.
 >
-> Pidä edelleen sama networking-välilehti auki. Tyhjennä välilehti painamalla vasemman alareunan halkaistu pallo -symbolia. Kirjoita jotain "hae tältä sivustolta"-lomakkeelle ja paina nappia "hae". Lomakkeen tietojen lähetys palvelimelle tapahtuu HTTP-protokollan POST-metodin sisältävän pyynnön avulla.
+> Pidä edelleen sama networking-välilehti auki. Tyhjennä välilehti painamalla vasemman alareunan halkaistu pallo -symbolia (:no_entry_sign:). Kirjoita jotain "hae tältä sivustolta"-lomakkeelle ja paina nappia "hae". Lomakkeen tietojen lähetys palvelimelle tapahtuu HTTP-protokollan POST-metodin sisältävän pyynnön avulla.
 >
 > Tutki POST-pyynnön sisältöä (listalla ylimpänä). Huomaat Headereista, että pyyntöön vastattiin statuskoodilla 302, joka taas tarkoittaa sitä että palvelin tekee selaimelle __uudelleenohjauksen__, eli pyytää selainta menemään vastauksen headereissa ilmoittamaan osoitteeseen. POST-pyynnön vastaus ei siis sisällä ollenkaan HTML-koodia jonka selain voisi renderöidä käyttäjälle. Heti POST-kutsun perään selain tekeekin automaattisesti GET-kutsun POST:in vastauksen headerissa __Location__ olevaan osoitteeseen. Vasta tämän uudelleenohjauksen aiheuttaman pyynnön vastauksena tullut sivu renderöidään käyttäjälle.
 >
-> Tutki vielä joillekin muille sivuille tekemien pyyntöjen aiheuttamaa HTTP-protokolan viestintää.
+> Tutki vielä joillekin muille sivuille tekemien pyyntöjen aiheuttamaa HTTP-protokollan viestintää.
 
 ## Ruby on Railsin perusteita
 
@@ -176,7 +176,7 @@ HUOM: **Tarkoituksena on, että tätä dokumenttia lukiessasi teet koko ajan sam
 > 
 > Talletamme kurssilla tehtävän sovelluksen Githubissa sijaitsevaan repositorioon. 
 >
-> Tee sovelluksesi hakemistosta git-repositorio suorittamalla hakemistossa komento <code>git init</code> 
+> Tee sovelluksesi hakemistosta (eli siitä hakemistosta jonka komento rails new luo) git-repositorio suorittamalla hakemistossa komento <code>git init</code> 
 >
 > Luo sovellusta varten repositorio Githubiin ja liitä se etärepositorioksi sovelluksesi hakemiston repositorioon 
 >
@@ -240,7 +240,7 @@ mbp-18:ratebeer mluukkai$ rake db:migrate
 ==  CreateBreweries: migrated (0.0011s) =======================================
 ```
 
-Panimot tallettava tietokantataulu on nyt luoto ja sovelluksen pitäisi toimia.
+Panimot tallettava tietokantataulu on nyt luotu ja sovelluksen pitäisi toimia.
 
 Refreshaa panimot näyttävä sivu [http://localhost:3000/breweries](http://localhost:3000/breweries) ja lisää sitä käyttäen tietokantaan nyt kolme panimoa.
 
@@ -389,7 +389,7 @@ Seuraavassa muutamia esimerkkejä, kokeile kaikkia konsolista:
     t = Brewery.where name:"Koff"
     t.first.year          # t.first sama kuin t[0]
 
-Lisää Rubyn taulukosta ks. https://github.com/mluukkai/WebPalvelinohjelmointi2014/wiki/ruby-intro#taulukko
+Lisää Rubyn taulukosta ks. https://github.com/mluukkai/WebPalvelinohjelmointi2014/blob/master/web/rubyn_perusteita.md#taulukko
 
 Huomaa, että jätimme edellä kaikissa esimerkeissä metodikutsuista sulut pois. <code>Brewery.find 1</code> siis tarkoitaa samaa kuin <code>Brewery.find(1)</code>
 
@@ -844,7 +844,7 @@ Sivun yläosassa oleva id:llä __notice__ varustettu osa on tarkoitettu näyttä
 > Lisätään sivulle tieto panimoon liittyvien oluiden määrästä eli renderöi sivun sisällä <code>@brewery.beers.count</code>
 >
 >
-> Muokkaa valmista sivua siten, että panimon nimestä tulee h2-tason otsikko ja vuosi ilmoitetaan kursivoituna tyyliin "_Established_ _at_ _1897_".
+> Muokkaa valmista sivua siten, että panimon nimestä tulee h2-tason otsikko ja vuosi ilmoitetaan kursivoituna tyyliin "_Established_ _in_ _1897_".
 
 Jatketaan muutosten tekemistä.
 
@@ -998,15 +998,19 @@ Sovelluksen deployaaminen Herokuun onnistuu helpoiten jos sovelluksen hakemisto 
 
 Luo Herokuun tunnus.
 
+
 Luo ssh-avain ja lisää se herokuun sivulla https://dashboard.heroku.com/account
 * ohje ssh-avaimen luomiseen http://www.cs.helsinki.fi/group/kuje/compfac/ssh_avain.html
-
 Asenna herokun komentoriviliittymän sisältävä Heroku Toolbelt sivun https://toolbelt.heroku.com/ ohjeiden mukaan.
 
 **Huom:** Heroku Toolbeltin asentaminen vaatii admin-oikeuksia ja näinollen asennus laitoksen koneille ei onnistu. Saat kuitenkin asennettua Herokun komentorivikäyttöliittymän laitoksen koneille seuraavasti:
 * pura sivulta https://github.com/heroku/heroku löytyvä Tarball sopivaan paikkaan kotihakemistosi alle
-* lisää purettu hakemisto PATH:iin eli suorituspolulle, eli lisäämällä kotihakemistossasi olevaan <code>.bash_profile</code> tiedostoon rivi <code>export PATH=$PATH:~/heroku-client</code> (olettaen että purit Tarballin kotihakemistoon)
+* lisää purettu hakemisto PATH:iin eli suorituspolulle, eli lisäämällä kotihakemistossasi olevaan <code>.bash_profile</code> tiedostoon rivi <code>export PATH=$PATH:~/heroku-client/bin</code> (olettaen että purit Tarballin kotihakemistoon)
 
+**Huom2:** saadakseksi Heroku clientin toimimaan laitoksen pajan koneissa, toimi seuraavasti:
+* poista pajan koneeen kotihakemistosta tiedosto <code>.netrc</code>
+* luo fs-kotihakemistoon samanniminen tyhjä tiedosto. fs-kotihakemistosi on polulla <code>/home/tktl-csfs/fs/home/omakayttajatunnus</code> tai <code>/home/tktl-csfs/fs2/home/omakayttajatunnus</code>
+* luo symbolinen linkki suorittamalla seuraava komento pajakoneen kotihakemistosta <code>ln -s /home/tktl-csfs/fs2/home/omakayttajatunnus/.netrc .</code> (fs tai fs2 riippuen kummasta hakemistosta kotihakemistosi löytyy)
 
 Mene sitten sovelluksen juurihakemistoon, ja luo sovellusta varten heroku-instanssi:
 
@@ -1137,6 +1141,10 @@ Syynä on siis se, että tietokantaa ei ole luotu. Meidän on siis suoritettava 
 
 Ja nyt sovellus toimii!
 
+Kuten huomaat, tietokannassa olevat oluet ja panimot eivät siirry Herokuun. Jos haluat <code>seed.rb</code> tiedostossa määritellyt oliot tietokantaan, voit antaa komennon
+
+    heroku run rake db:seed
+
 Jatkossakin on siis aina muistettava suorittaa migraatiot deployatessamme sovellusta Herokuun.
 
 Voimme myös avata Rails-konsolin Herokussa sijaitsevalle sovellukselle komennolla
@@ -1186,7 +1194,7 @@ Jokaisessa suoritusympäristössä on käytössä oma tietokanta ja Rails toimii
 
 Normaalisti ohjelmoija työskentelee siten että sovellusta suoritetaan development-ympäristössä. Tällöin Rails tarjoaa mm. sovelluskehittäjän työtä helpottavia virheilmoituksia. Myös sovelluksen koodi ladataan aina suoritettaessa uudelleen. Tämän ansiosta sovellusta ei tarvitse käynnistää uudelleen koodia muutettaessa vaan muutettu ja lisätty koodi on aina "automaattisesti" sovelluksen käytössä.
 
-Herokuun deployattaessa sovellus alkaa toimia production-ympäristössä joka sisältää useita suorituskykyä optimoivia eroja development-ympäristöön nähden. Myös sovelluksen virheilmoitukset ovat erilaiset, virheen syyn ja sijainnin sijaan ilmoitetaan ainoastaan "Something went wrong...".
+Herokuun deployattaessa sovellus alkaa toimia production-ympäristössä, joka sisältää useita suorituskykyä optimoivia eroja development-ympäristöön nähden. Myös sovelluksen virheilmoitukset ovat erilaiset, virheen syyn ja sijainnin sijaan ilmoitetaan ainoastaan "Something went wrong...".
 
 Testausympäristöön tutustumme kurssin viikolla 4.
 
