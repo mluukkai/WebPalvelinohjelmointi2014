@@ -984,7 +984,9 @@ Eksplisiittinen <code>render</code>-metodin kutsuminen on siis tarpeen vain sill
 > Kokeile mitä tapahtuu kun menet panimoiden sivulle eli osoitteeseen http://localhost:3000/breweries
 >
 > Lisää nyt hakemistoon app/views/breweries tiedosto panimot.html.erb ja lisää sinne esim. 
->     panimoita <%= @breweries.count %>
+> ```ruby
+>  panimoita <%= @breweries.count %>
+> ```
 >
 > Mene panimoiden sivulle.
 >
