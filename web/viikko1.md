@@ -1060,6 +1060,8 @@ Your bundle is complete!
 Use `bundle show [gemname]` to see where a bundled gem is installed.
 ```
 
+Jos törmäsit tässä ongelmiin pg-config tiedoston kanssa, niin toimi [näiden](http://stackoverflow.com/questions/19625487/impossible-to-install-pg-gem-on-my-mac-with-mavericks) ohjeiden mukaisesti.  
+
 Committoidaan kaikki muutokset versionhallintaan. 
 
 ```ruby
