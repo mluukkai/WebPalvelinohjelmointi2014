@@ -318,7 +318,7 @@ Save on ActiveRecordilta peritty oliometodi, joka kuten arvata saattaa tallettaa
 
 Olion voi myös luoda ja tallettaa suoraan kantaan käyttämällä new:n sijaan luokan metodia create:
 
-   Brewery.create name:"Weihenstephan", year:1042
+    Brewery.create name:"Weihenstephan", year:1042
 
 Kun olio luodaan komennolla <code>new</code>, huomaamme, että olio sisältää kenttiä joiden arvoa ei ole asetettu:
 
