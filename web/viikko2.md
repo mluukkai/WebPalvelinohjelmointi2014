@@ -475,7 +475,7 @@ Luodaan nyt seuraava näkymä eli tiedosto /app/views/ratings/new.html.erb:
 
 Mene nyt lomakkeen sisältävälle sivulle eli osoitteeseen http://localhost:3000/ratings/new
 
-Näkymän avulla muodostuva hHTML-koodi näyttää (suunilleen) seuraavalta (näet koodin menemällä sivulle ja valitsemalla selaimesta _view page source_):
+Näkymän avulla muodostuva HTML-koodi näyttää (suunilleen) seuraavalta (näet koodin menemällä sivulle ja valitsemalla selaimesta _view page source_):
 
 ```erb
 <form action="/ratings" method="post">
