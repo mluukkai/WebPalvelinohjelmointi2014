@@ -926,7 +926,7 @@ URLeja ei itse kannata kirjoittaa näkymätemplateihin sillä Rails tarjoaa path
 
 Kaikkien panimoiden URLin (tai oikeastaan vain URLin jälkiosan) generoi metodi <code>breweries_path</code>, yksittäisen panimon URL saadaan generoitua metodilla <code>brewery_path(id)</code>, missä parametrina on linkin kohteena olevan panimon id.
 
-Helppereitä käytetään usein yhdessä apumetodin <code>link_to</code>code> kanssa. link_to generoi HTML-sivulle linkin eli a-tagin. 
+Helppereitä käytetään usein yhdessä apumetodin <code>link_to</code> kanssa. link_to generoi HTML-sivulle linkin eli a-tagin. 
 
 Linkin panimon <code>brewery</code> sivulle voi generoida seuraavasti:
 
@@ -942,7 +942,7 @@ Usein tehtäessä linkkiä yksittäisen olion sivulle käytetään edellisestä 
     <%= link_to "linkki panimoon #{brewery.name}", brewery %>
 ```
 
-Nyt toisena parametrina on siis suoraan olio, jonka sivulle linkki johtaa. Kun toinen parametri on olio, korvaa Rails sen automaattisesti todellisen polun generoimalla koodilla <code>brewery_path(brewery.id)</code>code>
+Nyt toisena parametrina on siis suoraan olio, jonka sivulle linkki johtaa. Kun toinen parametri on olio, korvaa Rails sen automaattisesti todellisen polun generoimalla koodilla <code>brewery_path(brewery.id)</code>
 
 Railsin automaattisesti generoiduissa kontrollereissa on valmiina kuusi metodia. Kaikkien panimoiden listaa, eli osoitetta /breweries hallinnoi metodi <code>index</code>, yksittäisen panimon osoitetta, esim. /breweries/3 hallinnoi kontrollerin metodi <code>show</code>. Tutustumme myöhemmin kontrollerin muihin metodeihin.
 
