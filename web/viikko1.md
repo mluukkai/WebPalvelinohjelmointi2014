@@ -197,7 +197,7 @@ Luodaan kaikki nämä Railsin valmista scaffold-generaattoria käyttäen. Panimo
     rails generate scaffold brewery name:string year:integer
 
 Syntyy melkoinen määrä tiedostoja. Tärkeimmät näistä ovat
-* app/model/Brewery.rb 
+* app/models/Brewery.rb
 * app/controllers/breweries_controller.rb
 * app/views/breweries/index.html.erb 
 * app/views/breweries/show.html.erb 
