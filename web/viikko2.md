@@ -120,7 +120,7 @@ Saamme navigointipalkin näkyville kaikille sivuille muuttamalla sovelluksen lay
  
 Navigointipalkki on laitettu luokan _navibar_ sisältävän div-elementin sisällä, joten sen ulkoasua voidaan halutessa muotoilla css:n avulla.
 
-Listää tiedostoon app/assets/application.css seuraava:
+Listää tiedostoon app/assets/stylesheets/application.css seuraava:
 
 ```erb
 .navibar {
