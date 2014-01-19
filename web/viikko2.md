@@ -1,4 +1,3 @@
-
 Jatkamme sovelluksen rakentamista siitä, mihin jäimme viikon 1 lopussa. Allaoleva materiaali olettaa, että olet tehnyt kaikki edellisen viikon tehtävät. Jos et tehnyt kaikkia tehtäviä, voit ottaa kurssin repositorioista edellisen viikon mallivastauksen (ilmestyy 20.1. klo 00:01). Jos sait suurimman osan edellisen viikon tehtävistä tehtyä, saattaa olla helpointa, että täydennät vastaustasi mallivastauksen avulla.
 
 
@@ -634,7 +633,7 @@ Voisimme luoda templaten, mutta päätämmekin, että uuden reittauksen luomisen
 
 ```ruby
   def create
-    Rating.create params[:rating]
+    Rating.create params.require(:rating).permit(:score, :beer_id)
     redirect_to ratings_path
   end
 ```
@@ -670,7 +669,7 @@ Olisi ollut teknisesti mahdollista olla käyttämättä uudelleenohjausta ja ren
 
 ```ruby
   def create
-    Rating.create params[:rating]
+    Rating.create params.require(:rating).permit(:score, :beer_id)
     @ratings = Rating.all
     render :index
   end
