@@ -633,7 +633,7 @@ Voisimme luoda templaten, mutta päätämmekin, että uuden reittauksen luomisen
 
 ```ruby
   def create
-    Rating.create params[:rating]
+    Rating.create params.require(:rating).permit(:score, :beer_id)
     redirect_to ratings_path
   end
 ```
@@ -669,7 +669,7 @@ Olisi ollut teknisesti mahdollista olla käyttämättä uudelleenohjausta ja ren
 
 ```ruby
   def create
-    Rating.create params[:rating]
+    Rating.create params.require(:rating).permit(:score, :beer_id)
     @ratings = Rating.all
     render :index
   end
