@@ -197,7 +197,7 @@ Luodaan kaikki nämä Railsin valmista scaffold-generaattoria käyttäen. Panimo
     rails generate scaffold brewery name:string year:integer
 
 Syntyy melkoinen määrä tiedostoja. Tärkeimmät näistä ovat
-* app/model/Brewery.rb 
+* app/models/Brewery.rb
 * app/controllers/breweries_controller.rb
 * app/views/breweries/index.html.erb 
 * app/views/breweries/show.html.erb 
@@ -318,7 +318,7 @@ Save on ActiveRecordilta peritty oliometodi, joka kuten arvata saattaa tallettaa
 
 Olion voi myös luoda ja tallettaa suoraan kantaan käyttämällä new:n sijaan luokan metodia create:
 
-   Brewery.create name:"Weihenstephan", year:1042
+    Brewery.create name:"Weihenstephan", year:1042
 
 Kun olio luodaan komennolla <code>new</code>, huomaamme, että olio sisältää kenttiä joiden arvoa ei ole asetettu:
 
@@ -926,7 +926,7 @@ URLeja ei itse kannata kirjoittaa näkymätemplateihin sillä Rails tarjoaa path
 
 Kaikkien panimoiden URLin (tai oikeastaan vain URLin jälkiosan) generoi metodi <code>breweries_path</code>, yksittäisen panimon URL saadaan generoitua metodilla <code>brewery_path(id)</code>, missä parametrina on linkin kohteena olevan panimon id.
 
-Helppereitä käytetään usein yhdessä apumetodin <code>link_to</code>code> kanssa. link_to generoi HTML-sivulle linkin eli a-tagin. 
+Helppereitä käytetään usein yhdessä apumetodin <code>link_to</code> kanssa. link_to generoi HTML-sivulle linkin eli a-tagin. 
 
 Linkin panimon <code>brewery</code> sivulle voi generoida seuraavasti:
 
@@ -942,7 +942,7 @@ Usein tehtäessä linkkiä yksittäisen olion sivulle käytetään edellisestä 
     <%= link_to "linkki panimoon #{brewery.name}", brewery %>
 ```
 
-Nyt toisena parametrina on siis suoraan olio, jonka sivulle linkki johtaa. Kun toinen parametri on olio, korvaa Rails sen automaattisesti todellisen polun generoimalla koodilla <code>brewery_path(brewery.id)</code>code>
+Nyt toisena parametrina on siis suoraan olio, jonka sivulle linkki johtaa. Kun toinen parametri on olio, korvaa Rails sen automaattisesti todellisen polun generoimalla koodilla <code>brewery_path(brewery.id)</code>
 
 Railsin automaattisesti generoiduissa kontrollereissa on valmiina kuusi metodia. Kaikkien panimoiden listaa, eli osoitetta /breweries hallinnoi metodi <code>index</code>, yksittäisen panimon osoitetta, esim. /breweries/3 hallinnoi kontrollerin metodi <code>show</code>. Tutustumme myöhemmin kontrollerin muihin metodeihin.
 
@@ -984,7 +984,9 @@ Eksplisiittinen <code>render</code>-metodin kutsuminen on siis tarpeen vain sill
 > Kokeile mitä tapahtuu kun menet panimoiden sivulle eli osoitteeseen http://localhost:3000/breweries
 >
 > Lisää nyt hakemistoon app/views/breweries tiedosto panimot.html.erb ja lisää sinne esim. 
->     panimoita <%= @breweries.count %>
+> ```ruby
+>  panimoita <%= @breweries.count %>
+> ```
 >
 > Mene panimoiden sivulle.
 >
@@ -1060,6 +1062,8 @@ Your bundle is complete!
 Use `bundle show [gemname]` to see where a bundled gem is installed.
 ```
 
+Jos törmäsit tässä ongelmiin pg-config tiedoston kanssa ja sinulla on OS X 10.7, niin toimi [täällä](http://stackoverflow.com/questions/19625487/impossible-to-install-pg-gem-on-my-mac-with-mavericks) kuvailtujen ohjeiden mukaisesti, josse PostreSQL asennetaan Applications-kansioon ja pg gem asennetaan erikseen. Tämän jälkeen bundle install pitäisi toimia normaalisti.
+
 Committoidaan kaikki muutokset versionhallintaan. 
 
 ```ruby
@@ -1069,7 +1073,7 @@ mbp-18:viikko1 mluukkai$ git commit -m"updated Gemfile for Heroku"
  2 files changed, 16 insertions(+), 2 deletions(-)
 ```
 
-Nyt olemme valmiina käynnistämään sovelluksen herokussa. Sovellus käynnistetään suorittamalla komentoriviltä operaatio <code>git push</code>
+Nyt olemme valmiina käynnistämään sovelluksen herokussa. Sovellus käynnistetään suorittamalla komentoriviltä operaatio <code>git push heroku master</code>
 
 ```ruby
 mbp-18:viikko1 mluukkai$ git push heroku master

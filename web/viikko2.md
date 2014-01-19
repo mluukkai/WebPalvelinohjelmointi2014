@@ -1,4 +1,3 @@
-
 Jatkamme sovelluksen rakentamista siitä, mihin jäimme viikon 1 lopussa. Allaoleva materiaali olettaa, että olet tehnyt kaikki edellisen viikon tehtävät. Jos et tehnyt kaikkia tehtäviä, voit ottaa kurssin repositorioista edellisen viikon mallivastauksen (ilmestyy 20.1. klo 00:01). Jos sait suurimman osan edellisen viikon tehtävistä tehtyä, saattaa olla helpointa, että täydennät vastaustasi mallivastauksen avulla.
 
 
@@ -15,7 +14,7 @@ Navigointipalkki saadaan generoitua helposti metodin <code>link_to</code> ja pol
 <%= link_to 'beers', beers_path %>
 ```
 
-Tarkkasilmäisimmät saattoivat jo viime viikolla huomata, että näkymätemplatet eivät sisällä kaikkea sivulle tulevaa HTML-koodia. Esim. yksittäisen panimon näkymätemplate /app/views/breweries/show.html.erb on seuraava:
+Tarkkasilmäisimmät saattoivat jo viime viikolla huomata, että näkymätemplatet eivät sisällä kaikkea sivulle tulevaa HTML-koodia. Esim. yksittäisen oluen näkymätemplate /app/views/beers/show.html.erb on seuraava:
 
 ```erb
 <p id="notice"><%= notice %></p>
@@ -39,7 +38,7 @@ Tarkkasilmäisimmät saattoivat jo viime viikolla huomata, että näkymätemplat
 <%= link_to 'Back', beers_path %>
 ```
 
-Jos katsomme yksittäisen panimon sivun HTML-koodia selaimen _view source code_ -toiminnolla, huomaamme, että sivulla on paljon muutakin kuin templatessa määritelty HTML (osa headin sisällöstä on poistettu):
+Jos katsomme yksittäisen oluen sivun HTML-koodia selaimen _view source code_ -toiminnolla, huomaamme, että sivulla on paljon muutakin kuin templatessa määritelty HTML (osa headin sisällöstä on poistettu):
 
 ```erb
 
@@ -81,7 +80,7 @@ Jos katsomme yksittäisen panimon sivun HTML-koodia selaimen _view source code_ 
 
 Sivu sisältää siis dokumentin tyypin määrittelyn, käytettävät tyylitiedostot ja javascript-tiedostot määrittelevän head-elementin ja sivun sisällön määrittelevän body-elementin (ks. lisää http://www.w3.org/community/webed/wiki/HTML/Training).
 
-Panimon sivun näkymätemplate siis sisältää ainoastaan body-elementin sisälle tulevan HTML-koodin.
+Oluen sivun näkymätemplate siis sisältää ainoastaan body-elementin sisälle tulevan HTML-koodin.
 
 On tyypillistä, että sovelluksen kaikki sivut ovat body-elementin sisältöä lukuunottamatta samat. Railissa saadaankin määriteltyä kaikille sivuille yhteiset osat sovelluksen _layoutiin_, eli tiedostoon app/views/layouts/application.html.erb. Oletusarvoisesti tiedoston sisältö on seuraavanlainen:
 
@@ -121,7 +120,7 @@ Saamme navigointipalkin näkyville kaikille sivuille muuttamalla sovelluksen lay
  
 Navigointipalkki on laitettu luokan _navibar_ sisältävän div-elementin sisällä, joten sen ulkoasua voidaan halutessa muotoilla css:n avulla.
 
-Listää tiedostoon app/assets/application.css seuraava:
+Lisää tiedostoon app/assets/stylesheets/application.css seuraava:
 
 ```erb
 .navibar {
@@ -476,7 +475,7 @@ Luodaan nyt seuraava näkymä eli tiedosto /app/views/ratings/new.html.erb:
 
 Mene nyt lomakkeen sisältävälle sivulle eli osoitteeseen http://localhost:3000/ratings/new
 
-Näkymän avulla muodostuva hHTML-koodi näyttää (suunilleen) seuraavalta (näet koodin menemällä sivulle ja valitsemalla selaimesta _view page source_):
+Näkymän avulla muodostuva HTML-koodi näyttää (suunilleen) seuraavalta (näet koodin menemällä sivulle ja valitsemalla selaimesta _view page source_):
 
 ```erb
 <form action="/ratings" method="post">
@@ -634,7 +633,7 @@ Voisimme luoda templaten, mutta päätämmekin, että uuden reittauksen luomisen
 
 ```ruby
   def create
-    Rating.create params[:rating]
+    Rating.create params.require(:rating).permit(:score, :beer_id)
     redirect_to ratings_path
   end
 ```
@@ -670,7 +669,7 @@ Olisi ollut teknisesti mahdollista olla käyttämättä uudelleenohjausta ja ren
 
 ```ruby
   def create
-    Rating.create params[:rating]
+    Rating.create params.require(:rating).permit(:score, :beer_id)
     @ratings = Rating.all
     render :index
   end
