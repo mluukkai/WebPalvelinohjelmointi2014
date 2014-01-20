@@ -3,6 +3,10 @@ Jatkamme sovelluksen rakentamista siitä, mihin jäimme viikon 1 lopussa. Allaol
 
 Jos otat edellisen viikon mallivastauksen tämän viikon pohjaksi, kopioi hakemisto pois kurssirepositorion alta (olettaen että olet kloonannut sen) ja tee sovelluksen sisältämästä hakemistosta uusi repositorio.
 
+*Huom:* muutamilla Macin käyttäjillä oli ongelmia Herokun tarvitseman pg-gemin kanssa. Paikallisesti gemiä ei tarvita ja se määriteltiinkin asennettavaksi ainoastaan tuotantoympäristöön. Jos ongelmia ilmenee, voit asentaa gemit antamalla <code>bundle install</code>-komentoon seuraavan lisämääreen:
+
+    bundle install --without production
+
 ## Sovelluksen layout
 
 Haluamme laittaa sivulle modernien web-sivustojen tyyliin navigointipalkin eli sijoittaa sovelluksen _kaikkien_ sivujen ylälaitaan linkit oluiden ja panimoiden listoihin.
