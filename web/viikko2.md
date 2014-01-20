@@ -890,7 +890,7 @@ Lisätään sitten reittauksien listalle linkki, jonka avulla kunkin reittauksen
 </ul>
 ```
 
-Railsin käyttämän konvention mukaan olion tuhoaminen tehdään HTTP:n DELETE-metodilla. Jos tuhottavana on rating ,jonka id on 5, tapahtuu nyt linkkiä klikkaamalla HTLLP DELETE -kutsu osoitteeseen ratings/5.
+Railsin käyttämän konvention mukaan olion tuhoaminen tehdään HTTP:n DELETE-metodilla. Jos tuhottavana on rating ,jonka id on 5, tapahtuu nyt linkkiä klikkaamalla HTTP DELETE -kutsu osoitteeseen ratings/5.
 
 Kuten jo aiemmin mainittiin, voi <code>rating_path(rating.id)</code>-kutsun sijaan <code>link_to</code>:n parametrina olla suoraan olio, jolle kutsu kohdistuu, eli edellinen hieman lyhemmässä muodossa:
 
