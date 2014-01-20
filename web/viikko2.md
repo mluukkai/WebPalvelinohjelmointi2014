@@ -238,7 +238,7 @@ ja nyt sivu toimii!
 
 Huomaa taas Railsin konventiot, tiedoston sijainti on tarkasti määritelty, eli koska kyseessä on näkymätemplate jota kutsutaan ratings-kontrollerista (joka siis on täydelliseltä nimeltään RatingsController), sijoitetaan se hakemistoon /views/ratings.
 
-Muistutuksena vielä [viimeviikosta](https://github.com/mluukkai/WebPalvelinohjelmointi2014/blob/master/web/viikko1.md#kontrollerin-ja-viewien-yhteys): kontrollerimetodi <code>index</code> renderöi oletusarvoisesti suorituksensa lopuksi (oikeassa hakemistossa olevan) index-nimisen näkymän. Eli koodi
+Muistutuksena vielä [viime viikosta](https://github.com/mluukkai/WebPalvelinohjelmointi2014/blob/master/web/viikko1.md#kontrollerin-ja-viewien-yhteys): kontrollerimetodi <code>index</code> renderöi oletusarvoisesti suorituksensa lopuksi (oikeassa hakemistossa olevan) index-nimisen näkymän. Eli koodi
 
 ```ruby
 class RatingsController < ApplicationController
@@ -708,7 +708,7 @@ Esim. uuden reittauksen jälkeisen uudelleenohjauksen osoite olisi voitu <code>r
   end
 ```
 
-Kuten ei yleensäkään, ei kovakoodaus ole järkevää osoitteidenkaan suhteen.
+Kuten yleensäkin, kovakoodaus ei ole järkevää osoitteidenkaan suhteen.
 
 Tarjolla olevia automaattisesti generoituja polkuja pääsee tarkastelemaan komentoriviltä komennolla <code>rake routes</code>
 
