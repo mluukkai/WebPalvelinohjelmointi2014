@@ -7,6 +7,8 @@ Jos otat edellisen viikon mallivastauksen tämän viikon pohjaksi, kopioi hakemi
 
     bundle install --without production
 
+Tämä asetus muistetaan jatkossa, joten pelkkä `bundle install` riittää kun haluat asentaa uusia riippuvuuksia.
+
 ## Sovelluksen layout
 
 Haluamme laittaa sivulle modernien web-sivustojen tyyliin navigointipalkin eli sijoittaa sovelluksen _kaikkien_ sivujen ylälaitaan linkit oluiden ja panimoiden listoihin.
