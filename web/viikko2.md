@@ -1037,6 +1037,7 @@ Määrittelemme ensin panimokontrolleriin (<code>private</code>-näkyvyydellä v
 
 ```ruby
 class BreweriesController < ApplicationController
+  before_action :set_brewery, only: [:show, :edit, :update, :destroy]
   before_action :authenticate
 
   # ...
@@ -1055,6 +1056,7 @@ Rajoitetaan sitten filtterimetodin suoritus koskemaan ainoastaan panimon  poisto
 
 ```ruby
 class BreweriesController < ApplicationController
+  before_action :set_brewery, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate, :only => [:destroy]
 
   # ...
@@ -1075,6 +1077,7 @@ Kovakoodataan käyttäjätunnukseksi "admin" ja salasanaksi "secret":
 
 ```ruby
 class BreweriesController < ApplicationController
+  before_action :set_brewery, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate, :only => [:destroy]
 
   # ...
@@ -1120,4 +1123,3 @@ Commitoi kaikki tekemäsi muutokset ja pushaa koodi Githubiin. Deployaa myös uu
 
 Tehtävät kirjataan palautetuksi osoitteeseen http://wadrorstats2014.herokuapp.com/courses/1
 
-Palautusten kirjaaminen onnistuu vasta maanantaina 20.1.
