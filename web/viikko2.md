@@ -777,7 +777,16 @@ Sivua http://guides.rubyonrails.org/form_helpers.html#making-select-boxes-with-e
 <% end %>
 ```
 
-eli lomakkeen <code>beer_id</code>:n arvo generoidaan HTML lomakkeen select-elementillä, jonka valintavaihtoehdot muodostetaan  metodilla <code>options_from_collection_for_select</code> <code>@beers</code>-muuttujassa olevasta oluiden listasta siten, että arvoksi otetaan oluen id ja lomakkeen käyttäjälle näytetään oluen nimi.
+eli lomakkeen <code>beer_id</code>:n arvo generoidaan HTML lomakkeen select-elementillä, jonka valintavaihtoehdot muodostetaan  näkymäapumetodilla <code>options_from_collection_for_select</code> <code>@beers</code>-muuttujassa olevasta oluiden listasta siten, että arvoksi otetaan oluen id ja lomakkeen käyttäjälle näytetään oluen nimi.
+
+**Huom:** näkymäapumetodeja on mahdollista testata myös konsolista. Metodeja voi kutsua <code>helper</code>-olion kautta: 
+
+```ruby
+irb(main):001:0> beers = Beer.all
+irb(main):002:0> helper.options_from_collection_for_select(beers, :name, :id)
+=> "<option value=\"Iso 3\">1</option>\n<option value=\"Tuplahumala\">3</option>\n<option value=\"Huvila Pale Ale\">4</option>\n<option value=\"X Porter\">5</option>\n<option value=\"Hefeweizen\">6</option>\n<option value=\"Helles\">7</option>\n<option value=\"Punk IPA\">9</option>\n<option value=\"Nanny State\">10</option>\n<option value=\"Hardcore IPA\">13</option>"
+irb(main):003:0> 
+```
 
 > ## Tehtävä 8
 >
