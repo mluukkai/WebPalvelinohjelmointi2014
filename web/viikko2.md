@@ -1006,7 +1006,7 @@ Huomaamme, että oluella ja panimolla on täsmälleen samalla tavalla toimiva ja
 >
 > Tutustu nyt riittävällä tasolla moduleihin ja refaktoroi koodisi siten, että metodi <code>average_rating</code> siirretään moduuliin, jonka luokat <code>Beer</code> ja <code>Brewery</code> sisällyttävät.
 > * sijoita moduuli lib-kansioon
->* HUOM: lisää tiedostoon <code>config/application.rb</code> luokan <code>Application</code>määrittelyn  sisälle rivi <code>config.autoload_paths += Dir["#{Rails.root}/lib"]</code>, jotta Rails lataisi modulin koodin sovelluksen luokkien käyttöön. Rails server (ja konsoli) tulee käynnistää uudelleen lisäyksen jälkeen
+>* HUOM: lisää tiedostoon <code>config/application.rb</code> luokan <code>Application</code>määrittelyn  sisälle rivi <code>config.autoload_paths += Dir["#{Rails.root}/lib"]</code>, jotta Rails lataisi modulin koodin sovelluksen luokkien käyttöön. **Rails server (ja konsoli) tulee käynnistää uudelleen lisäyksen jälkeen**
 > * HUOM2: jos muduulisi nimi on ao. esimerkin tapaan <code>RatingAverage</code> tulee se Rubyn nimentäkonvention takia sijaita tiedostossa <code>rating_average.rb</code>, eli vaikka luokkien nimet ovat Rubyssä isolla alkavia CamelCase-nimiä, noudattavat niiden tiedostojen nimet snake_case.rb-tyyliä.
 
 Tehtävän jälkeen esim. luokan Brewery tulisi siis näyttää suunnilleen seuraavalta (olettaen että tekemäsi moduulin nimi on RatingAverage):
