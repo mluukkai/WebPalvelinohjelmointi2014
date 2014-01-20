@@ -1064,6 +1064,8 @@ Use `bundle show [gemname]` to see where a bundled gem is installed.
 
 Jos törmäsit tässä ongelmiin pg-config tiedoston kanssa ja sinulla on OS X 10.7, niin toimi [täällä](http://stackoverflow.com/questions/19625487/impossible-to-install-pg-gem-on-my-mac-with-mavericks) kuvailtujen ohjeiden mukaisesti, josse PostreSQL asennetaan Applications-kansioon ja pg gem asennetaan erikseen. Tämän jälkeen bundle install pitäisi toimia normaalisti.
 
+Jos linkin takana ollut ohjekaan ei auttanut, kokeile komentoa <code>bundle install --without production</code>
+
 Committoidaan kaikki muutokset versionhallintaan. 
 
 ```ruby
