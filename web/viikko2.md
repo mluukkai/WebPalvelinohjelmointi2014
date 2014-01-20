@@ -532,22 +532,22 @@ Uuden ratingin tiedot ovat hashissa avaimen <code>:rating</code> arvona, eli pä
 
 Tutkitaan hieman asiaa kontrollerista käsin Railsin debuggeria.
 
-Lisää tiedostoon Gemfile rivi:
+Railsin kanssa yleensä käytetty degugger-gemi ei vielä tule kunnolla Ruby 2.0:aa, joten käytetään debggaukseen byebug-gemiä, ks https://github.com/deivid-rodriguez/byebug. Lisää tiedostoon Gemfile rivi:
 
-    gem 'debugger', group: [:development, :test]
+    gem 'byebug', group: [:development, :test]
 
-ja suorita komentoriviltä komento <code>bundle install</code>. Käynnistä nyt Rails-sovellus uudelleen, eli paina ctrl+c Railsia suorittavassa terminaalissa ja anna komento <code>rails s</code> uudelleen. Uudelleenkäynnistys on syytä suorittaa aina uusia gemejä asennettaessa.
+ja suorita komentoriviltä komento <code>bundle install</code>. Käynnistä nyt Rails-sovellus uudelleen, eli paina ctrl+c Railsia suorittavassa terminaalissa ja anna komento <code>rails s</code> uudelleen. **Uudelleenkäynnistys on syytä suorittaa aina uusia gemejä asennettaessa.**
 
-Lisätään kontrollerin alkuun, eli sille kohtaan koodia jota haluamme tarkkailla, komento <code>debugger</code>
+Lisätään kontrollerin alkuun, eli sille kohtaan koodia jota haluamme tarkkailla, komento <code>byebug</code>
 
 ```ruby
   def create
-    debugger
+    byebug
     raise
   end
 ```
 
-Kun luot lomakkeella uuden reittauksen, sovellus pysähtyy komennon <code>debugger</code> kohdalle. Terminaaliin josta Rails on käynnistetty, avautuu nyt interaktiivinen konsolinäkymä:
+Kun luot lomakkeella uuden reittauksen, sovellus pysähtyy komennon <code>byebug</code> kohdalle. Terminaaliin josta Rails on käynnistetty, avautuu nyt interaktiivinen konsolinäkymä:
 
 ```ruby
 [7, 16] in /Users/mluukkai/kurssirepot/wadror/ratebeer/app/controllers/ratings_controller.rb
@@ -555,7 +555,7 @@ Kun luot lomakkeella uuden reittauksen, sovellus pysähtyy komennon <code>debugg
    8    end
    9
    10    def create
-   11      debugger
+   11      byebug
 => 12      raise
    13    end
    14  end
@@ -578,8 +578,7 @@ Debuggerin konsolissa voi tarpeen vaatiessa suorittaa mitä tahansa koodia Rails
 
 Debuggerin tärkeimmät komennot lienevät step, next, continue ja help. Step suorittaa koodista seuraavan askeleen, edeten mahdollisiin metodikutsuihin. Next suorittaa seuraavan rivin kokonaisuudessaan. Continue jatkaa ohjelman suorittamista normaaliin tapaan.
 
-Lisätietoa debuggerista seuraavassa
-http://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debugger-gem.
+Lisätietoa byebugista seuraavassa https://github.com/deivid-rodriguez/byebug
 
 ## Reittauksen talletus
 
