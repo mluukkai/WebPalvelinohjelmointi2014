@@ -153,7 +153,7 @@ end
 
 Tutustumme myöhemmin <code>resources</code>-metodin lisäämiin reitteihin.
 
-Aloitetaan sillä, että tehdään panimoiden listasta sovelluksen oletusarvoinen kotisivu. Poistetaan ensin tiedosto public/index.html ja lisätään routes-tiedostoon rivi
+Aloitetaan sillä, että tehdään panimoiden listasta sovelluksen oletusarvoinen kotisivu. Tämä tapahtuu lisäämällä routes-tiedostoon rivi
 
     root 'breweries#index'
 
