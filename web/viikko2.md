@@ -1112,7 +1112,10 @@ HUOM: kun olet kerran antanut oikean käyttäjätunnus-salasanaparin, ei selain 
 
 Toimintaperiaatteena metodissa <code>authenticate_or_request_with_http_basic</code> on se, että sovellus pyytää selainta lähettämään käyttäjätunnuksen ja salasanan, jotka sitten välitetään <code>do</code>:n ja <code>end</code>:in välissä olevalle koodilohkolle parametrien <code>username</code> ja <code>password</code> avulla. Jos koodilohkon arvo on tosi, näytetään sivu käyttäjälle.
 
-Http Basic -autentikaatio on kätevä tapa yksinkertaisiin sivujen suojaamistarpeisiin, mutta monimutkaisemmissa tilanteissa ja parempaa tietoturvaa edellytettäessä kannattaa käyttää muita ratkaisuja.
+HTTP Basic -autentikaatio on kätevä tapa yksinkertaisiin sivujen suojaamistarpeisiin, mutta monimutkaisemmissa tilanteissa ja parempaa tietoturvaa edellytettäessä kannattaa käyttää muita ratkaisuja. 
+
+Kannattaa huomata, että HTTP Basic -autentikaatiota ei tulisi käyttää kuin suojatun HTTPS-protokollan yli sillä käyttäjätunnus ja salasana lähtetään [Base64](http://en.wikipedia.org/wiki/Base64)-enkoodattuna, eli käytännössä kuka tahansa voi headereihin käsiksi päästyään selvittää salasanan. Hieman parempi vaihtoehto on [Digest-autentikaatio](http://en.wikipedia.org/wiki/Digest_access_authentication), jossa käyttäjätunnuksen ja salasanan sijaan tunnistautuminen tapahtuu yksisuuntaisella funktiolla laskettavan tunnisteen avulla. Digest-autentikaation käyttäminen Railsissa on helppoa, ks.
+http://api.rubyonrails.org/classes/ActionController/HttpAuthentication/Digest.html
 
 > ## Tehtävä 16
 >
