@@ -82,7 +82,7 @@ Sivu sisältää siis dokumentin tyypin määrittelyn, käytettävät tyylitiedo
 
 Oluen sivun näkymätemplate siis sisältää ainoastaan body-elementin sisälle tulevan HTML-koodin.
 
-On tyypillistä, että sovelluksen kaikki sivut ovat body-elementin sisältöä lukuunottamatta samat. Railissa saadaankin määriteltyä kaikille sivuille yhteiset osat sovelluksen _layoutiin_, eli tiedostoon app/views/layouts/application.html.erb. Oletusarvoisesti tiedoston sisältö on seuraavanlainen:
+On tyypillistä, että sovelluksen kaikki sivut ovat body-elementin sisältöä lukuun ottamatta samat. Railissa saadaankin määriteltyä kaikille sivuille yhteiset osat sovelluksen _layoutiin_, eli tiedostoon app/views/layouts/application.html.erb. Oletusarvoisesti tiedoston sisältö on seuraavanlainen:
 
 ```erb
 <!DOCTYPE html>
@@ -101,7 +101,7 @@ On tyypillistä, että sovelluksen kaikki sivut ovat body-elementin sisältöä 
 </html>
 ```
 
-Head-elementin sisällä olevat apumetodit määrittelevät sovelluksen käyttämät tyyli- ja javascript-tiedostot, apumetodi <code>csrf_meta_tags</code> lisää sivulle CSRF-hyökkäykset eliminoivan logiikan 
+Head-elementin sisällä olevat apumetodit määrittelevät sovelluksen käyttämät tyyli- ja javascript-tiedostot, apumetodi <code>csrf_meta_tags</code> lisää sivulle CSRF-hyökkäykset eliminoivan logiikan
 (ks. tarkemmin esim. [täältä](http://stackoverflow.com/questions/9996665/rails-how-does-csrf-meta-tag-work)). Kuten arvata saattaa, body-elementin sisällä olevan komennon <code>yield</code>-kohdalle renderöityy kunkin sivun oman näkymätemplaten määrittelemä sisältö.
 
 Saamme navigointipalkin näkyville kaikille sivuille muuttamalla sovelluksen layoutin body-elementtiä seuraavasti:
@@ -117,7 +117,7 @@ Saamme navigointipalkin näkyville kaikille sivuille muuttamalla sovelluksen lay
 
 </body>
 ```
- 
+
 Navigointipalkki on laitettu luokan _navibar_ sisältävän div-elementin sisällä, joten sen ulkoasua voidaan halutessa muotoilla css:n avulla.
 
 Lisää tiedostoon app/assets/stylesheets/application.css seuraava:
@@ -133,10 +133,10 @@ Kun reloadaan sivun, huomaat, että sovelluksesi antama vaikutelma on jo melko p
 
 ## routes.rb
 
-Railsin Routing-komponentin 
+Railsin Routing-komponentin
 (ks. http://api.rubyonrails.org/classes/ActionDispatch/Routing.html, http://guides.rubyonrails.org/routing.html) vastuulla on ohjata eli reitittää sovellukselle tulevien HTTP-pyyntöjen käsittely sopivan kontrollerin metodille.
 
-Tieto siitä miten eri URLeihin tulevat pyynnöt tulee reitittää, konfiguroidaan tiedostoon config/routes.rb. Tässä vaiheessa tiedoston sisältö on seuraavanlainen: 
+Tieto siitä miten eri URLeihin tulevat pyynnöt tulee reitittää, konfiguroidaan tiedostoon config/routes.rb. Tässä vaiheessa tiedoston sisältö on seuraavanlainen:
 
 ```ruby
 Ratebeer::Application.routes.draw do
@@ -147,19 +147,19 @@ end
 
 Tutustumme myöhemmin <code>resources</code>-metodin lisäämiin reitteihin.
 
-Aloitetaan sillä, että tehdään panimoiden listasta sovelluksen oletusarvoinen kotisivu. Poistetaan ensin tiedosto public/index.html ja lisätään routes-tiedostoon rivi 
+Aloitetaan sillä, että tehdään panimoiden listasta sovelluksen oletusarvoinen kotisivu. Poistetaan ensin tiedosto public/index.html ja lisätään routes-tiedostoon rivi
 
     root 'breweries#index'
 
 Nyt osoite http://localhost:3000/ ohjautuu kaikki panimot näyttävälle sivulle.
 
-Edellinen on oikeastana hieman tyylikkäämpi tapa sanoa:
+Edellinen on oikeastaa hieman tyylikkäämpi tapa sanoa:
 
     get '/', to: 'breweries#index'
 
 eli reititä polulle '/' tuleva HTTP GET -pyyntö käsiteltäväksi luokan <code>BreweriesController</code> metodille <code>index</code>.
 
-Englanninkielistä kirjallisuutta lukiessa kannattaa huomata, että Railsin terminologiassa kontrollereiden metodeja nimitetään usein actioneiksi. Käytämme kuitenkin kurssilla nimitystä kontrollerimetodi tai kontrollerin metodi. 
+Englanninkielistä kirjallisuutta lukiessa kannattaa huomata, että Railsin terminologiassa kontrollereiden metodeja nimitetään usein actioneiksi. Käytämme kuitenkin kurssilla nimitystä kontrollerimetodi tai kontrollerin metodi.
 
 Voisimme vastaavasti lisätä routes.rb:hen rivin
 
@@ -177,9 +177,9 @@ kutsuu get-metodia parametreinaan merkkijono '/kaikki_bisset' ja hash <code>to: 
 
 voisimme käyttää metodikutsussa myös sulkuja, ja määritellä hashin käyttäen aaltosulkuja, eli kömpelöimmässä muodossa reitti voitaisiin määritellä seuraavasti:
 
-    get( 'kaikki_bisset', { :to => 'beers#index' } ) 
-    
-Rubyn joustava syntaksi (yhdessä kielen muutamien muiden piirteiden kanssa) mahdollistaakin luonnollisen kielen sujuvuutta tavoittelevan ilmaisutavan  sovelluksen konfigurointiin ja ohjelmointiin. Tyyli tunnetaan englanninkielisellä termillä _Internal DSL_ ks. http://martinfowler.com/bliki/InternalDslStyle.html  
+    get( 'kaikki_bisset', { :to => 'beers#index' } )
+
+Rubyn joustava syntaksi (yhdessä kielen muutamien muiden piirteiden kanssa) mahdollistaakin luonnollisen kielen sujuvuutta tavoittelevan ilmaisutavan  sovelluksen konfigurointiin ja ohjelmointiin. Tyyli tunnetaan englanninkielisellä termillä _Internal DSL_ ks. http://martinfowler.com/bliki/InternalDslStyle.html
 
 ## Oluiden pisteytys
 
@@ -195,7 +195,7 @@ Lisätään reitti kirjoittamalla routes-tiedostoon seuraava:
 
 Määrittelemme siis Rails-konventiota mukaillen, että kaikkien reittausten sivun 'ratings' hoitaa RatingsController-luokan metodi index.
 
-Huom: suunilleen samaa tarkoittaisi myös <code>match 'ratings' => 'ratings#index'</code>. Kuten niin tyypillistä Railsille, voi routes.rb:ssäkin käyttää saman asian määrittelemiseen monia erilaisia tapoja.
+Huom: suunnilleen samaa tarkoittaisi myös <code>match 'ratings' => 'ratings#index'</code>. Kuten niin tyypillistä Railsille, voi routes.rb:ssäkin käyttää saman asian määrittelemiseen monia erilaisia tapoja.
 
 Kokeile nyt sivua uudelleen selaimella.
 
@@ -214,11 +214,11 @@ Huomioi nimeämiskäytännöt ja tiedoston sijainti, Rails etsii kontrolleria ni
 
 Kokeile nyt sivua selaimella vielä kerran.
 
-Seurauksena on uusi virheilmoitus 
+Seurauksena on uusi virheilmoitus
 
-	Missing template ratings/index, application/index with {:locale=>[:en], :formats=>[:html], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in: * "/Users/mluukkai/kurssirepot/wadror/ratebeer/app/views"
+        Missing template ratings/index, application/index with {:locale=>[:en], :formats=>[:html], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in: * "/Users/mluukkai/kurssirepot/wadror/ratebeer/app/views"
 
-joka taas johtuu siitä, että Rails yrittää renderöidä kontrollerin metodia vastaavan oletusarvoisen, hakemistossa /app/views/ratings/index.html.erb olevan näkymätemplaten, mutta sellaista ei löydy. 
+joka taas johtuu siitä, että Rails yrittää renderöidä kontrollerin metodia vastaavan oletusarvoisen, hakemistossa /app/views/ratings/index.html.erb olevan näkymätemplaten, mutta sellaista ei löydy.
 
 Luodaan tiedosto /app/views/ratings/index.html.erb jolla on seuraava sisältö:
 
@@ -230,9 +230,9 @@ Luodaan tiedosto /app/views/ratings/index.html.erb jolla on seuraava sisältö:
 
 ja nyt sivu toimii!
 
-Huomaa taas Railsin konventiot, tiedoston sijainti on tarkasti määritelty, eli koska kyseessä on näkymätemplate jota kutsutaan ratings-kontrollerista (joka siis on täydelliseltä nimeltään RatingsController), sijoitetaan se hakemistoon /views/ratings. 
+Huomaa taas Railsin konventiot, tiedoston sijainti on tarkasti määritelty, eli koska kyseessä on näkymätemplate jota kutsutaan ratings-kontrollerista (joka siis on täydelliseltä nimeltään RatingsController), sijoitetaan se hakemistoon /views/ratings.
 
-Muistutuksena vielä [viimeviikosta](https://github.com/mluukkai/WebPalvelinohjelmointi2014/blob/master/web/viikko1.md#kontrollerin-ja-viewien-yhteys): kontrollerimetodi <code>index</code> renderöi oletusarvoisesti suorituksensa lopuksi (oikeassa hakemistossa olevan) index-nimisen näkymän. Eli koodi  
+Muistutuksena vielä [viimeviikosta](https://github.com/mluukkai/WebPalvelinohjelmointi2014/blob/master/web/viikko1.md#kontrollerin-ja-viewien-yhteys): kontrollerimetodi <code>index</code> renderöi oletusarvoisesti suorituksensa lopuksi (oikeassa hakemistossa olevan) index-nimisen näkymän. Eli koodi
 
 ```ruby
 class RatingsController < ApplicationController
@@ -251,7 +251,7 @@ class RatingsController < ApplicationController
 end
 ```
 
-Eksplisiittinen render-metodin kutsu jätetään kuitenkin yleensä pois jos renderöidään oletusarvoinen, eli kontrollerimetodin kanssa samanniminen template. 
+Eksplisiittinen render-metodin kutsu jätetään kuitenkin yleensä pois jos renderöidään oletusarvoinen, eli kontrollerimetodin kanssa samanniminen template.
 
 ## Modelin teko käsin, melkein...
 
@@ -259,7 +259,7 @@ Yhteen olueeseen liittyy useita reittauksia, eli oliomalli pitää päivittää 
 
 ![olueeseen liittyy reittauksia](http://yuml.me/4ef16c6a)
 
-Tarvitsemme siis tietokantataulun ja vastaavan model-olion. 
+Tarvitsemme siis tietokantataulun ja vastaavan model-olion.
 
 Railsissa muutokset tietokantaan, esim. uuden taulun lisääminen, kannattaa tehdä __aina__ migraatioiden avulla. Migraatiot ovat siis hakemistoon db/migrate sijoitettavia tiedostoja, joihin kirjoitetaan Rubyllä tietokantaa muokkaavat operaatiot. Tutustumme migraatioihin tarkemmin vasta myöhemmin ja käytämme modelin luomiseen nyt Railsin valmista _model-generaattoria_, joka luo model-olion lisäksi automaattisesti tarvittavan migraation.
 
@@ -300,13 +300,13 @@ irb(main):004:0> b.ratings.create score:17
 irb(main):005:0> b.ratings
   Rating Load (0.3ms)  SELECT "ratings".* FROM "ratings" WHERE "ratings"."beer_id" = ?  [["beer_id", 1]]
 => #<ActiveRecord::Associations::CollectionProxy [#<Rating id: 1, score: 10, beer_id: 1, created_at: "2014-01-15 22:34:48", updated_at: "2014-01-15 22:34:48">, #<Rating id: 2, score: 21, beer_id: 1, created_at: "2014-01-15 22:34:50", updated_at: "2014-01-15 22:34:50">, #<Rating id: 3, score: 17, beer_id: 1, created_at: "2014-01-15 22:34:53", updated_at: "2014-01-15 22:34:53">]>
-irb(main):006:0> 
+irb(main):006:0>
 ```
 
 Reittaukset siis lisätään ensimmäisenä kannasta löytyvälle oluelle. Huomaa luontitapa, saman asian olisi ajanut monimutkaisempi tapa
-  
+
 ```ruby
-    b.ratings << Rating.create score:15     
+    b.ratings << Rating.create score:15
 ```
 
 >## Tehtävä 1
@@ -321,7 +321,7 @@ Reittaukset siis lisätään ensimmäisenä kannasta löytyvälle oluelle. Huoma
 >
 >Kertaa tarvittaessa edellisen viikon [materiaalista](https://github.com/mluukkai/WebPalvelinohjelmointi2014/blob/master/web/viikko1.md) konsolia käsittelevät osuudet.
 >
->palauta tämä tehtävä lisäämällä sovelluksellesi hakemisto exercises ja sinne tiedosto exercise1, joka sisältää copypasten konsolisessiosta 
+>palauta tämä tehtävä lisäämällä sovelluksellesi hakemisto exercises ja sinne tiedosto exercise1, joka sisältää copypasten konsolisessiosta
 
 Nyt tietokannassamme on reittauksia, ja haluamme saada ne listattua kaikkien reittausten sivulle.
 
@@ -333,13 +333,13 @@ Nyt tietokannassamme on reittauksia, ja haluamme saada ne listattua kaikkien rei
 ><ul>
 >  <% @ratings.each do |rating| %>
 >    <li> <%= rating %> </li>
->  <% end %> 
+>  <% end %>
 ></ul>
 >```
 >
 > Lisää sivulle myös tieto reittausten yhteenlasketusta lukumäärästä
 
-Tässä vaiheessa sivun pitäisi näyttää suunilleen seuraavalta
+Tässä vaiheessa sivun pitäisi näyttää suunnilleen seuraavalta
 
 ![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/ratebeer-w2-1.png)
 
@@ -351,7 +351,7 @@ Reittaus renderöityy hiukan ikävässä muodossa. Tämä johtuu siitä, että l
 >
 > Merkkijonon muodostamisessa seuraavasta voi olla apua https://github.com/mluukkai/WebPalvelinohjelmointi2014/blob/master/web/rubyn_perusteita.md#merkkijonot
 
-Tehtävän jälkeen reittausten sivujen tulisi näyttää suunilleen seuraavalta:
+Tehtävän jälkeen reittausten sivujen tulisi näyttää suunnilleen seuraavalta:
 
 ![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/ratebeer-w2-2.png)
 
@@ -361,7 +361,7 @@ Huom: kun kirjoitat sovelluksellesi uutta koodia, useimmiten on järkevämpää 
 irb(main):024:0> r = Rating.last
 irb(main):025:0> r.to_s
 => "#<Rating:0x007f8054b1cb10>"
-irb(main):026:0>  
+irb(main):026:0>
 ```
 
 Määritellään reittaukselle <code>to_s</code>-metodi:
@@ -383,7 +383,7 @@ irb(main):026:0> r.to_s
 => "#<Rating:0x007f8054b1cb10>"
 ```
 
-Muutos ei kuitenkaan vaikuta tulleen voimaan, missä vika? 
+Muutos ei kuitenkaan vaikuta tulleen voimaan, missä vika?
 
 Jotta muutettu koodi tulisi voimaan, on uusi koodi ladattava konsolin käyttöön komennolla <code>reload!</code> ja käytettävä uudestaan kannasta haettua olioa:
 
@@ -396,12 +396,12 @@ irb(main):028:0> r.to_s
 irb(main):029:0> r = Rating.last
 irb(main):030:0> r.to_s
 => "tekstiesitys"
-irb(main):031:0> 
+irb(main):031:0>
 ```
 
-Eli kuten yllä näemme, ei pelkkä koodin uudelleenlataaminen vielä riitä, sillä muuttujassa <code>r</code> olevassa oliossa on käytössä edelleen vanha koodi. 
+Eli kuten yllä näemme, ei pelkkä koodin uudelleenlataaminen vielä riitä, sillä muuttujassa <code>r</code> olevassa oliossa on käytössä edelleen vanha koodi.
 
-> ## Tehtävä 4 
+> ## Tehtävä 4
 >
 > Lisää luokalle <code>Beer</code> metodi <code>average_rating</code>, joka laskee oluen ratingien keskiarvon. Lisää keskiarvo oluen sivulle __jos__ oluella on ratingeja
 >
@@ -415,17 +415,17 @@ Eli kuten yllä näemme, ei pelkkä koodin uudelleenlataaminen vielä riitä, si
 ><% end %>
 >```
 
-Tehtävän jälkeen oluen sivun tulisi näyttää suunilleen seuraavalta (huom: edellisen viikon jäljiltä sivullasi saattaa näkyä panimon nimen sijaan panimon id. Jos näin on, muuta näkymäsi vastaamaan kuvaa):
+Tehtävän jälkeen oluen sivun tulisi näyttää suunnilleen seuraavalta (huom: edellisen viikon jäljiltä sivullasi saattaa näkyä panimon nimen sijaan panimon id. Jos näin on, muuta näkymäsi vastaamaan kuvaa):
 
 ![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/ratebeer-w2-3.png)
 
 > ## Tehtävä 5
 >
-> Moduuli enumerable (ks. http://ruby-doc.org/core-2.0.0/Enumerable.html) sisältää runsaasti oliokokoelmien läpikäyntiin tarkoitettuja apumetodeja. 
+> Moduuli enumerable (ks. http://ruby-doc.org/core-2.0.0/Enumerable.html) sisältää runsaasti oliokokoelmien läpikäyntiin tarkoitettuja apumetodeja.
 >
-> Oliokokoelmamaiset luokat voivat sisällyttää moduulin enumerable toiminnallisuuden itselleen, ja tällöin ne perivät moduulin tarjoaman toiminnallisuuden. 
+> Oliokokoelmamaiset luokat voivat sisällyttää moduulin enumerable toiminnallisuuden itselleen, ja tällöin ne perivät moduulin tarjoaman toiminnallisuuden.
 >
-> Tutustu nyt <code>inject</code>-metodiin (ks. esim. http://blog.jayfields.com/2008/03/ruby-inject.html ja etsi goolella lisää ohjeita) ja muuta (tarvittaessa) oluen reittausten keskiarvon laskeva metodi käyttämään injectiä
+> Tutustu nyt <code>inject</code>-metodiin (ks. esim. http://blog.jayfields.com/2008/03/ruby-inject.html ja etsi googlella lisää ohjeita) ja muuta (tarvittaessa) oluen reittausten keskiarvon laskeva metodi käyttämään injectiä
 >
 > Keskiarvon laskeminen onnistuu tässä tapauksessa myös helpommin hyödyntämällä ActiceRecordin metodeja, ks. http://guides.rubyonrails.org/active_record_querying.html#calculations
 
@@ -459,7 +459,7 @@ Lisäämme siis ratings-kontrolleriin (joka siis täydelliseltä nimeltään on 
   end
 ```
 
-Metodi ainoastaan luo uuden Rating-olion ja välittää sen <code>@rating</code>-muuttujan avulla oletusarvoisesti renderöitävälle näkymätemplatelle new.html.erb. 
+Metodi ainoastaan luo uuden Rating-olion ja välittää sen <code>@rating</code>-muuttujan avulla oletusarvoisesti renderöitävälle näkymätemplatelle new.html.erb.
 
 Luodaan nyt seuraava näkymä eli tiedosto /app/views/ratings/new.html.erb:
 
@@ -475,7 +475,7 @@ Luodaan nyt seuraava näkymä eli tiedosto /app/views/ratings/new.html.erb:
 
 Mene nyt lomakkeen sisältävälle sivulle eli osoitteeseen http://localhost:3000/ratings/new
 
-Näkymän avulla muodostuva HTML-koodi näyttää (suunilleen) seuraavalta (näet koodin menemällä sivulle ja valitsemalla selaimesta _view page source_):
+Näkymän avulla muodostuva HTML-koodi näyttää (suunnilleen) seuraavalta (näet koodin menemällä sivulle ja valitsemalla selaimesta _view page source_):
 
 ```erb
 <form action="/ratings" method="post">
@@ -485,16 +485,16 @@ Näkymän avulla muodostuva HTML-koodi näyttää (suunilleen) seuraavalta (näe
 </form>
 ```
 
-eli generoituu normaali HTML-lomake (ks. tarkemmin http://www.w3.org/community/webed/wiki/HTML/Training#Forms). 
+eli generoituu normaali HTML-lomake (ks. tarkemmin http://www.w3.org/community/webed/wiki/HTML/Training#Forms).
 
-Lomakkeen lähetystapahtuman kohdeosoite on /ratings ja käytettävä HTTP-metodi GET:in sijasta POST. Lomakkeessa on kaksi numeromuotoista kenttää ja niiden arvot lähetetään vastaanttajalle POST-kutsun mukana muuttujien <code>rating[beer_id]</code> ja <code>rating[score]</code> arvoina.
+Lomakkeen lähetystapahtuman kohdeosoite on /ratings ja käytettävä HTTP-metodi GET:in sijasta POST. Lomakkeessa on kaksi numeromuotoista kenttää ja niiden arvot lähetetään vastaanottajalle POST-kutsun mukana muuttujien <code>rating[beer_id]</code> ja <code>rating[score]</code> arvoina.
 
 Railsin metodi <code>form_for</code> siis muodostaa automaattisesti oikeaan osoitteeseen lähetettävän, oikeanlaisen formin, jossa on syöttökentät kaikille parametrina olevan tyyppisen olion attribuuteille.
 
 Lisää lomakkeiden muodostamisesta <code>form_for</code>-metodilla osoitteessa
  http://guides.rubyonrails.org/form_helpers.html#dealing-with-model-objects
 
-Jos yritämme luoda reittauksen aiheutuu virheilmoitus <code>No route matches [POST] "/ratings"</code> eli joudumme luomaan tiedostoon config/routes.rb reitin: 
+Jos yritämme luoda reittauksen aiheutuu virheilmoitus <code>No route matches [POST] "/ratings"</code> eli joudumme luomaan tiedostoon config/routes.rb reitin:
 
     post 'ratings', to: 'ratings#create'
 
@@ -502,11 +502,11 @@ Uuden olion luonnista vastaava metodi on Railsin konvention mukaan nimeltään <
 
 ```ruby
   def create
-    raise 
+    raise
   end
 ```
 
-Tässä vaiheessa metodi ei tee muuta kuin aiheuttaa poikkeuksen (metodikutsu <code>raise</code>). 
+Tässä vaiheessa metodi ei tee muuta kuin aiheuttaa poikkeuksen (metodikutsu <code>raise</code>).
 
 Kokeillaan nyt lähettää lomakkeella tietoa. Kontrollerin metodissa heittämä poikkeus aiheuttaa virheilmoituksen. Rails lisää virhesivulle erilaista diagnostiikkaa, mm. HTTP-pyynnön parametrit sisältävän hashin, joka näyttää seuraavalta:
 
@@ -517,9 +517,9 @@ Kokeillaan nyt lähettää lomakkeella tietoa. Kontrollerin metodissa heittämä
  "commit"=>"Create Rating"}
 ```
 
-Hashin sisällä on siis välittynyt lomakkeen avulla lähetetty tieto. 
+Hashin sisällä on siis välittynyt lomakkeen avulla lähetetty tieto.
 
-Parametrit sisältävä hash on kontrollerin sisällä talletettu muuttujaan <code>params</code>. 
+Parametrit sisältävä hash on kontrollerin sisällä talletettu muuttujaan <code>params</code>.
 Uuden ratingin tiedot ovat hashissa avaimen <code>:rating</code> arvona, eli pääsemme niihin käsiksi komennolla <code>params[:rating]</code> joka taas on hash jonka arvo on <code>{"beer_id"=>"1", "score"=>"2"}</code>. Eli esim. pistemäärään päästäisiin käsiksi komennolla <code>params[:rating][:score]</code>.
 
 ## Debuggeri
@@ -537,7 +537,7 @@ Lisätään kontrollerin alkuun, eli sille kohtaan koodia jota haluamme tarkkail
 ```ruby
   def create
     debugger
-    raise 
+    raise
   end
 ```
 
@@ -547,13 +547,13 @@ Kun luot lomakkeella uuden reittauksen, sovellus pysähtyy komennon <code>debugg
 [7, 16] in /Users/mluukkai/kurssirepot/wadror/ratebeer/app/controllers/ratings_controller.rb
    7      @rating = Rating.new
    8    end
-   9  
+   9
    10    def create
    11      debugger
 => 12      raise
    13    end
    14  end
-(rdb:1) 
+(rdb:1)
 ```
 
 Nuoli kertoo seuraavana vuorossa olevan komennon. Tutkitaan nyt <code>params</code>-muuttujan sisältöä:
@@ -565,7 +565,7 @@ Nuoli kertoo seuraavana vuorossa olevan komennon. Tutkitaan nyt <code>params</co
 {"beer_id"=>"2", "score"=>"10"}
 (rdb:1) params[:rating][:score]
 "10"
-(rdb:1) 
+(rdb:1)
 ```
 
 Debuggerin konsolissa voi tarpeen vaatiessa suorittaa mitä tahansa koodia Rails-konsolin tavoin.
@@ -573,7 +573,7 @@ Debuggerin konsolissa voi tarpeen vaatiessa suorittaa mitä tahansa koodia Rails
 Debuggerin tärkeimmät komennot lienevät step, next, continue ja help. Step suorittaa koodista seuraavan askeleen, edeten mahdollisiin metodikutsuihin. Next suorittaa seuraavan rivin kokonaisuudessaan. Continue jatkaa ohjelman suorittamista normaaliin tapaan.
 
 Lisätietoa debuggerista seuraavassa
-http://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debugger-gem. 
+http://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debugger-gem.
 
 ## Reittauksen talletus
 
@@ -591,29 +591,29 @@ Muuta siis kontrollerisi koodi seuraavanlaiseksi:
 
 Kokeile nyt luoda reittaus. Vastoin kaikkia odotuksia, luomisoperaatio epäonnistuu ja seurauksena on virheilmoitus
 
-	ActiveModel::ForbiddenAttributesError
+        ActiveModel::ForbiddenAttributesError
 
-Mistä on kyse? 
+Mistä on kyse?
 
 
 Jos olisimme tehneet reittauksen luovan komennon muodossa
 
-	Rating.create beer_id:params[:rating][:beer_id], score:params[:rating][:score]
+        Rating.create beer_id:params[:rating][:beer_id], score:params[:rating][:score]
 
-joka siis periaattessa tarkoittaa täysin samaa kuin ylläoleva muoto (sillä <code>params[:rating]</code> on sisällöltän __täysin sama__ hash kuin <code>beer_id:params[:rating][:beer_id], score:params[:rating][:score]</code>), ei virheilmoitusta olisi tullut. [Tietoturvasyistä](http://en.wikipedia.org/wiki/Mass_assignment_vulnerability) Rails ei kuitenkaan salli mielivaltaista <code>params</code>-muuttujasta tapahtuvaa "massasijoitusta" (engl. mass assignment eli kaikkien parametrien antamista hashina) olion luomisen yhteydessä. 
+joka siis periaattessa tarkoittaa täysin samaa kuin ylläoleva muoto (sillä <code>params[:rating]</code> on sisällöltän __täysin sama__ hash kuin <code>beer_id:params[:rating][:beer_id], score:params[:rating][:score]</code>), ei virheilmoitusta olisi tullut. [Tietoturvasyistä](http://en.wikipedia.org/wiki/Mass_assignment_vulnerability) Rails ei kuitenkaan salli mielivaltaista <code>params</code>-muuttujasta tapahtuvaa "massasijoitusta" (engl. mass assignment eli kaikkien parametrien antamista hashina) olion luomisen yhteydessä.
 
-Rails 4:stä lähtien kontrollerin on lueteltava eksplisiittisesti mitä hashin <code>params</code> sisällöstä voidaan massasijoittaa olioiden luonnin yhteydessä. Tähän kontrolleri käyttää <code>params</code>:in metodeja <code>require</code> ja <code>permit</code>. 
+Rails 4:stä lähtien kontrollerin on lueteltava eksplisiittisesti mitä hashin <code>params</code> sisällöstä voidaan massasijoittaa olioiden luonnin yhteydessä. Tähän kontrolleri käyttää <code>params</code>:in metodeja <code>require</code> ja <code>permit</code>.
 
 Periaatteena on, että ensin requirella otetaan paramsin sisältä luotavan olion tiedot sisältävä hash:
 
-	params.require(:rating)
-   
+        params.require(:rating)
+
 tämän jälkeen luetellaan permitillä ne kentät, joiden arvon massasijoitus sallitaan:
 
-	params.require(:rating).permit(:score, :beer_id)   
-   
-Kontrollerimme on siis seuraava:   
-   
+        params.require(:rating).permit(:score, :beer_id)
+
+Kontrollerimme on siis seuraava:
+
 
 ```ruby
   def create
@@ -623,7 +623,7 @@ Kontrollerimme on siis seuraava:
 
 Lisää tietoa lomakkeiden parametrien käsittelystä http://edgeguides.rubyonrails.org/action_controller_overview.html luvusta 4.5 Strong parameters
 
-Kokeile nyt reittauksen luomista. HUOM: kun luot lomakkeella reittausta, tarkista, että lomakkeelle syöttämä oluen id vastaa jonkun tietokannassa olevan oluen id:tä! 
+Kokeile nyt reittauksen luomista. HUOM: kun luot lomakkeella reittausta, tarkista, että lomakkeelle syöttämä oluen id vastaa jonkun tietokannassa olevan oluen id:tä!
 
 Reittausten luominen onnistuu jo (tarkista tilanne konsolista tai kaikkien reittausten sivulta), mutta aiheuttaa virheilmoituksen, sillä metodi yrittää renderöidä oletusarvoisesti näkymätemplaten /views/ratings/create.html.erb jota ei ole.
 
@@ -640,7 +640,7 @@ Voisimme luoda templaten, mutta päätämmekin, että uuden reittauksen luomisen
 
 <code>ratings_path</code> on railsin tarjoama polkuapumetodi, joka tarkoittaa samaa kuin "/ratings"
 
-Jos olet luonut reittauksia joihin liittyvä <code>beer_id</code> ei vastaa olemassaolevan oluen id:tä, saat nyt todennäköisesti virheilmoituksen. Voit tuhota konsolista (<code>rails console</code>) käsin nämä ratingit seuraavasti
+Jos olet luonut reittauksia joihin liittyvä <code>beer_id</code> ei vastaa olemassa olevan oluen id:tä, saat nyt todennäköisesti virheilmoituksen. Voit tuhota konsolista (<code>rails console</code>) käsin nämä ratingit seuraavasti
 
 ```ruby
     Rating.last        # näyttää viimeksi luodun ratingin, tarkasta onko siinä oleva beer_id virheellinen
@@ -657,7 +657,7 @@ Select luo taulukon, johon sisältyy ne läpikäydyn kokoelman alkiot, joille ko
 
 Mitä kontrollerissa käytetty komento <code>redirect_to ratings_path</code> oikeastaan tekee? Normaalistihan kontrolleri renderöi sopivan näkymätemplaten ja näin aikaansaatu HTML-koodi palautetaan selaimelle, joka renderöi sivun näytölle.
 
-Uudelleenohjausessa palvelin lähettää selaimelle statuskoodilla 302 varustetun vastauksen, joka ei sisällä ollenkaan HTML:ää. Vastaus sisältää ainoastaan osoitteen, mihin selaimen tulee automaattisesti tehdä HTTP GET -pyyntö. Uudelleenohjautuminen on huomaamatonta selaimen käyttäjän kannalta. 
+Uudelleenohjauksessa palvelin lähettää selaimelle statuskoodilla 302 varustetun vastauksen, joka ei sisällä ollenkaan HTML:ää. Vastaus sisältää ainoastaan osoitteen, mihin selaimen tulee automaattisesti tehdä HTTP GET -pyyntö. Uudelleenohjautuminen on huomaamatonta selaimen käyttäjän kannalta.
 
 Kokeile mitä tapahtuu kun laitat uuden reittauksen luomisen jälkeiseksi uudelleenohjaukseksi esim. <code>redirect_to "http://www.cs.helsinki.fi"</code>!
 
@@ -685,14 +685,14 @@ Redirectauksen yhteydessä vastaavaa ongelmaa ei ole, sillä POST-komennon jälk
 Nyrkkisääntönä (ei vaan Railsissa vaan Web-ohjelmoinnissa yleensäkin, ks. http://en.wikipedia.org/wiki/Post/Redirect/Get) onkin käyttää lomakkeista huolehtivien HTTP POST -metodien käsittelevässä kontrollerissa aina uudelleenohjausta (ellei kontrollerin suorittama operaatio epäonnistu esim. lomakkeella lähetetyn tiedon virheellisyyden vuoksi).
 
 Nostetaan vielä esiin tämä tärkeä ero:
-* kun kontrollerimetodi päätty komentoon <code>render :jotain</code> (joka siis tapahtuu usein implisiittisesti) generoi Rails-sovellus HTML-sivun jonka palvelin lähettää selaimelle renderöitäväksi
+* kun kontrollerimetodi päättyy komentoon <code>render :jotain</code> (joka siis tapahtuu usein implisiittisesti) generoi Rails-sovellus HTML-sivun jonka palvelin lähettää selaimelle renderöitäväksi
 * kun kontrollerimetodi päättyy komentoon <code>redirect_to osoite</code> lähettää palvelin selaimelle statuskoodissa 302 varustetun uudelleenohjauspyynnön, jossa se pyytää selainta tekemään automaattisesti HTTP GET -pyynnön kontrollerimetodin määrittelemään osoitteeseen, selaimen käyttäjän kannalta uudelleenohjaus on huomaamaton toimenpide
 
 **Jokaisen** Web-ohjelmoijan on syytä ymmärtää edellinen!
 
 ## Polkuapumetodit
 
-Rails luo automaattisesti kaikille routes.rb:hen määriteillyille reiteille ns. polkumetodit (engl. path helper), joita hyödyntämällä sovelluksessa ei ole tarvetta kovakoodata eri sivujen osoitteita.
+Rails luo automaattisesti kaikille routes.rb:hen määritellyille reiteille ns. polkumetodit (engl. path helper), joita hyödyntämällä sovelluksessa ei ole tarvetta kovakoodata eri sivujen osoitteita.
 
 Esim. uuden reittauksen jälkeisen uudelleenohjauksen osoite olisi voitu <code>ratings_path</code>-apufunktion sijaan kovakoodata:
 
@@ -735,7 +735,7 @@ Esim alimmat 3 reittiä kertovat seuraavaa:
 ** huom. kuten ylempänä olevia reittejä vertailemalla huomaamme, ei <code>ratings_new_path</code> ole samanlainen kuin esim uusien oluiden luontipolku, asia korjataan myöhemmin
 * POST-kutsu osoitteeseen "ratings" ohjataan ratings-kontrollerin metodille <code>create</code>
 
-Kuten olemme jo huomaneet Rails 4:ssä komennon <code>rake routes</code> informaatio tulee myös virhetilanteissa renderöityvälle web-sivulle. Sivu jopa tarjoaa interaktiivisen työkalun, jonka avulla voi kokeilla miten sovellus reitittää syötetyn esimerkkipolun:
+Kuten olemme jo huomanneet Rails 4:ssä komennon <code>rake routes</code> informaatio tulee myös virhetilanteissa renderöityvälle web-sivulle. Sivu jopa tarjoaa interaktiivisen työkalun, jonka avulla voi kokeilla miten sovellus reitittää syötetyn esimerkkipolun:
 
 ![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/ratebeer-w2-6.png)
 
@@ -786,11 +786,11 @@ eli lomakkeen <code>beer_id</code>:n arvo generoidaan HTML lomakkeen select-elem
 >
 > Muuta uuden oluen luomisen hoitavaa kontrolleria (beers#create) siten, että uuden oluen luomisen jälkeen selain uudelleenohjataan kaikkien oluiden listan sisältävälle sivulle (jonka osoite kannattaa generoida polkuapumetodilla). Oletusarvoisesti uudelleenohjaus tapahtuu luodun oluen sivulle komennolla <code>redirect_to @beer</code>, eli muutos tulee tähän.
 >
-> Scaffoldingin automaattisesti luoma lomake sisältää mm. virheiden raportointiin tarkoitettua koodia johon tutustumme tarkemmin myöhemmin. 
+> Scaffoldingin automaattisesti luoma lomake sisältää mm. virheiden raportointiin tarkoitettua koodia johon tutustumme tarkemmin myöhemmin.
 
 > ## Tehtävä 10
-> 
-> Tällä hetkellä luotavan oluen tyyli annetaan merkkijonona. Tulemme myöhemmin muokkaamaan sovellusta siten, että myös oluttyylit talletetaan tietokantaan. 
+>
+> Tällä hetkellä luotavan oluen tyyli annetaan merkkijonona. Tulemme myöhemmin muokkaamaan sovellusta siten, että myös oluttyylit talletetaan tietokantaan.
 >
 > Tehdään ensin välivaiheen ratkaisu, eli muuta sovellustasi siten, että luotavan oluen tyyli valitaan listalta, joka muodostetaan kontrollerin välittämän taulukon perusteella. Olutkontrollerin <code>new</code>-metodin koodi muuttuu siis seuraavasti:
 >
@@ -803,8 +803,8 @@ eli lomakkeen <code>beer_id</code>:n arvo generoidaan HTML lomakkeen select-elem
 >  end
 >```
 >
-> Näkymän tulee siis generoida lomakkeeseen valintavaihtoehdot taulukon <code>@styles</code> perusteella. Vaihtoehtojen generointiin kannattaa nyt metodin <code>options_from_collection_for_select</code> sijaan käyttää metodia <code>options_for_select</code>, ks. 
-> http://api.rubyonrails.org/classes/ActionView/Helpers/FormOptionsHelper.html#method-i-options_for_select 
+> Näkymän tulee siis generoida lomakkeeseen valintavaihtoehdot taulukon <code>@styles</code> perusteella. Vaihtoehtojen generointiin kannattaa nyt metodin <code>options_from_collection_for_select</code> sijaan käyttää metodia <code>options_for_select</code>, ks.
+> http://api.rubyonrails.org/classes/ActionView/Helpers/FormOptionsHelper.html#method-i-options_for_select
 
 ## nilin etsintää
 
@@ -812,12 +812,12 @@ On enemmän kuin todennäköistä että törmäät jossain vaiheessa seuraavan t
 
 ![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/ratebeer-w2-7.png)
 
-nyt rivi 
+nyt rivi
 
-	<%= link_to beer.brewery.name, beer.brewery %>
-	
-on aiheuttanut virheen 
-    
+        <%= link_to beer.brewery.name, beer.brewery %>
+
+on aiheuttanut virheen
+
     undefined method `name' for nil:NilClass
 
 käytännössä tämä siis tarkoittaa, että rivillä on yritetty kutsua arvolle <code>nil</code> metodia <code>name</code>.  Nyt syyllinen on ilmiselvästi <code>beer.brewery.name</code>, eli näyttää siltä että jonkun oluen panimona on <code>nil</code>. Tämä voi johtua joko siitä että oluen <code>brewery_id</code> on <code>nil</code> tai <code>brewery_id</code>:n arvona on virheellinen (esim poistetun panimon) id.
@@ -828,7 +828,7 @@ Virheen syytä kannattaa etsiä konsolista:
 irb(main):008:0> Beer.where(brewery_id:nil)
   Beer Load (0.2ms)  SELECT "beers".* FROM "beers" WHERE "beers"."brewery_id" IS NULL
 => #<ActiveRecord::Relation [#<Beer id: 13, name: "Hardcore IPA", style: "IPA", brewery_id: nil, created_at: "2014-01-16 16:58:56", updated_at: "2014-01-16 16:59:45">]>
-irb(main):009:0> 
+irb(main):009:0>
 ```
 
 Syyllinen löytyy nyt erittäin helposti ja ongelma saadaan korjattua. Jos kyseessä olisi ollut virheellinen id, ei syyllisen etsiminen ole aivan yhtä suoraviivaista. Se onnistuu esim. seuraavasti:
@@ -837,7 +837,7 @@ Syyllinen löytyy nyt erittäin helposti ja ongelma saadaan korjattua. Jos kysee
 ```ruby
 irb(main):015:0> Beer.all.select{ |b| b.brewery==nil }
 => [#<Beer id: 13, name: "Hardcore IPA", style: "IPA", brewery_id: 99, created_at: "2014-01-16 16:58:56", updated_at: "2014-01-16 17:30:08">]
-irb(main):016:0> 
+irb(main):016:0>
 ```
 
 Eli rajoitutaan komennolla <code>select</code> oluiden joukosta siihen, johon liittyvä panimo on <code>nil</code>. Nimittäin jos oluella on virheellinen panimoviiteavain, on tästä seurauksena se, että oluen panimo on <code>nil</code>.
@@ -845,7 +845,7 @@ Eli rajoitutaan komennolla <code>select</code> oluiden joukosta siihen, johon li
 
 ##  REST ja reititys
 
-REST (representational state transfer) on HTTP-protokollaan perustuva arkkitehtuurimalli erityisesti web-pohjaisten sovellusten toteuttamiseen. Taustaidea on periaatteessa yksinkertainen: osoitteilla määritellään haettavat ja muokattavat resurssit, pyyntömetodit kuvaavat resurssiin kohdistuvaa operaatiota, ja pyynnön rungossa on tarvittaessa resurssiin liittyvää dataa. 
+REST (representational state transfer) on HTTP-protokollaan perustuva arkkitehtuurimalli erityisesti web-pohjaisten sovellusten toteuttamiseen. Taustaidea on periaatteessa yksinkertainen: osoitteilla määritellään haettavat ja muokattavat resurssit, pyyntömetodit kuvaavat resurssiin kohdistuvaa operaatiota, ja pyynnön rungossa on tarvittaessa resurssiin liittyvää dataa.
 
 Lue nyt http://guides.rubyonrails.org/routing.html kohtaan 2.5 asti. Rails siis tekee helpoksi REST-tyylisen rakenteen noudattamisen.
 Jos kiinnostaa, RESTistä voi lukea lisää esim.
@@ -870,7 +870,7 @@ Koska emme tarvitse reittejä **delete**, **edit** ja **update**, käytämme <co
   new_rating GET    /ratings/new(.:format)        ratings#new
 ```
 
-Tulos on muuten sama kuin edellä, mutta apumetodin <code>ratings_new_path</code> nimi on nyt Railsin konvention mukainen <code>new_rating_path</code>. 
+Tulos on muuten sama kuin edellä, mutta apumetodin <code>ratings_new_path</code> nimi on nyt Railsin konvention mukainen <code>new_rating_path</code>.
 
 Korvaa vielä templatessa app/views/ratings/index.erb.html käytetty vanha polkumetodikutsu uudella.
 
@@ -890,7 +890,7 @@ Lisätään sitten reittauksien listalle linkki, jonka avulla kunkin reittauksen
 </ul>
 ```
 
-Railsin käyttämän konvention mukaan olion tuhoaminen tehdään HTTP:n DELETE-metodilla. Jos tuhottavana on rating ,jonka id on 5, tapahtuu nyt linkkiä klikkaamalla HTLLP DELETE -kutsu osoitteeseen ratings/5. 
+Railsin käyttämän konvention mukaan olion tuhoaminen tehdään HTTP:n DELETE-metodilla. Jos tuhottavana on rating ,jonka id on 5, tapahtuu nyt linkkiä klikkaamalla HTLLP DELETE -kutsu osoitteeseen ratings/5.
 
 Kuten jo aiemmin mainittiin, voi <code>rating_path(rating.id)</code>-kutsun sijaan <code>link_to</code>:n parametrina olla suoraan olio, jolle kutsu kohdistuu, eli edellinen hieman lyhemmässä muodossa:
 
@@ -919,7 +919,7 @@ Lopussa suoritetaan uudelleenohjaus takaisin kaikkien reittausten sivulle. Uudel
 > ## Tehtävä 11
 >
 > Reittauksen poisto on nyt siinä mielessä ikävä, että herkkäsorminen sivuston käyttäjä saattaa vahinkoklikkauksella tuhota reittauksia.
-> 
+>
 > Katso esim. kaikki oluet listaavan sivun templatesta /app/views/beers/index.html.erb mallia ja tee ratingin tuhoamisesta sellainen, että käyttäjältä kysytään varmistus reittauksen tuhoamisen yhteydessä.
 
 ## Orvot oliot
@@ -932,7 +932,7 @@ Jos sovelluksesta poistetaan olut, jolla on reittauksia, käy niin että poistet
 >
 > Virhe taas aiheutuu siitä, että reittaus-olion <code>to_s</code>-metodissa kutsutaan <code>beer.name</code>
 >
-> Poista orvoksi jääneet reittaukset konsolista käsin. Yritä keksiä ensin itse komento/komennot, joiden avulla saat muodostettua orpojen reittauksen listan. Jos et keksi vastausta, hieman ylempänä tällä sivulla on tehtävään valmis vastaus. 
+> Poista orvoksi jääneet reittaukset konsolista käsin. Yritä keksiä ensin itse komento/komennot, joiden avulla saat muodostettua orpojen reittauksen listan. Jos et keksi vastausta, hieman ylempänä tällä sivulla on tehtävään valmis vastaus.
 
 Olueeseen liittyvät reittaukset saadaan helposti poistettua automaattisesti. Merkitään oluen modelin koodiin <code>has_many :ratings</code> yhteyteen että reittaukset ovat oluesta riippuvaisia, ja että ne tuhotaan oluen tuhoutuessa:
 
@@ -945,12 +945,12 @@ class Beer < ActiveRecord::Base
 end
 ```
 
-Nyt orpojen ongelma poistuu. 
+Nyt orpojen ongelma poistuu.
 
 
 > ## Tehtävä 13
 >
-> Tee vastaava muutos panimoihin, eli kun panimo poistetaan, tulee panimoon liittuv ien oluiden poistua. 
+> Tee vastaava muutos panimoihin, eli kun panimo poistetaan, tulee panimoon liittyvien oluiden poistua.
 >
 > Tee panimo jolla on vähintään yksi olut jolla on reittauksia. Poista panimo ja varmista, että panimoon liittyvät oluet ja niihin liittyvät reittaukset poistuvat.
 
@@ -975,7 +975,7 @@ Lisää yhteys koodiisi ja kokeile seuraavaa konsolista (muista ensin <code>relo
 irb(main):005:0> k = Brewery.find_by name:"Koff"
 irb(main):006:0> k.ratings
 => #<ActiveRecord::Associations::CollectionProxy [#<Rating id: 1, score: 10, beer_id: 1, created_at: "2014-01-15 22:34:48", updated_at: "2014-01-15 22:34:48">, #<Rating id: 2, score: 21, beer_id: 1, created_at: "2014-01-15 22:34:50", updated_at: "2014-01-15 22:34:50">, #<Rating id: 3, score: 17, beer_id: 1, created_at: "2014-01-15 22:34:53", updated_at: "2014-01-15 22:34:53">, #<Rating id: 10, score: 20, beer_id: 1, created_at: "2014-01-16 14:46:13", updated_at: "2014-01-16 14:46:13">, #<Rating id: 13, score: 12, beer_id: 3, created_at: "2014-01-16 15:13:09", updated_at: "2014-01-16 15:13:09">]>
-irb(main):007:0> 
+irb(main):007:0>
 
 ```
 
@@ -983,10 +983,10 @@ irb(main):007:0>
 >
 > Lisää yksittäisen panimon tiedot näyttävälle sivulle tieto panimon oluiden reittausten määrästä sekä keskiarvosta. Lisää tätä varten panimolle metodi <code>average_rating</code> reittausten keskiarvon laskemista varten.
 >
-> Tee reittausten yhteenlasketun määrän "kieliopillisesti moitteeton" 
+> Tee reittausten yhteenlasketun määrän "kieliopillisesti moitteeton"
 tehtävän 6 tyyliin. Jos reittauksia ei ole, älä näytä keskiarvoa.
 
-Panimon sivun tulisi näyttää muutoksen jälkeen suunilleen seuraavalta (Kuvassa oluiden lista on muutettu ul-elementin avulla toteutetuksi bulletlistaksi, sivulta on myös poistettu scaffoldingin luoma 'back'-linkki. Voit halutessasi tehdä muutoset myös omaan koodiisi):
+Panimon sivun tulisi näyttää muutoksen jälkeen suunnilleen seuraavalta (Kuvassa oluiden lista on muutettu ul-elementin avulla toteutetuksi bulletlistaksi, sivulta on myös poistettu scaffoldingin luoma 'back'-linkki. Voit halutessasi tehdä muutokset myös omaan koodiisi):
 
 ![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/ratebeer-w2-8.png)
 
@@ -995,15 +995,15 @@ Huomaamme, että oluella ja panimolla on täsmälleen samalla tavalla toimiva ja
 > ## Tehtävä 15
 >
 > Ruby tarjoaa keinon jakaa metodeja kahden luokan välillä moduulien avulla, ks. https://github.com/mluukkai/WebPalvelinohjelmointi2014/blob/master/web/rubyn_perusteita.md#moduuli
-> 
-> Moduleilla on useampia käyttötarkoituksia, niiden avulla voidaan mm. muodostaa nimiavaruuksia. Nyt olemme kuitenkin kiinnostuneita modulien avulla toteutettavasta _mixin_-perinnästä. 
 >
-> Tutustu nyt riittävällä tasolla moduleihin ja refaktoroi koodisi siten, että metodi <code>average_rating</code> siirretään moduuliin, jonka luokat <code>Beer</code> ja <code>Brewery</code> sisällyttävät. 
+> Moduleilla on useampia käyttötarkoituksia, niiden avulla voidaan mm. muodostaa nimiavaruuksia. Nyt olemme kuitenkin kiinnostuneita modulien avulla toteutettavasta _mixin_-perinnästä.
+>
+> Tutustu nyt riittävällä tasolla moduleihin ja refaktoroi koodisi siten, että metodi <code>average_rating</code> siirretään moduuliin, jonka luokat <code>Beer</code> ja <code>Brewery</code> sisällyttävät.
 > * sijoita moduuli lib-kansioon
 >* HUOM: lisää tiedostoon <code>config/application.rb</code> luokan <code>Application</code>määrittelyn  sisälle rivi <code>config.autoload_paths += Dir["#{Rails.root}/lib"]</code>, jotta Rails lataisi modulin koodin sovelluksen luokkien käyttöön. Rails server (ja konsoli) tulee käynnistää uudelleen lisäyksen jälkeen
 > * HUOM2: jos muduulisi nimi on ao. esimerkin tapaan <code>RatingAverage</code> tulee se Rubyn nimentäkonvention takia sijaita tiedostossa <code>rating_average.rb</code>, eli vaikka luokkien nimet ovat Rubyssä isolla alkavia CamelCase-nimiä, noudattavat niiden tiedostojen nimet snake_case.rb-tyyliä.
 
-Tehtävän jälkeen esim. luokan Brewery tulisi siis näyttää suunilleen seuraavalta (olettaen että tekemäsi moduulin nimi on RatingAverage):
+Tehtävän jälkeen esim. luokan Brewery tulisi siis näyttää suunnilleen seuraavalta (olettaen että tekemäsi moduulin nimi on RatingAverage):
 
 ```ruby
 class Brewery < ActiveRecord::Base
@@ -1023,7 +1023,7 @@ irb(main):002:0> b.average_rating
 irb(main):003:0> b = Brewery.first
 irb(main):004:0> b.average_rating
 => #<BigDecimal:7fa4bfbf7410,'0.16E2',9(45)>
-irb(main):005:0> 
+irb(main):005:0>
 ```
 
 
