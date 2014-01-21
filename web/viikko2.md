@@ -431,9 +431,9 @@ Tehtävän jälkeen oluen sivun tulisi näyttää suunnilleen seuraavalta (huom:
 >
 > Oliokokoelmamaiset luokat voivat sisällyttää moduulin enumerable toiminnallisuuden itselleen, ja tällöin ne perivät moduulin tarjoaman toiminnallisuuden.
 >
-> Tutustu nyt <code>inject</code>-metodiin (ks. esim. http://blog.jayfields.com/2008/03/ruby-inject.html ja etsi googlella lisää ohjeita) ja muuta (tarvittaessa) oluen reittausten keskiarvon laskeva metodi käyttämään injectiä
+> Tutustu nyt <code>inject</code>-metodiin (ks. esim. http://ruby-doc.org/core-2.1.0/Enumerable.html#inject ja etsi googlella lisää ohjeita) ja muuta (tarvittaessa) oluen reittausten keskiarvon laskeva metodi käyttämään injectiä
 >
-> Keskiarvon laskeminen onnistuu tässä tapauksessa myös helpommin hyödyntämällä ActiceRecordin metodeja, ks. http://guides.rubyonrails.org/active_record_querying.html#calculations
+> Keskiarvon laskeminen onnistuu tässä tapauksessa myös helpommin hyödyntämällä ActiceRecordin metodeja, ks. http://api.rubyonrails.org/classes/ActiveRecord/Calculations.html
 
 Lisätään konsolista jollekin vielä reittaamattomalle oluelle yksi reittaus. Oluen sivu näyttää nyt seuraavalta:
 
@@ -1014,7 +1014,7 @@ Huomaamme, että oluella ja panimolla on täsmälleen samalla tavalla toimiva ja
 >
 > Tutustu nyt riittävällä tasolla moduleihin ja refaktoroi koodisi siten, että metodi <code>average_rating</code> siirretään moduuliin, jonka luokat <code>Beer</code> ja <code>Brewery</code> sisällyttävät.
 > * sijoita moduuli lib-kansioon
->* HUOM: lisää tiedostoon <code>config/application.rb</code> luokan <code>Application</code>määrittelyn  sisälle rivi <code>config.autoload_paths += Dir["#{Rails.root}/lib"]</code>, jotta Rails lataisi modulin koodin sovelluksen luokkien käyttöön. **Rails server (ja konsoli) tulee käynnistää uudelleen lisäyksen jälkeen**. Tämä johtuu siitä, että Rails lukee (tai suorittaa) konfiguraatiotiedostot vain käynnistyessään ja muutokset niissä (toisin kuin sovelluskoodissa) ei oteta livenä huomioon.
+>* HUOM: lisää tiedostoon <code>config/application.rb</code> luokan <code>Application</code>määrittelyn  sisälle rivi <code>config.autoload_paths += Dir["#{Rails.root}/lib"]</code>, jotta Rails lataisi moduulin koodin sovelluksen luokkien käyttöön. **Rails server (ja konsoli) tulee käynnistää uudelleen lisäyksen jälkeen**. Tämä johtuu siitä, että Rails lukee (tai suorittaa) konfiguraatiotiedostot vain käynnistyessään ja muutokset niissä (toisin kuin sovelluskoodissa) ei oteta livenä huomioon.
 > * HUOM2: jos muduulisi nimi on ao. esimerkin tapaan <code>RatingAverage</code> tulee se Rubyn nimentäkonvention takia sijaita tiedostossa <code>rating_average.rb</code>, eli vaikka luokkien nimet ovat Rubyssä isolla alkavia CamelCase-nimiä, noudattavat niiden tiedostojen nimet snake_case.rb-tyyliä.
 
 Tehtävän jälkeen esim. luokan Brewery tulisi siis näyttää suunnilleen seuraavalta (olettaen että tekemäsi moduulin nimi on RatingAverage):
@@ -1039,6 +1039,20 @@ irb(main):004:0> b.average_rating
 => #<BigDecimal:7fa4bfbf7410,'0.16E2',9(45)>
 irb(main):005:0>
 ```
+
+Jos sovelluksessa on moduuli, jota tarvitaan ainoastaan modeleissa, on _lib_-hakemistoa parempi sijoituspaikka _app/view/models/concerns_. Hakemiston sisältämä koodi ladataan oletusarvoisesti modelien käyttöön eli muutosta muuttujaan <code>config.autoload_paths</code> ei tarvita. Hakemistossa app/view/models/concerns oleviin moduuleihin on lisättävä määritelmä <code>extend ActiveSupport::Concern</code>
+
+```ruby
+module RatingAverage
+  extend ActiveSupport::Concern
+
+  # …
+end
+```
+
+Koska määrittelemäämme moduulia ei käytetä kuin modeleissa, olisi sen oikeaoppinen sijoituspaikka juuri conserns-hakemisto. Siirrä moduulisi oikeaan paikkaan jos haluat.
+
+Lisää conserneista, ks. http://api.rubyonrails.org/classes/ActiveSupport/Concern.html
 
 
 ## Yksinkertainen suojaus
