@@ -1052,7 +1052,7 @@ end
 
 Koska määrittelemäämme moduulia ei käytetä kuin modeleissa, olisi sen oikeaoppinen sijoituspaikka juuri conserns-hakemisto. Siirrä moduulisi oikeaan paikkaan jos haluat.
 
-Lisää conserneista, ks. http://api.rubyonrails.org/classes/ActiveSupport/Concern.html
+Lisää conserneista, ks. http://api.rubyonrails.org/classes/ActiveSupport/Concern.html ja http://stackoverflow.com/questions/14541823/how-to-use-concerns-in-rails-4
 
 
 ## Yksinkertainen suojaus
