@@ -433,7 +433,7 @@ Tehtävän jälkeen oluen sivun tulisi näyttää suunnilleen seuraavalta (huom:
 >
 > Tutustu nyt <code>inject</code>-metodiin (ks. esim. http://ruby-doc.org/core-2.1.0/Enumerable.html#inject ja etsi googlella lisää ohjeita) ja muuta (tarvittaessa) oluen reittausten keskiarvon laskeva metodi käyttämään injectiä
 >
-> Keskiarvon laskeminen onnistuu tässä tapauksessa myös helpommin hyödyntämällä ActiceRecordin metodeja, ks. http://api.rubyonrails.org/classes/ActiveRecord/Calculations.html
+> Keskiarvon laskeminen onnistuu tässä tapauksessa myös helpommin hyödyntämällä ActiveRecordin metodeja, ks. http://api.rubyonrails.org/classes/ActiveRecord/Calculations.html
 
 Lisätään konsolista jollekin vielä reittaamattomalle oluelle yksi reittaus. Oluen sivu näyttää nyt seuraavalta:
 
