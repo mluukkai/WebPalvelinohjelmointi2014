@@ -869,11 +869,11 @@ Muutetaan reittauksen polut tiedostoon routes.rb siten, että käytetään valmi
 
 ```ruby
   # kommentoi tai poista entiset määrittelyt
-  #get 'ratings', :to => 'ratings#index'
-  #get 'ratings/new', :to => 'ratings#new'
-  #post 'ratings', :to => 'ratings#create'
+  #get 'ratings', to: 'ratings#index'
+  #get 'ratings/new', to: 'ratings#new'
+  #post 'ratings', to: 'ratings#create'
 
-  resources :ratings, :only => [:index, :new, :create]
+  resources :ratings, only: [:index, :new, :create]
 ```
 
 Koska emme tarvitse reittejä **delete**, **edit** ja **update**, käytämme <code>:only</code>-tarkennetta, jolla valitsemme vain tarvitsemamme reitit. Katsotaan nyt komentoriviltä <code>rake routes</code> -komennolla (tai virheellisen urlin omaavalta web-sivulta) sovellukseen määriteltyjä polkuja:
@@ -892,14 +892,14 @@ Korvaa vielä templatessa app/views/ratings/index.erb.html käytetty vanha polku
 
 Lisätään ohjelmaan vielä mahdollisuus poistaa reittauksia. Lisätään ensin vastaava reitti muokkaamalla routes.rb:tä:
 
-    resources :ratings, :only => [:index, :new, :create, :destroy]
+    resources :ratings, only: [:index, :new, :create, :destroy]
 
 Lisätään sitten reittauksien listalle linkki, jonka avulla kunkin reittauksen voi poistaa:
 
 ```erb
 <ul>
   <% @ratings.each do |rating| %>
-    <li> <%= rating %> <%= link_to 'delete', rating_path(rating.id), :method => :delete %> </li>
+    <li> <%= rating %> <%= link_to 'delete', rating_path(rating.id), method: :delete %> </li>
   <% end %>
 </ul>
 ```
@@ -911,7 +911,7 @@ Kuten jo aiemmin mainittiin, voi <code>rating_path(rating.id)</code>-kutsun sija
 ```erb
 <ul>
   <% @ratings.each do |rating| %>
-    <li> <%= rating %> <%= link_to 'delete', rating, :method => :delete %> </li>
+    <li> <%= rating %> <%= link_to 'delete', rating, method: :delete %> </li>
   <% end %>
 </ul>
 ```
@@ -977,7 +977,7 @@ Sovelluksessamme panimoon liittyy oluita ja oluisiin liittyy reittauksia. Kuhunk
 ```ruby
 class Brewery < ActiveRecord::Base
   has_many :beers
-  has_many :ratings, :through => :beers
+  has_many :ratings, through: :beers
 end
 ```
 
@@ -1024,7 +1024,7 @@ class Brewery < ActiveRecord::Base
   include RatingAverage
 
   has_many :beers
-  has_many :ratings, :through => :beers
+  has_many :ratings, through: :beers
 end
 ```
 
@@ -1085,7 +1085,7 @@ Rajoitetaan sitten filtterimetodin suoritus koskemaan ainoastaan panimon  poisto
 ```ruby
 class BreweriesController < ApplicationController
   before_action :set_brewery, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate, :only => [:destroy]
+  before_filter :authenticate, only: [:destroy]
 
   # ...
 
@@ -1106,7 +1106,7 @@ Kovakoodataan käyttäjätunnukseksi "admin" ja salasanaksi "secret":
 ```ruby
 class BreweriesController < ApplicationController
   before_action :set_brewery, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate, :only => [:destroy]
+  before_filter :authenticate, only: [:destroy]
 
   # ...
 
