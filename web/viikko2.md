@@ -953,7 +953,7 @@ Olueeseen liittyvät reittaukset saadaan helposti poistettua automaattisesti. Me
 ```ruby
 class Beer < ActiveRecord::Base
   belongs_to :brewery
-  has_many :ratings, :dependent => :destroy
+  has_many :ratings, dependent: :destroy
 
   # ...
 end
@@ -1040,7 +1040,7 @@ irb(main):004:0> b.average_rating
 irb(main):005:0>
 ```
 
-Jos sovelluksessa on moduuli, jota tarvitaan ainoastaan modeleissa, on _lib_-hakemistoa parempi sijoituspaikka _app/view/models/concerns_. Hakemiston sisältämä koodi ladataan oletusarvoisesti modelien käyttöön eli muutosta muuttujaan <code>config.autoload_paths</code> ei tarvita. Hakemistossa app/view/models/concerns oleviin moduuleihin on lisättävä määritelmä <code>extend ActiveSupport::Concern</code>
+Jos sovelluksessa on moduuli, jota tarvitaan ainoastaan modeleissa, on _lib_-hakemistoa parempi sijoituspaikka _app/models/concerns_. Hakemiston sisältämä koodi ladataan oletusarvoisesti modelien käyttöön eli muutosta muuttujaan <code>config.autoload_paths</code> ei tarvita. Hakemistossa app/view/models/concerns oleviin moduuleihin on lisättävä määritelmä <code>extend ActiveSupport::Concern</code>
 
 ```ruby
 module RatingAverage
