@@ -1,4 +1,3 @@
-
 ## Muutamia selvennyksiä
 
 Tutkitaan hetki luokkaa <code>Brewery</code>:
@@ -20,7 +19,7 @@ irb(main):003:0> b.year
 irb(main):004:0> 
 ```
 
-Teknisesti ottaen esim. <code>b.yeer</code> on metodikutsu. Rails luo model-olioon jokaiselle vastaavan tietokantataulun skeeman määrittelemälle sarakkeelle kentän eli attribuutin ja metodit attribuutin arvon lukemista ja arvon muuttamista varten. Nämä automaattisesti generoidut metodit ovat sisällöltään suunilleen seuraavat:
+Teknisesti ottaen esim. <code>b.year</code> on metodikutsu. Rails luo model-olioon jokaiselle vastaavan tietokantataulun skeeman määrittelemälle sarakkeelle kentän eli attribuutin ja metodit attribuutin arvon lukemista ja arvon muuttamista varten. Nämä automaattisesti generoidut metodit ovat sisällöltään suunilleen seuraavat:
 
 ```ruby
 class Brewery < ActiveRecord::Base
