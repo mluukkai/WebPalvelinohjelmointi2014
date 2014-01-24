@@ -1,4 +1,3 @@
-
 ## Muutamia selvennyksiä
 
 Tutkitaan hetki luokkaa <code>Brewery</code>:
@@ -48,7 +47,7 @@ entä olion sisältä? Tehdään panimolle metodi, joka demonstroi panimon attri
 class Brewery < ActiveRecord::Base
   has_many :beers
 
-  def print_raport
+  def print_report
     puts name
     puts "established at year #{year}"
     puts "number of beers #{beers.count}"
@@ -61,7 +60,7 @@ Ja esimerkki metodin käytöstä:
 
 ```ruby
 irb(main):001:0> b = Brewery.first
-irb(main):002:0> b.print_raport
+irb(main):002:0> b.print_report
 Koff
 established at year 1897
 number of beers 2
@@ -70,7 +69,7 @@ number of beers 2
 Metodeja olisi voitu kutsua olion sisältä myös käyttäen Rubyn 'thissiä' eli olion <code>self</code>-viitettä:
 
 ```ruby
-  def print_raport
+  def print_report
     puts self.name
     puts "established at year #{self.year}"
     puts "number of beers #{self.beers.count}"
