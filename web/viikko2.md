@@ -356,6 +356,9 @@ Reittaus renderöityy hiukan ikävässä muodossa. Tämä johtuu siitä, että l
 > Tee sitten luokalle Rating metodi <code>to_s</code>, joka palauttaa oliosta paremman merkkijonoesityksen, esim. muodossa "karhu 35", eli ensin reitatun oluen nimi ja sen jälkeen reittauksen pistemäärä.
 >
 > Merkkijonon muodostamisessa seuraavasta voi olla apua https://github.com/mluukkai/WebPalvelinohjelmointi2014/blob/master/web/rubyn_perusteita.md#merkkijonot
+>
+> Kannattanee lukea myös seuraava:
+> https://github.com/mluukkai/WebPalvelinohjelmointi2014/blob/master/web/selvennys.md
 
 Tehtävän jälkeen reittausten sivujen tulisi näyttää suunnilleen seuraavalta:
 
@@ -420,6 +423,9 @@ Eli kuten yllä näemme, ei pelkkä koodin uudelleenlataaminen vielä riitä, si
 >  beer has some ratings
 ><% end %>
 >```
+>
+> Jos et jo lukenut, kannattanee nyt vilkaista 
+> https://github.com/mluukkai/WebPalvelinohjelmointi2014/blob/master/web/selvennys.md jos et tiedä miten reittauksiin pääsee käsiksi oluen metodista käsin
 
 Tehtävän jälkeen oluen sivun tulisi näyttää suunnilleen seuraavalta (huom: edellisen viikon jäljiltä sivullasi saattaa näkyä panimon nimen sijaan panimon id. Jos näin on, muuta näkymäsi vastaamaan kuvaa):
 
