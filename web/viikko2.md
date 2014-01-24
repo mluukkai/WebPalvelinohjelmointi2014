@@ -826,6 +826,17 @@ irb(main):003:0>
 > Näkymän tulee siis generoida lomakkeeseen valintavaihtoehdot taulukon <code>@styles</code> perusteella. Vaihtoehtojen generointiin kannattaa nyt metodin <code>options_from_collection_for_select</code> sijaan käyttää metodia <code>options_for_select</code>, ks.
 > http://api.rubyonrails.org/classes/ActionView/Helpers/FormOptionsHelper.html#method-i-options_for_select
 
+Näiden muutosten jälkeen oluen tietojen editointi ei yllättäen enää toimi. Syynä tälle on se, että uuden oluen luominen ja oluen tietojen editointi käyttävät moelmmat samaa lomakkeen generoivaa näkymäätemplatea (app/views/beers/_form.html.erb) ja muutosten jälkeen näkymän toiminta edellyttää, että muuttuja <code>@breweries</code> sisältää panimoiden listan ja muuttuja <code>@styles</code> sisältää oluiden tyylit. Oluen tietojen muutossivulle mennään kontrollerimetodin <code>edit</code> suorituksen jälkeen, ja joudummekin muuttamaan kontrolleria seuraavasti korjataksemme virheen:
+
+``ruby
+  def edit
+    @breweries = Brewery.all
+    @styles = ["Weizen", "Lager", "Pale ale", "IPA", "Porter"]
+  end
+``
+
+Onkin hyvin tyypillistä, että kontrollerimetodit <code>new</code> ja <code>edit</code> sisältävät paljon samaa koodia. Olisikin ehkä järkevä ekstraktoida yhteinen koodi omaan metodiinsa.
+
 ## nilin etsintää
 
 On enemmän kuin todennäköistä että törmäät jossain vaiheessa seuraavan tyyliseen (jo viime viikolla mainittuun) ongelmaan:
@@ -1074,8 +1085,8 @@ class BreweriesController < ApplicationController
   before_action :set_brewery, only: [:show, :edit, :update, :destroy]
   before_action :authenticate
 
-  # ...
-
+  # HUOM: älä kirjoita private-määrettä tiedostoon ennen kontrollerimetodeja (index, new, ...)
+  
   private
 
   def authenticate
