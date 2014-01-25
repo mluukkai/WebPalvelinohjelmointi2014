@@ -239,7 +239,7 @@ class SessionsController < ApplicationController
       # talletetaan sessioon kirjautuneen käyttäjän id (jos käyttäjä on olemassa)
       session[:user_id] = user.id if not user.nil?
       # uudelleen ohjataan käyttäjä omalle sivulleen 
-      redirect_to user   # user siis tarkottaa samaa kuin user_path(user)
+      redirect_to user   
     end
 
     def destroy
@@ -271,8 +271,16 @@ Lomakkeen lähettäminen siis aiheuttaa HTTP POST -pyynnön sessions_pathiin eli
     def create
       user = User.find_by username: params[:username]
       session[:user_id] = user.id if not user.nil?
-      redirect_to user_path(user)
+      redirect_to user
     end
+```
+
+Huom1: komento <code>redirect_to user</code> siis on lyhennysmerkintä seuraavalla <code>redirect_to user_path(user)</code>, ks. [viikko 1](https://github.com/mluukkai/WebPalvelinohjelmointi2014/blob/master/web/viikko1.md#kertausta-polkujen-ja-kontrollerien-niment%C3%A4konventiot). 
+
+Huom2: Rubyssa yhdistelmän <code>if not</code> sijaan voidaan käyttää myös komentoa <code>unless</code>, eli metodin toinen rivi oltaisiin voitu kirjoittaa muodossa
+
+```ruby
+  session[:user_id] = user.id unless user.nil?
 ```
 
 Lisätään application layoutiin seuraava koodi, joka lisää kirjautuneen käyttäjän nimen kaikille sivuille (edellisessä luvussa lisätyt sessioharjoittelukoodit voi samalla poistaa):
@@ -448,7 +456,7 @@ Uusien reittausten luominen www-sivulta ei siis tällä hetkellä toimi, koska r
   def create
     rating = Rating.create params.require(:rating).permit(:score, :beer_id)
     current_user.ratings << rating
-    redirect_to user_path(current_user)
+    redirect_to current_user
   end
 ```
 
@@ -479,7 +487,7 @@ Tällä hetkellä sovellus käyttäytyy ikävästi, jos kirjautumista yritetää
         redirect_to :back
       else
         session[:user_id] = user.id 
-        redirect_to user_path(user) 
+        redirect_to user
       end
     end
 ```
@@ -493,7 +501,7 @@ muutetaan edellistä vielä siten, että lisätään käyttäjälle kirjautumise
         redirect_to :back, notice: "User #{params[:username]} does not exist!"
       else
         session[:user_id] = user.id
-        redirect_to user_path(user), notice: "Welcome back!"
+        redirect_to user, notice: "Welcome back!"
       end
     end
 ```
