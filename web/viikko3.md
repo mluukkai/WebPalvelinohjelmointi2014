@@ -238,7 +238,8 @@ class SessionsController < ApplicationController
       user = User.find_by username: params[:username]
       # talletetaan sessioon kirjautuneen käyttäjän id (jos käyttäjä on olemassa)
       session[:user_id] = user.id if not user.nil?
-      redirect_to user_path(user)
+      # uudelleen ohjataan käyttäjä omalle sivulleen 
+      redirect_to user   # user siis tarkottaa samaa kuin user_path(user)
     end
 
     def destroy
@@ -249,6 +250,7 @@ class SessionsController < ApplicationController
     end
 end
 ```
+
 
 Kirjautumissivun app/views/sessions/new.html.erb koodi on seuraavassa:
 
