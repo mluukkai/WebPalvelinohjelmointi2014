@@ -221,7 +221,7 @@ Tehdään nyt sovellukseen kirjautumisesta ja uloskirjautumisesta huolehtiva kon
 
 Voidaan ajatella, että kirjautumisen yhteydessä syntyy sessio, ja tätä voidaan pitää jossain mielessä samanlaisena "resurssina" kuin esim. olutta. Nimetäänkin kirjautumisesta huolehtiva kontrolleri <code>SessionsController</code>iksi ja luodaan sille routes.rb:hen seuraavat reitit
 
-    resources :sessions, :only => [:new, :create, :destroy]
+    resources :sessions, only: [:new, :create, :destroy]
 
 eli kirjautumissivun osoite on **sessions/new** ja uloskirjautumisen osoite **sessions/destroy**. Osoitteeseen **sessions** tehty POST-kutsu suorittaa kirjautumisen.
 
@@ -693,13 +693,13 @@ http://guides.rubyonrails.org/active_record_validations.html ja http://apidock.c
 
 > ## Tehtävä 6 
 >
-> ### tehtävän teko ei ole viikon jatkamisen kannalta välttämätöntä eli ei kannata juuttua tähän tehtävään
+> ### tehtävän teko ei ole viikon jatkamisen kannalta välttämätöntä eli ei kannata juuttua tähän tehtävään. Voit tehdä tehtävän myös viikon muiden tehtävien jälkeen.
 >
 > Parannellaan tehtävän 5 validointia siten, että panimon perustamisvuoden täytyy olla kokonaisluku, jonka suuruus on vähintään 1042 ja korkeintaan menossa oleva vuosi. Vuosilukua ei siis saa kovakoodata.
 >
 > Huomaa, että seuraava ei toimi halutulla tavalla:
 >
->   validates_numericality_of :year,  :less_than_or_equal_to => Time.now.year 
+>   validates_numericality_of :year,  less_than_or_equal_to: Time.now.year 
 >
 > Nyt käy siten, että <code>Time.now.year</code> evaluoidaan siinä vaiheessa kun ohjelma lataa luokan koodin. Jos esim. ohjelma käynnistetään vuoden 2014 lopussa, ei vuoden 2015 alussa voida rekisteröidä 2015 aloittanutta panimoa, sillä vuoden yläraja validoinnissa on ohjelman käynnistyshetkellä evaluoitunut 2014
 >
@@ -798,7 +798,7 @@ Trendinä kuitenkin on, että metodin has_and_belongs_to_many sijaan käytetää
 
 > ## Tehtävät 7-8: Olutseurat
 >
-> ### Tämän ja seuraavan tehtävän tekeminen ei ole välttämätöntä viikon jatkamisen kannalta. 
+> ### Tämän ja seuraavan tehtävän tekeminen ei ole välttämätöntä viikon jatkamisen kannalta. Voit tehdä tämän tehtävän myös viikon muiden tehtävien jälkeen.
 >
 > Laajennetaan järjestelmää siten, että käyttäjillä on mahdollista olla eri _olutseurojen_ jäseninä.
 >
@@ -906,12 +906,12 @@ ja muutetaan sessions-kontrolleria siten, että se varmistaa metodia <code>authe
 
 ```ruby
     def create
-      user = User.where(:username => params[:username]).first
+      user = User.find_by username: params[:username]
       if user.nil? or not user.authenticate params[:password]
-        redirect_to :back, :notice => "username and password do not match"
+        redirect_to :back, notice: "username and password do not match"
       else
         session[:user_id] = user.id
-        redirect_to user_path(user), :notice => "Welcome back!"
+        redirect_to user_path(user), notice: "Welcome back!"
       end
     end
 ```
