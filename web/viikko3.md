@@ -188,10 +188,10 @@ Talletetaan reittaus sessioon tekemällä seuraava lisäys reittauskonrolleriin:
 
 ```ruby
   def create
-    Rating.create params[:rating]
+    rating = Rating.create params[:rating]
 
-    # talletetaan tehty reittaus sessioon 
-    session[:last_rating] = "#{Beer.find(params[:rating][:beer_id])} #{params[:rating][:score]} points"
+    # talletetaan tehdyn reittauksen sessioon 
+    session[:last_rating] = "#{rating.beer.name} #{rating.score} points"
 
     redirect_to ratings_path
   end
