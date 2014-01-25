@@ -32,7 +32,7 @@ irb(main):003:0> b.year
 irb(main):004:0> 
 ```
 
-Teknisesti ottaen esim. <code>b.yeer</code> on metodikutsu. Rails luo model-olioon jokaiselle vastaavan tietokantataulun skeeman määrittelemälle sarakkeelle kentän eli attribuutin ja metodit attribuutin arvon lukemista ja arvon muuttamista varten. Nämä automaattisesti generoidut metodit ovat sisällöltään suunilleen seuraavat:
+Teknisesti ottaen esim. <code>b.year</code> on metodikutsu. Rails luo model-olioon jokaiselle vastaavan tietokantataulun skeeman määrittelemälle sarakkeelle kentän eli attribuutin ja metodit attribuutin arvon lukemista ja arvon muuttamista varten. Nämä automaattisesti generoidut metodit ovat sisällöltään suunilleen seuraavat:
 
 ```ruby
 class Brewery < ActiveRecord::Base
@@ -188,10 +188,10 @@ Talletetaan reittaus sessioon tekemällä seuraava lisäys reittauskonrolleriin:
 
 ```ruby
   def create
-    Rating.create params[:rating]
+    rating = Rating.create params[:rating]
 
-    # talletetaan tehty reittaus sessioon 
-    session[:last_rating] = "#{Beer.find(params[:rating][:beer_id])} #{params[:rating][:score]} points"
+    # talletetaan tehdyn reittauksen sessioon 
+    session[:last_rating] = "#{rating.beer.name} #{rating.score} points"
 
     redirect_to ratings_path
   end
