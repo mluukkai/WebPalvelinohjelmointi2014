@@ -528,13 +528,11 @@ Käyttäjätunnuksen yksikäsitteisyyden validointi onkin helppoa, pieni lisäys
 class User < ActiveRecord::Base
   include RatingAverage
 
-  validates_uniqueness_of :username
+  validates :username, uniqueness: true
 
   has_many :ratings
 end
 ```
-
-Sama olisi saatu aikaan myös hieman luettavuudeltaan kankeammalla ilmaisulla <code>validates :username, uniqueness: true</code>
 
 Jos nyt yritetään luoda uudelleen jo olemassaoleva käyttäjä, huomataan että Rails osaa generoida sopivan virheilmoituksen automaattisesti. 
 
@@ -543,7 +541,20 @@ Rails (tarkemmin sanoen ActiveRecord) suorittaa oliolle määritellyt validoinni
 Lisätään saman tien muitakin validointeja sovellukseemme. Lisätään käyttäjälle vaatimus, että käyttäjätunnuksen pituuden on oltava vähintään 3 merkkiä, eli lisätään User-luokkaan rivi:
 
 ```ruby
-  validates_length_of :username, minimum: 3
+  validates :username, length: { minimum: 3 }
+```
+
+samaa attribuuttia koskevat validointisäännöt voidaan myös yhdistää, yhden <code>validates :attribuutti</code> -kutsun alle:
+
+```ruby
+class User < ActiveRecord::Base
+  include RatingAverage
+
+  validates :username, uniqueness: true,
+                       length: { minimum: 3 }
+
+  has_many :ratings
+end
 ```
 
 Railsin scaffold-generaattorilla luodut kontrollerit toimivat siis siten, että jos validointi onnistuu ja olio on tallentunut kantaan, uudelleenohjataan selain luodun olion sivulle. Jos taas validointi epäonnistuu, näytetään uudelleen olion luomisesta huolehtiva lomake ja renderöidään virheilmoitukset lomakkeen näyttävälle sivulle. 
@@ -611,9 +622,9 @@ class Rating < ActiveRecord::Base
   belongs_to :beer
   belongs_to :user
 
-  validates_numericality_of :score, { greater_than_or_equal_to: 1,
-                                      less_than_or_equal_to: 50,
-                                      only_integer: true }
+  validates :score, numericality: { greater_than_or_equal_to: 1,
+                                    less_than_or_equal_to: 50,
+                                    only_integer: true }
                                       
    # ...
 end
@@ -709,7 +720,7 @@ http://guides.rubyonrails.org/active_record_validations.html ja http://apidock.c
 >
 > Huomaa, että seuraava ei toimi halutulla tavalla:
 >
->   validates_numericality_of :year,  less_than_or_equal_to: Time.now.year 
+>   validates :year, numericality: { less_than_or_equal_to: Time.now.year }
 >
 > Nyt käy siten, että <code>Time.now.year</code> evaluoidaan siinä vaiheessa kun ohjelma lataa luokan koodin. Jos esim. ohjelma käynnistetään vuoden 2014 lopussa, ei vuoden 2015 alussa voida rekisteröidä 2015 aloittanutta panimoa, sillä vuoden yläraja validoinnissa on ohjelman käynnistyshetkellä evaluoitunut 2014
 >
