@@ -828,12 +828,12 @@ irb(main):003:0>
 
 Näiden muutosten jälkeen oluen tietojen editointi ei yllättäen enää toimi. Syynä tälle on se, että uuden oluen luominen ja oluen tietojen editointi käyttävät moelmmat samaa lomakkeen generoivaa näkymäätemplatea (app/views/beers/_form.html.erb) ja muutosten jälkeen näkymän toiminta edellyttää, että muuttuja <code>@breweries</code> sisältää panimoiden listan ja muuttuja <code>@styles</code> sisältää oluiden tyylit. Oluen tietojen muutossivulle mennään kontrollerimetodin <code>edit</code> suorituksen jälkeen, ja joudummekin muuttamaan kontrolleria seuraavasti korjataksemme virheen:
 
-``ruby
+```ruby
   def edit
     @breweries = Brewery.all
     @styles = ["Weizen", "Lager", "Pale ale", "IPA", "Porter"]
   end
-``
+```
 
 Onkin hyvin tyypillistä, että kontrollerimetodit <code>new</code> ja <code>edit</code> sisältävät paljon samaa koodia. Olisikin ehkä järkevä ekstraktoida yhteinen koodi omaan metodiinsa.
 
