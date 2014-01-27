@@ -1000,7 +1000,7 @@ Huomaa, että pelkkä **delete**-linkin poistaminen ei estä poistamasta muiden 
 
 > ## Tehtävä 11
 >
-> Kaikkien käyttäjien listalla http://localhost:300/users on nyt linkki **destroy**, jonka avulla käyttäjän voi tuhota, sekä linkki **edit** käyttäjän tietojen muuttamista varten. Poista molemmat linkit sivulta ja lisää ne (oikeastaan deleten siirto riittää, sillä edit on jo valmiina) käyttäjän sivulle. 
+> Kaikkien käyttäjien listalla http://localhost:3000/users on nyt linkki **destroy**, jonka avulla käyttäjän voi tuhota, sekä linkki **edit** käyttäjän tietojen muuttamista varten. Poista molemmat linkit sivulta ja lisää ne (oikeastaan deleten siirto riittää, sillä edit on jo valmiina) käyttäjän sivulle. 
 >
 > Näytä editointi- ja tuhoamislinkki vain kirjautuneen käyttäjän itsensä sivulla. Muuta myös User-kontrollerin metodeja <code>update</code> ja <code>destroy</code> siten, että olion tietojen muutosta tai poistoa ei voi tehdä kuin kirjaantuneena oleva käyttäjä itselleen.
 
