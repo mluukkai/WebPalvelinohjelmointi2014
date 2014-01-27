@@ -221,11 +221,11 @@ Tehdään nyt sovellukseen kirjautumisesta ja uloskirjautumisesta huolehtiva kon
 
 Voidaan ajatella, että kirjautumisen yhteydessä syntyy sessio, ja tätä voidaan pitää jossain mielessä samanlaisena "resurssina" kuin esim. olutta. Nimetäänkin kirjautumisesta huolehtiva kontrolleri <code>SessionsController</code>iksi ja luodaan sille routes.rb:hen seuraavat reitit
 
-    resources :sessions, only: [:new, :create, :destroy]
+    resources :sessions, only: [:new, :create]
 
-eli kirjautumissivun osoite on **sessions/new** ja uloskirjautumisen osoite **sessions/destroy**. Osoitteeseen **sessions** tehty POST-kutsu suorittaa kirjautumisen.
+eli kirjautumissivun osoite on **sessions/new**. Osoitteeseen **sessions** tehty POST-kutsu suorittaa kirjautumisen. Uloskirjautumisen reitistä huolehdimme vasta myöhemmin.
 
-Tehdään kontrolleri:
+Tehdään kontrolleri. Kontrolleriin olemme tehneet myös uloskirjautumisesta huolehtivan kontrollerimetodin vaikka ulkoskirjautuminen ei ole vielä HTTP:n avulla mahdollista:
 
 ```ruby
 class SessionsController < ApplicationController
@@ -291,7 +291,7 @@ Lisätään application layoutiin seuraava koodi, joka lisää kirjautuneen käy
 <% end %>
 ```
 
-menemällä osoitteeseen http://localhost:3000/sessions/new voimme nyt kirjautua sovellukseen. Uloskirjautuminen ei vielä onnistu, sillä se vaatisi HTTP DELETE -pyynnön osoitteeseen **sessions/delete** ja meidän on lisättävä sen generoimiseksi linkki sovellukseemme.
+menemällä osoitteeseen http://localhost:3000/sessions/new voimme nyt kirjautua sovellukseen. Uloskirjautuminen ei vielä toistaiseksi onnistu.
 
 > ## Tehtävä 1
 >
@@ -323,18 +323,25 @@ Koska kaikki sovelluksen kontrollerit perivät luokan <code>ApplicationControlle
 <% end %>
 ```
 
-Kirjautumisen ja uloskirjautumisen osoitteet ovat hieman ikävät ja lisätään niille luontevammat muodot routes.rb:hen:
+Kirjautumisen osoite __sessions/new__ on hieman ikävä. Määritellänkin kirjautumista varten luontevampi vaihtoehtoinen osoite __signin__. Määritellään myös reitti ulkoskirjautumiselle. Lisätään siis seuraavat routes.rb:hen:
 
 ```ruby
   get 'signin', to: 'sessions#new'
   delete 'signout', to: 'sessions#destroy'
 ```
 
-Huom: pysyttäydytään edelleen REST-filosofian mukaisessa käytänteessä, jonka mukaan resurssin tuhoaminen tapahtuu HTTP DELETE -pyynnöllä. Tässä tapauksessa vaan resurssi on hieman laveammin tulkittava asia eli käyttäjän sisäänkirjautuminen.
+eli sirjautumislomakkeese on nyt osoitteessa http://localhost:3000/signin ja ulkoskirjautuminen tapahtuu osoitteeseen _signout_ tehtävän HTTP DELETE -pyynnön avulla.
+
+Olisi periaatteessa ollut mahdollista määritellä myös
+
+```ruby
+  get 'signout', to: 'sessions#destroy'
+```
+eli mahdollistaa uloskirjautuminen HTTP GET:in avulla. Ei kuitenkaan pidetä hyvänä käytänteenä, että HTTP GET -pyyntö tekee muutoksia sovelluksen tilaan ja pysyttäydytään edelleen REST-filosofian mukaisessa käytänteessä, jonka mukaan resurssin tuhoaminen tapahtuu HTTP DELETE -pyynnöllä. Tässä tapauksessa vaan resurssi on hieman laveammin tulkittava asia eli käyttäjän sisäänkirjautuminen.
 
 > ## Tehtävä 2
 >
-> Muokkaa nyt sovelluksen application layoutissa olevaa navigaatiopalkkia siten, että palkkiin tulee näkyville sisään- ja uloskirjautumislinkit. Huomioi, että uloskirjautumislinkin yhteydessä on määriteltävä käytettäväksi http-metodiksi delete, katso esimerkki tähän esim. kaikki käyttäjät listaavalta sivulta. 
+> Muokkaa nyt sovelluksen application layoutissa olevaa navigaatiopalkkia siten, että palkkiin tulee näkyville sisään- ja uloskirjautumislinkit. Huomioi, että uloskirjautumislinkin yhteydessä on määriteltävä käytettäväksi HTTP-metodiksi delete, katso esimerkki tähän esim. kaikki käyttäjät listaavalta sivulta. 
 >
 > Edellisten lisäksi lisää palkkiin linkki kaikkien käyttäjien sivulle, sekä kirjautuneen käyttäjän nimi, joka toimii linkkinä käyttäjän omalle sivulle. Käyttäjän ollessa kirjaantuneena tulee palkissa olla myös linkki uuden oluen reittaukseen.
 
