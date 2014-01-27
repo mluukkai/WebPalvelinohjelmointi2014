@@ -1006,7 +1006,7 @@ Huomaa, että pelkkä **delete**-linkin poistaminen ei estä poistamasta muiden 
 
 > ## Tehtävä 12
 > 
-> Luo uusi käyttäjätunnus, kirjaudu käyttäjänä ja tuhoa käyttäjä. Käyttäjätunnuksen tuhoamisesta seuraa ikävä virhe. **Pääset virheestä eroon tuhoamalla selaimesta cookiet.** Mieti mistä virhe johtuu ja koraa asia myös sovelluksesta siten, että käyttäjän tuhomaisen jälkeen sovellus ei joudu virhetilanteeseen. 
+> Luo uusi käyttäjätunnus, kirjaudu käyttäjänä ja tuhoa käyttäjä. Käyttäjätunnuksen tuhoamisesta seuraa ikävä virhe. **Pääset virheestä eroon tuhoamalla selaimesta cookiet.** Mieti mistä virhe johtuu ja korjaa asia myös sovelluksesta siten, että käyttäjän tuhoamisen jälkeen sovellus ei joudu virhetilanteeseen. 
 
 > ## Tehtävä 13
 >
