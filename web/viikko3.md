@@ -184,7 +184,7 @@ http://guides.rubyonrails.org/action_controller_overview.html#session joiden avu
 
 Kokeillaan ensin sessioiden käyttöä muistamaan käyttäjän viimeksi tekemä reittaus. Rails-sovelluksen koodissa HTTP-pyynnön tehneen käyttäjän (tai tarkemmin ottaen selaimen) sessioon pääsee käsiksi hashin kaltaisesti toimivan olion <code>session</code> kautta. 
 
-Talletetaan reittaus sessioon tekemällä seuraava lisäys reittauskonrolleriin:
+Talletetaan reittaus sessioon tekemällä seuraava lisäys reittauskontrolleriin:
 
 ```ruby
   def create
