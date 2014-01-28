@@ -299,7 +299,7 @@ menemällä osoitteeseen http://localhost:3000/sessions/new voimme nyt kirjautua
 
 ## Kontrollerien ja näyttöjen apumetodi
 
-Tietokantakyselyn tekeminen näytön koodissa (kuten juuri teimme application controlleriin lisätyssä koodissa) on todella ruma tapa. Lisätään luokkaan <code>ApplicationController</code> seuraava metodi:
+Tietokantakyselyn tekeminen näytön koodissa (kuten juuri teimme application layoutiin lisätyssä koodissa) on todella ruma tapa. Lisätään luokkaan <code>ApplicationController</code> seuraava metodi:
 
 ```ruby
 class ApplicationController < ActionController::Base
