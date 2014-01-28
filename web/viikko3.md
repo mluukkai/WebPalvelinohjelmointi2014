@@ -441,7 +441,7 @@ irb(main):013:0>
 > * käyttäjän reittausten määrä ja keskiarvo (huom: käytä edellisellä viikolla  määriteltyä moduulia <code>RatingAverage</code>, jotta saat keskiarvon laskevan koodin käyttäjälle!)
 > * lista käyttäjän reittauksista ja mahdollisuus poistaa reittauksia 
 
-Käyttäjän sivu siis näyttää suunilleen seuraavalta
+Käyttäjän sivu siis näyttää suunilleen seuraavalta (**HUOM:** sivulle olisi pitänyt lisätä myös tieto käyttäjän antamien reittausten keskiarvosta mutta se unohtui...):
 
 ![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/ratebeer-w3-3.png)
 
@@ -455,7 +455,7 @@ Reittauksen poisto vie nyt kaikkien reittausten sivulle. Luontevinta olisi, ett�
   end
 ```
 
-Eli kuten arvata saattaa, <code>redirect_to :back</code> aiheuttaa uudelleenohjauksen takaisin siihen osoitteeseen, jolta HTTP DELETE -pyynnön aiheuttama linkinklikkaus suoritettiin.
+Eli kuten arvata saattaa, <code>redirect_to :back</code> aiheuttaa uudelleenohjauksen takaisin siihen osoitteeseen, jolta HTTP DELETE -pyynnön aiheuttama linkin klikkaus suoritettiin.
 
 Uusien reittausten luominen www-sivulta ei siis tällä hetkellä toimi, koska reittaukseen ei tällä hetkellä liitetä kirjautuneena olevaa käyttäjää. Muokataan siis  reittauskontrolleria siten, että kirjautuneena oleva käyttäjä linkitetään luotavaan reittaukseen:
 
