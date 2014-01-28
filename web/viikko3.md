@@ -834,7 +834,7 @@ Trendinä kuitenkin on, että metodin has_and_belongs_to_many sijaan käytetää
 >
 > Muodosta <code>BeerClub</code>in ja <code>User</code>ien välille monen suhde moneen -yhteys. Luo tätä varten liitostauluksi model <code>Membership</code>, jolla on attribuutteina vierasavaimet <code>User</code>- ja <code>BeerClub</code>-olioihin (eli <code>beer_club_id</code> ja <code>user_id</code>, huomaa miten iso kirjain olion keskellä muuttuu alaviivaksi!). Tämänkin modelin voit luoda scaffoldingilla.
 > 
-> Voit toteuttaa tässä vaiheessa jäsenien liittämisen olutseuroihin esim. samalla tavalla kuten oluiden reittaus tapahtuu tällä hetkellä, eli lisäämällä navigointipalkkiin linkin "join to a club", jonka avulla kirjautunut käyttäjä voidaan littää johonkin listalla näytettävistä olutseuroista.  
+> Voit toteuttaa tässä vaiheessa jäsenien liittämisen olutseuroihin esim. samalla tavalla kuten oluiden reittaus tapahtuu tällä hetkellä, eli lisäämällä navigointipalkkiin linkin "join a club", jonka avulla kirjautunut käyttäjä voidaan littää johonkin listalla näytettävistä olutseuroista.  
 >
 > Listaa olutseuran sivulla kaikki jäsenet ja vastaavasti henkilöiden sivulla kaikki olutseurat, joiden jäsen henkilö on. Lisää navigointipalkkiin linkki kaikkien olutseurojen listalle.
 >
