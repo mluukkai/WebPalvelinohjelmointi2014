@@ -379,12 +379,12 @@ end
 
 Ratkaisu ei kuitenkaan tällaisenaan toimi. Yhteyden takia _ratings_-tietokantatauluun riveille tarvitaan vierasavaimeksi viite käyttäjän id:hen. Railsissa kaikki muutokset tietokantaan tehdään Ruby-koodia olevien migraatioiden avulla. Luodaan nyt uuden sarakkeen lisäävä migraatio. Generoidaan ensin migraatiotiedosto komentoriviltä komennolla:
 
-    rails g migration AddRatingsForeignKeyToUser
+    rails g migration AddUserIdToRatings
 
 Hakemistoon _db/migrate_ ilmestyy tiedosto, jonka sisältö on seuraava
 
 ```ruby
-class AddRatingsForeignKeyToUser < ActiveRecord::Migration
+class AddUserIdToRatings < ActiveRecord::Migration
   def change
   end
 end
