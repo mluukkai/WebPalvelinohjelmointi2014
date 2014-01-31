@@ -323,14 +323,14 @@ Koska kaikki sovelluksen kontrollerit perivät luokan <code>ApplicationControlle
 <% end %>
 ```
 
-Kirjautumisen osoite __sessions/new__ on hieman ikävä. Määritellänkin kirjautumista varten luontevampi vaihtoehtoinen osoite __signin__. Määritellään myös reitti ulkoskirjautumiselle. Lisätään siis seuraavat routes.rb:hen:
+Kirjautumisen osoite __sessions/new__ on hieman ikävä. Määritelläänkin kirjautumista varten luontevampi vaihtoehtoinen osoite __signin__. Määritellään myös reitti ulkoskirjautumiselle. Lisätään siis seuraavat routes.rb:hen:
 
 ```ruby
   get 'signin', to: 'sessions#new'
   delete 'signout', to: 'sessions#destroy'
 ```
 
-eli sirjautumislomakkeese on nyt osoitteessa http://localhost:3000/signin ja ulkoskirjautuminen tapahtuu osoitteeseen _signout_ tehtävän HTTP DELETE -pyynnön avulla.
+eli sisäänkirjautumislomake on nyt osoitteessa http://localhost:3000/signin ja ulkoskirjautuminen tapahtuu osoitteeseen _signout_ tehtävän HTTP DELETE -pyynnön avulla.
 
 Olisi periaatteessa ollut mahdollista määritellä myös
 
