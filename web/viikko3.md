@@ -733,7 +733,7 @@ http://guides.rubyonrails.org/active_record_validations.html ja http://apidock.c
 >
 > Eräs kelvollinen ratkaisutapa on oman validointimetodin määritteleminen http://guides.rubyonrails.org/active_record_validations.html#custom-methods
 >
-> Koodimäärällisesti lyhyempiäkin ratkaisuja löytyy, vihjeenä olkoon sana lambda
+> Koodimäärällisesti lyhyempiäkin ratkaisuja löytyy, vihjeenä olkoon lambda/Proc/whatever...
 
 
 ## Monen suhde moneen -yhteydet
