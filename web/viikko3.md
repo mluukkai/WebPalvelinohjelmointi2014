@@ -297,9 +297,9 @@ menemällä osoitteeseen http://localhost:3000/sessions/new voimme nyt kirjautua
 >
 > Tee kaikki ylläesitetyt muutokset ja varmista, että kirjautuminen onnistuu (eli kirjautunut käyttäjä näytetään sivulla) olemassaolevalla käyttäjätunnuksella (jonka siis voit luoda osoitteessa http://localhost:3000/signup). Vaikka uloskirjautuminen ei ole mahdollista, voit kirjautua uudella tunnuksella kirjautumisosoitteessa ja vanha kirjautuminen ylikirjoittuu.
 
-## Kontrollerien ja näyttöjen apumetodi
+## Kontrollerien ja näkymien apumetodi
 
-Tietokantakyselyn tekeminen näytön koodissa (kuten juuri teimme application layoutiin lisätyssä koodissa) on todella ruma tapa. Lisätään luokkaan <code>ApplicationController</code> seuraava metodi:
+Tietokantakyselyn tekeminen näkymän koodissa (kuten juuri teimme application layoutiin lisätyssä koodissa) on todella ruma tapa. Lisätään luokkaan <code>ApplicationController</code> seuraava metodi:
 
 ```ruby
 class ApplicationController < ActionController::Base
