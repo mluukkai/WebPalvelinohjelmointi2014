@@ -291,11 +291,11 @@ Lisätään application layoutiin seuraava koodi, joka lisää kirjautuneen käy
 <% end %>
 ```
 
-menemällä osoitteeseen http://localhost:3000/sessions/new voimme nyt kirjautua sovellukseen. Uloskirjautuminen ei vielä toistaiseksi onnistu.
+menemällä osoitteeseen [http://localhost:3000/sessions/new][/sessions/new] voimme nyt kirjautua sovellukseen. Uloskirjautuminen ei vielä toistaiseksi onnistu.
 
 > ## Tehtävä 1
 >
-> Tee kaikki ylläesitetyt muutokset ja varmista, että kirjautuminen onnistuu (eli kirjautunut käyttäjä näytetään sivulla) olemassaolevalla käyttäjätunnuksella (jonka siis voit luoda osoitteessa http://localhost:3000/signup). Vaikka uloskirjautuminen ei ole mahdollista, voit kirjautua uudella tunnuksella kirjautumisosoitteessa ja vanha kirjautuminen ylikirjoittuu.
+> Tee kaikki ylläesitetyt muutokset ja varmista, että kirjautuminen onnistuu (eli kirjautunut käyttäjä näytetään sivulla) olemassaolevalla käyttäjätunnuksella (jonka siis voit luoda osoitteessa [http://localhost:3000/signup][/signup]). Vaikka uloskirjautuminen ei ole mahdollista, voit kirjautua uudella tunnuksella kirjautumisosoitteessa ja vanha kirjautuminen ylikirjoittuu.
 
 ## Kontrollerien ja näkymien apumetodi
 
@@ -330,7 +330,7 @@ Kirjautumisen osoite __sessions/new__ on hieman ikävä. Määritelläänkin kir
   delete 'signout', to: 'sessions#destroy'
 ```
 
-eli sisäänkirjautumislomake on nyt osoitteessa http://localhost:3000/signin ja ulkoskirjautuminen tapahtuu osoitteeseen _signout_ tehtävän HTTP DELETE -pyynnön avulla.
+eli sisäänkirjautumislomake on nyt osoitteessa [http://localhost:3000/signin][/signin] ja ulkoskirjautuminen tapahtuu osoitteeseen _signout_ tehtävän HTTP DELETE -pyynnön avulla.
 
 Olisi periaatteessa ollut mahdollista määritellä myös
 
@@ -1009,7 +1009,7 @@ Huomaa, että pelkkä **delete**-linkin poistaminen ei estä poistamasta muiden 
 
 > ## Tehtävä 11
 >
-> Kaikkien käyttäjien listalla http://localhost:3000/users on nyt linkki **destroy**, jonka avulla käyttäjän voi tuhota, sekä linkki **edit** käyttäjän tietojen muuttamista varten. Poista molemmat linkit sivulta ja lisää ne (oikeastaan deleten siirto riittää, sillä edit on jo valmiina) käyttäjän sivulle. 
+> Kaikkien käyttäjien listalla [http://localhost:3000/users][/users] on nyt linkki **destroy**, jonka avulla käyttäjän voi tuhota, sekä linkki **edit** käyttäjän tietojen muuttamista varten. Poista molemmat linkit sivulta ja lisää ne (oikeastaan deleten siirto riittää, sillä edit on jo valmiina) käyttäjän sivulle. 
 >
 > Näytä editointi- ja tuhoamislinkki vain kirjautuneen käyttäjän itsensä sivulla. Muuta myös User-kontrollerin metodeja <code>update</code> ja <code>destroy</code> siten, että olion tietojen muutosta tai poistoa ei voi tehdä kuin kirjaantuneena oleva käyttäjä itselleen.
 
@@ -1135,4 +1135,9 @@ Muutosten jälkeen käyttäjän tietojen muuttamislomake näyttää seuraavalta:
 Commitoi kaikki tekemäsi muutokset ja pushaa koodi Githubiin. Deployaa myös uusin versio Herokuun.
 
 Tehtävät kirjataan palautetuksi osoitteeseen http://wadrorstats2014.herokuapp.com/courses/1
+
+[/sessions/new]: http://localhost:3000/sessions/new "goto: /sessions/new"
+[/signup]: https://localhost:3000/signup "goto: /signup"
+[/signin]: https://localhost:3000/signin "goto: /signin"
+[/users]: https://localhost:3000/users "goto: /users"
 
