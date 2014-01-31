@@ -395,7 +395,7 @@ Huomaa, että hakemistossa on jo omat migraatiotiedostot kaikkia luotuja tietoka
 Tällä kertaa tarvittava migraatio on yksinkertainen:
 
 ```ruby
-class AddRatingsForeignKeyToUser < ActiveRecord::Migration
+class AddUserIdToRatings < ActiveRecord::Migration
   def change
     add_column :ratings, :user_id, :integer
   end
