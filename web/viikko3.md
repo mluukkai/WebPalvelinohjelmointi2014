@@ -330,7 +330,7 @@ Kirjautumisen osoite __sessions/new__ on hieman ikävä. Määritellänkin kirja
   delete 'signout', to: 'sessions#destroy'
 ```
 
-eli sirjautumislomakkeese on nyt osoitteessa http://localhost:3000/signin ja ulkoskirjautuminen tapahtuu osoitteeseen _signout_ tehtävän HTTP DELETE -pyynnön avulla.
+eli kirjautumislomake on nyt osoitteessa http://localhost:3000/signin ja ulkoskirjautuminen tapahtuu osoitteeseen _signout_ tehtävän HTTP DELETE -pyynnön avulla.
 
 Olisi periaatteessa ollut mahdollista määritellä myös
 
