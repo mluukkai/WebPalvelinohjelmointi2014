@@ -291,15 +291,15 @@ Lisätään application layoutiin seuraava koodi, joka lisää kirjautuneen käy
 <% end %>
 ```
 
-menemällä osoitteeseen http://localhost:3000/sessions/new voimme nyt kirjautua sovellukseen. Uloskirjautuminen ei vielä toistaiseksi onnistu.
+menemällä osoitteeseen [http://localhost:3000/sessions/new][/sessions/new] voimme nyt kirjautua sovellukseen. Uloskirjautuminen ei vielä toistaiseksi onnistu.
 
 > ## Tehtävä 1
 >
-> Tee kaikki ylläesitetyt muutokset ja varmista, että kirjautuminen onnistuu (eli kirjautunut käyttäjä näytetään sivulla) olemassaolevalla käyttäjätunnuksella (jonka siis voit luoda osoitteessa http://localhost:3000/signup). Vaikka uloskirjautuminen ei ole mahdollista, voit kirjautua uudella tunnuksella kirjautumisosoitteessa ja vanha kirjautuminen ylikirjoittuu.
+> Tee kaikki ylläesitetyt muutokset ja varmista, että kirjautuminen onnistuu (eli kirjautunut käyttäjä näytetään sivulla) olemassaolevalla käyttäjätunnuksella (jonka siis voit luoda osoitteessa [http://localhost:3000/signup][/signup]). Vaikka uloskirjautuminen ei ole mahdollista, voit kirjautua uudella tunnuksella kirjautumisosoitteessa ja vanha kirjautuminen ylikirjoittuu.
 
-## Kontrollerien ja näyttöjen apumetodi
+## Kontrollerien ja näkymien apumetodi
 
-Tietokantakyselyn tekeminen näytön koodissa (kuten juuri teimme application layoutiin lisätyssä koodissa) on todella ruma tapa. Lisätään luokkaan <code>ApplicationController</code> seuraava metodi:
+Tietokantakyselyn tekeminen näkymän koodissa (kuten juuri teimme application layoutiin lisätyssä koodissa) on todella ruma tapa. Lisätään luokkaan <code>ApplicationController</code> seuraava metodi:
 
 ```ruby
 class ApplicationController < ActionController::Base
@@ -323,14 +323,14 @@ Koska kaikki sovelluksen kontrollerit perivät luokan <code>ApplicationControlle
 <% end %>
 ```
 
-Kirjautumisen osoite __sessions/new__ on hieman ikävä. Määritellänkin kirjautumista varten luontevampi vaihtoehtoinen osoite __signin__. Määritellään myös reitti ulkoskirjautumiselle. Lisätään siis seuraavat routes.rb:hen:
+Kirjautumisen osoite __sessions/new__ on hieman ikävä. Määritelläänkin kirjautumista varten luontevampi vaihtoehtoinen osoite __signin__. Määritellään myös reitti ulkoskirjautumiselle. Lisätään siis seuraavat routes.rb:hen:
 
 ```ruby
   get 'signin', to: 'sessions#new'
   delete 'signout', to: 'sessions#destroy'
 ```
 
-eli sirjautumislomakkeese on nyt osoitteessa http://localhost:3000/signin ja ulkoskirjautuminen tapahtuu osoitteeseen _signout_ tehtävän HTTP DELETE -pyynnön avulla.
+eli sisäänkirjautumislomake on nyt osoitteessa [http://localhost:3000/signin][/signin] ja ulkoskirjautuminen tapahtuu osoitteeseen _signout_ tehtävän HTTP DELETE -pyynnön avulla.
 
 Olisi periaatteessa ollut mahdollista määritellä myös
 
@@ -379,12 +379,12 @@ end
 
 Ratkaisu ei kuitenkaan tällaisenaan toimi. Yhteyden takia _ratings_-tietokantatauluun riveille tarvitaan vierasavaimeksi viite käyttäjän id:hen. Railsissa kaikki muutokset tietokantaan tehdään Ruby-koodia olevien migraatioiden avulla. Luodaan nyt uuden sarakkeen lisäävä migraatio. Generoidaan ensin migraatiotiedosto komentoriviltä komennolla:
 
-    rails g migration AddRatingsForeignKeyToUser
+    rails g migration AddUserIdToRatings
 
 Hakemistoon _db/migrate_ ilmestyy tiedosto, jonka sisältö on seuraava
 
 ```ruby
-class AddRatingsForeignKeyToUser < ActiveRecord::Migration
+class AddUserIdToRatings < ActiveRecord::Migration
   def change
   end
 end
@@ -1009,7 +1009,7 @@ Huomaa, että pelkkä **delete**-linkin poistaminen ei estä poistamasta muiden 
 
 > ## Tehtävä 11
 >
-> Kaikkien käyttäjien listalla http://localhost:3000/users on nyt linkki **destroy**, jonka avulla käyttäjän voi tuhota, sekä linkki **edit** käyttäjän tietojen muuttamista varten. Poista molemmat linkit sivulta ja lisää ne (oikeastaan deleten siirto riittää, sillä edit on jo valmiina) käyttäjän sivulle. 
+> Kaikkien käyttäjien listalla [http://localhost:3000/users][/users] on nyt linkki **destroy**, jonka avulla käyttäjän voi tuhota, sekä linkki **edit** käyttäjän tietojen muuttamista varten. Poista molemmat linkit sivulta ja lisää ne (oikeastaan deleten siirto riittää, sillä edit on jo valmiina) käyttäjän sivulle. 
 >
 > Näytä editointi- ja tuhoamislinkki vain kirjautuneen käyttäjän itsensä sivulla. Muuta myös User-kontrollerin metodeja <code>update</code> ja <code>destroy</code> siten, että olion tietojen muutosta tai poistoa ei voi tehdä kuin kirjaantuneena oleva käyttäjä itselleen.
 
@@ -1135,4 +1135,9 @@ Muutosten jälkeen käyttäjän tietojen muuttamislomake näyttää seuraavalta:
 Commitoi kaikki tekemäsi muutokset ja pushaa koodi Githubiin. Deployaa myös uusin versio Herokuun.
 
 Tehtävät kirjataan palautetuksi osoitteeseen http://wadrorstats2014.herokuapp.com/courses/1
+
+[/sessions/new]: http://localhost:3000/sessions/new "goto: /sessions/new"
+[/signup]: https://localhost:3000/signup "goto: /signup"
+[/signin]: https://localhost:3000/signin "goto: /signin"
+[/users]: https://localhost:3000/users "goto: /users"
 
