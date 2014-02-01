@@ -33,7 +33,7 @@ eli pudotusvalikkojen valintavaihtoehdot välitettään lomakkeelle muuttujissa 
   end
 ```
 
-Näiden muutosten jälkeen oluen tietojen editointi ei yllättäen enää toimi. Seurauksena on virheilmoitus <coce>undefined method `map' for nil:NilClass</code>, johon olet kenties jo kurssin aikana törmännyt:
+Näiden muutosten jälkeen oluen tietojen editointi ei yllättäen enää toimi. Seurauksena on virheilmoitus <code>undefined method `map' for nil:NilClass</code>, johon olet kenties jo kurssin aikana törmännyt:
 
 ![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/ratebeer-w4-0.png)
 
