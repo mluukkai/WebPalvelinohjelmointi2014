@@ -37,7 +37,7 @@ Näiden muutosten jälkeen oluen tietojen editointi ei yllättäen enää toimi.
 
 ![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/ratebeer-w4-0.png)
 
-Syynä tälle on se, että uuden oluen luominen ja oluen tietojen editointi käyttävät moelmmat samaa lomakkeen generoivaa näkymäätemplatea (app/views/beers/_form.html.erb) ja muutosten jälkeen näkymän toiminta edellyttää, että muuttuja <code>@breweries</code> sisältää panimoiden listan ja muuttuja <code>@styles</code> sisältää oluiden tyylit. Oluen tietojen muutossivulle mennään kontrollerimetodin <code>edit</code> suorituksen jälkeen, ja joudummekin muuttamaan kontrolleria seuraavasti korjataksemme virheen:
+Syynä tälle on se, että uuden oluen luominen ja oluen tietojen editointi käyttävät molemmat samaa lomakkeen generoivaa näkymäätemplatea (app/views/beers/_form.html.erb) ja muutosten jälkeen näkymän toiminta edellyttää, että muuttuja <code>@breweries</code> sisältää panimoiden listan ja muuttuja <code>@styles</code> sisältää oluiden tyylit. Oluen tietojen muutossivulle mennään kontrollerimetodin <code>edit</code> suorituksen jälkeen, ja joudummekin muuttamaan kontrolleria seuraavasti korjataksemme virheen:
 
 ```ruby
   def edit
@@ -67,7 +67,7 @@ Täsmälleen samaan ongelmaan törmätään jos yritetään luoda olut joka ei o
   end
 ```
 
-Onkin hyvin tyypillistä, että kontrollerimetodit <code>new</code>, <code>create</code> ja <code>edit</code> sisältävät paljon samaa, näkymätemplaten tarvitsemien muuttujien alustukseen käytettyä koodia. Onkin ehkä järkevä ekstraktoida yhteinen koodi omaan metodiinsa:
+Onkin hyvin tyypillistä, että kontrollerimetodit <code>new</code>, <code>create</code> ja <code>edit</code> sisältävät paljon samaa, näkymätemplaten tarvitsemien muuttujien alustukseen käytettyä koodia. Onkin järkevää ekstraktoida yhteinen koodi omaan metodiin:
 
 ```ruby
   def set_breweries_and_styles_for_template
@@ -96,7 +96,7 @@ class BeersController < ApplicationController
 ```
 
 tällöin muuttujien <code>@styles</code> ja <code>@breweries</code> arvot asettava metodi siis suoritetaan automaattisesti aina ennen metodien 
-<code>new</code>, <code>create</code> ja <code>edit</code> suoritusta.
+<code>new</code>, <code>create</code> ja <code>edit</code> suoritusta. Metodissa <code>create</code> muuttujien arvot asetetaan ehkä turhaan sillä niitä tarvitaan ainoastaan validoinnin epäonnistuessa. Kenties olisikin parempi käyttää eksplisiittistä kutsua createssa.
 
 ## Testaaminen
 
