@@ -67,7 +67,7 @@ Täsmälleen samaan ongelmaan törmätään jos yritetään luoda olut joka ei o
   end
 ```
 
-Onkin hyvin tyypillistä, että kontrollerimetodit <code>new</code>, <code>create</code> ja <code>edit</code> sisältävät paljon samaa, näkymätemplaten tarvitsemien muuttujien alustukseen käytettyä koodia. Onkin ehkä järkevä ekstraktoida yhteinen koodi omaan metodiinsa.
+Onkin hyvin tyypillistä, että kontrollerimetodit <code>new</code>, <code>create</code> ja <code>edit</code> sisältävät paljon samaa, näkymätemplaten tarvitsemien muuttujien alustukseen käytettyä koodia. Onkin ehkä järkevä ekstraktoida yhteinen koodi omaan metodiinsa:
 
 ```ruby
   def set_breweries_and_styles_for_template
@@ -1139,7 +1139,7 @@ Kirjautumisen toteutuksen siirtäminen apumetodiin siis kasvattaa myös testien 
 >
 > Tee testi, joka varmistaa, että järjestelmään voidaan lisätä www-sivun kautta olut, jos oluen nimikenttä saa validin arvon (eli se on epätyhjä). Tee myös testi, joka varmistaa, että selain palaa oluen luomissivulle ja näyttää asiaan kuuluvan virheilmoituksen jos oluen nimi ei ole validi, ja että tälläisessä tapauksessa tietokantaan ei talletu mitään.
 >
-> **HUOM:** ohjelmassasi on ehkä bugi tilanteessa, jossa yritetään luoda epävalidin nimen omaava olut. Kokeile toiminnallisuutta selaimesta. Syynä tälle on se, että muuttujiin <code>@breweries</code> ja <code>@styles</code> ei ole asetettu arvoja siinä tapauksessa jos metodista kontrollerimetodista <code>create</code> joudutaan validoinnin epäonnistumisen takia palaamaan lomakkeelle. Korjaa vika koodistasi (muuttujiin tulee asettaa samat arvot kuin metodissa <code>new</code>).
+> **HUOM:** ohjelmassasi on ehkä bugi tilanteessa, jossa yritetään luoda epävalidin nimen omaava olut. Kokeile toiminnallisuutta selaimesta. Syynä tälle on selitetty viikon alussa, kohdassa https://github.com/mluukkai/WebPalvelinohjelmointi2014/blob/master/web/viikko4.md#muutama-huomio. Korjaa vika koodistasi.
 >
 > Muista ongelmatilanteissa komento <code>save_and_open_page</code>!
 
