@@ -23,7 +23,7 @@ Viikolla 2 muutimme oluiden luomislomaketta siten, että uuden oluen tyyli ja pa
   </div>
 ```
 
-pudotusvalikkojen valintavaihtoehdot siis välitettään lomakkeelle muuttujissa <code>@styles</code> ja <code>@breweries</code> jotka kontrollerin metodi <code>new</code> asettaa:
+eli pudotusvalikkojen valintavaihtoehdot välitettään lomakkeelle muuttujissa <code>@styles</code> ja <code>@breweries</code>, joille kontrollerin metodi <code>new</code> asettaa arvot:
 
 ```ruby
   def new
@@ -33,9 +33,9 @@ pudotusvalikkojen valintavaihtoehdot siis välitettään lomakkeelle muuttujissa
   end
 ```
 
-Näiden muutosten jälkeen oluen tietojen editointi ei yllättäen enää toimi. Seurauksena on virheilmoitus <coce>undefined method `map' for nil:NilClass</coce>, johon olet kenties jo kurssin aikana törmännyt:
+Näiden muutosten jälkeen oluen tietojen editointi ei yllättäen enää toimi. Seurauksena on virheilmoitus <coce>undefined method `map' for nil:NilClass</code>, johon olet kenties jo kurssin aikana törmännyt:
 
-![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/ratebeer-w4-1.png)
+![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/ratebeer-w4-0.png)
 
 Syynä tälle on se, että uuden oluen luominen ja oluen tietojen editointi käyttävät moelmmat samaa lomakkeen generoivaa näkymäätemplatea (app/views/beers/_form.html.erb) ja muutosten jälkeen näkymän toiminta edellyttää, että muuttuja <code>@breweries</code> sisältää panimoiden listan ja muuttuja <code>@styles</code> sisältää oluiden tyylit. Oluen tietojen muutossivulle mennään kontrollerimetodin <code>edit</code> suorituksen jälkeen, ja joudummekin muuttamaan kontrolleria seuraavasti korjataksemme virheen:
 
