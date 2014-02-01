@@ -1452,6 +1452,11 @@ http://railscasts.com/episodes/192-authorization-with-cancan
 
 Aihetta esittelevä Rails cast on jo aika ikääntynyt, eli tarkemmat ohjeet kannattaa katsoa projektin Github-sivulta. Rails castit tarjoavat todella hyviä esittelyjä monista aihepiireistä, eli vaikka castit eivät enää olisi täysin ajantasalla kaikkien detaljien suhteen, kannattaa ne usein silti katsoa läpi.
 
+**HUOM:** cancan-gemiä ei ikävä kyllä ole vielä [päivitetty Rails 4:n](http://www.ready4rails4.net/gems/cancan) kanssa toimivaksi gemistä on kuitenkin olemassa myös Rails 4:n kanssa toimiva versio https://github.com/colinyoung/cancan_strong_parameters eli **toistaiseksi on käytettävä cancanin sijaan gemiä cancan_strong_parameters**
+
+
+
+
 ## Sovelluksen ulkoasun hienosäätö
 
 Voit halutessasi tehdä hienosäätöä sovelluksen näkymiin, esim. poistaa resurssien poisto- ja editointilinkit listaussivulta:
