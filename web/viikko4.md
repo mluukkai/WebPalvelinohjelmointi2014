@@ -8,6 +8,67 @@ Jos otat edellisen viikon mallivastauksen tämän viikon pohjaksi, kopioi hakemi
 
 Tämä asetus muistetaan jatkossa, joten pelkkä `bundle install` riittää kun haluat asentaa uusia riippuvuuksia.
 
+## Muutama huomio
+
+Viikolla 2 muutimme oluiden luomislomaketta siten, että uuden oluen tyyli ja panimo valitaan pudotusvalikoista. Lomake siis muutettiin käyttämään tekstikentän sijaan _select_:iä: 
+
+```ruby
+  <div class="field">
+    <%= f.label :style %><br>
+    <%= f.select :style, options_for_select(@styles) %>
+  </div>
+  <div class="field">
+    <%= f.label :brewery %><br>
+    <%= f.select :brewery_id, options_from_collection_for_select(@breweries, :id, :name) %>
+  </div>
+```
+
+pudotusvalikkojen valintavaihtoehdot siis välitettään lomakkeelle muuttujissa <code>@styles</code> ja <code>@breweries</code> jotka kontrollerin metodi <code>new</code> asettaa:
+
+```ruby
+  def new
+    @beer = Beer.new
+    @breweries = Brewery.all
+    @styles = ["Weizen", "Lager", "Pale ale", "IPA", "Porter"]
+  end
+```
+
+Näiden muutosten jälkeen oluen tietojen editointi ei yllättäen enää toimi. Seurauksena on virheilmoitus <coce>undefined method `map' for nil:NilClass</coce>, johon olet kenties jo kurssin aikana törmännyt:
+
+![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/ratebeer-w4-1.png)
+
+Syynä tälle on se, että uuden oluen luominen ja oluen tietojen editointi käyttävät moelmmat samaa lomakkeen generoivaa näkymäätemplatea (app/views/beers/_form.html.erb) ja muutosten jälkeen näkymän toiminta edellyttää, että muuttuja <code>@breweries</code> sisältää panimoiden listan ja muuttuja <code>@styles</code> sisältää oluiden tyylit. Oluen tietojen muutossivulle mennään kontrollerimetodin <code>edit</code> suorituksen jälkeen, ja joudummekin muuttamaan kontrolleria seuraavasti korjataksemme virheen:
+
+```ruby
+  def edit
+    @breweries = Brewery.all
+    @styles = ["Weizen", "Lager", "Pale ale", "IPA", "Porter"]
+  end
+```
+
+Täsmälleen samaan ongelmaan törmätään jos yritetään luoda olut joka ei ole validi. Tällöin nimittäin kontrollerin metodi <code>create</code> yrittää renderöidä uudelleen lomakkeen generoivan näkymätemplaten. Metodissa on siis ennen renderöintiä asetettava arvo templaten tarvitsemille muuttujille <code>@styles</code> ja <code>@breweries</code>:
+
+```ruby
+  def create
+    @beer = Beer.new(beer_params)
+
+    respond_to do |format|
+      if @beer.save
+        format.html { redirect_to beers_path, notice: 'Beer was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @beer }
+      else
+        @breweries = Brewery.all
+        @styles = ["Weizen", "Lager", "Pale ale", "IPA", "Porter"]
+
+        format.html { render action: 'new' }
+        format.json { render json: @beer.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+```
+
+Onkin hyvin tyypillistä, että kontrollerimetodit <code>new</code>, <code>create</code> ja <code>edit</code> sisältävät paljon samaa, näkymätemplaten tarvitsemien muuttujien alustukseen käytettyä koodia. Olisikin ehkä järkevä ekstraktoida yhteinen koodi omaan metodiinsa.
+
 ## Testaaminen
 
 Toistaiseksi olemme tehneet koodia, jonka toimintaa olemme testanneet ainoastaan selaimesta. Tämä on suuri virhe. Jokaisen eliniältään laajemmaksi tarkoitetun ohjelman on syytä sisältää riittävän kattavat automaattiset testit, muuten ajan mittaan käy niin että ohjelman laajentaminen tulee liian riskialttiiksi.
@@ -580,7 +641,7 @@ irb(main):021:0> u.ratings.sort_by(&:score).last.beer
   Beer Load (0.1ms)  SELECT "beers".* FROM "beers" WHERE "beers"."id" = ? ORDER BY "beers"."id" ASC LIMIT 1  [["id", 1]]
 ```
 
-Seurauksena on 2 SQL-kyselyä joista ensimmäinen
+Seurauksena on 2 SQL-kyselyä, joista ensimmäinen
 
 ```ruby
 SELECT "ratings".* FROM "ratings" WHERE "ratings"."user_id" = ?  [["user_id", 1]]
@@ -1049,7 +1110,7 @@ Kirjautumisen toteutuksen siirtäminen apumetodiin siis kasvattaa myös testien 
 >
 > Tee testi, joka varmistaa, että järjestelmään voidaan lisätä www-sivun kautta olut, jos oluen nimikenttä saa validin arvon (eli se on epätyhjä). Tee myös testi, joka varmistaa, että selain palaa oluen luomissivulle ja näyttää asiaan kuuluvan virheilmoituksen jos oluen nimi ei ole validi, ja että tälläisessä tapauksessa tietokantaan ei talletu mitään.
 >
-> **HUOM:** ohjelmassasi on ehkä bugi tilanteessa jos yritetään luoda epävalidin nimen omaava olut. Kokeile toiminnallisuutta selaimesta. Syynä tälle on se, että muuttujiin <code>@breweries</code> ja <code>@styles</code> ei ole asetettu arvoja siinä tapauksessa jos metodista kontrollerimetodista <code>create</code> joudutaan validoinnin epäonnistumisen takia palaamaan lomakkeelle. Korjaa vika koodistasi (muuttujiin tulee asettaa samat arvot kuin metodissa <code>new</code>).
+> **HUOM:** ohjelmassasi on ehkä bugi tilanteessa, jossa yritetään luoda epävalidin nimen omaava olut. Kokeile toiminnallisuutta selaimesta. Syynä tälle on se, että muuttujiin <code>@breweries</code> ja <code>@styles</code> ei ole asetettu arvoja siinä tapauksessa jos metodista kontrollerimetodista <code>create</code> joudutaan validoinnin epäonnistumisen takia palaamaan lomakkeelle. Korjaa vika koodistasi (muuttujiin tulee asettaa samat arvot kuin metodissa <code>new</code>).
 >
 > Muista ongelmatilanteissa komento <code>save_and_open_page</code>!
 
