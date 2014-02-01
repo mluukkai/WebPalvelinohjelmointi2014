@@ -1128,6 +1128,35 @@ Muutosten jälkeen käyttäjän tietojen muuttamislomake näyttää seuraavalta:
 
 ![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/ratebeer-w3-8.png)
 
+## Tietokannan nollaus herokussa
+Ensiki täytyy selvittää tietokannan nimi Herokussa, tämä onnistuu komennolla `heroku pg`.
+```
+$ heroku pg
+
+=== HEROKU_POSTGRESQL_MAROON_URL (DATABASE_URL)
+Plan:        Hobby-dev
+Status:      available
+Connections: 1
+PG Version:  9.3.2
+Created:     2014-01-18 20:49 UTC
+Data Size:   6.8 MB
+Tables:      7
+Rows:        28/10000 (In compliance)
+Fork/Follow: Unsupported
+Rollback:    Unsupported
+```
+
+Tietokannan nimi tällä sovelluksella on `HEROKU_POSTGRESQL_MAROON_URL`.
+
+Nyt voimme nollata tietokannan täysin komennolla `heroku pg:reset TIETOKANNANNIMI` ja palauttaa Railsin tietokannan komennolla `heroku run "rake db:migrate && rake db:seed"`
+
+Siis vielä kerran kokonaisuudessaan
+
+```
+heroku pg
+heroku pg:reset TIETOKANNANNIMI
+heroku run "rake db:migrate && rake db:seed"
+```
 
 
 ## Tehtävien palautus
