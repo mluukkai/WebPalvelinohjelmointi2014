@@ -1450,7 +1450,7 @@ Kokeile selaimella, että muutokset toimivat, eli että kirjautumaton käyttäj�
 Jos sovelluksessa on tarvetta monipuolisempaan pääsynhallintaan (engl. authorization), kannattanee asia hoitaa esim. _cancan_-gemin avulla ks. https://github.com/ryanb/cancan ja
 http://railscasts.com/episodes/192-authorization-with-cancan 
 
-Aihetta esittelevä Rails cast on jo aika ikääntynyt, eli tarkemmat ohjeet kannattaa katsoa projektin Github-sivulta.
+Aihetta esittelevä Rails cast on jo aika ikääntynyt, eli tarkemmat ohjeet kannattaa katsoa projektin Github-sivulta. Rails castit tarjoavat todella hyviä esittelyjä monista aihepiireistä, eli vaikka castit eivät enää olisi täysin ajantasalla kaikkien detaljien suhteen, kannattaa ne usein silti katsoa läpi.
 
 ## Sovelluksen ulkoasun hienosäätö
 
