@@ -67,7 +67,36 @@ Täsmälleen samaan ongelmaan törmätään jos yritetään luoda olut joka ei o
   end
 ```
 
-Onkin hyvin tyypillistä, että kontrollerimetodit <code>new</code>, <code>create</code> ja <code>edit</code> sisältävät paljon samaa, näkymätemplaten tarvitsemien muuttujien alustukseen käytettyä koodia. Olisikin ehkä järkevä ekstraktoida yhteinen koodi omaan metodiinsa.
+Onkin hyvin tyypillistä, että kontrollerimetodit <code>new</code>, <code>create</code> ja <code>edit</code> sisältävät paljon samaa, näkymätemplaten tarvitsemien muuttujien alustukseen käytettyä koodia. Onkin ehkä järkevä ekstraktoida yhteinen koodi omaan metodiinsa.
+
+```ruby
+  def set_breweries_and_styles_for_template
+    @breweries = Brewery.all
+    @styles = ["Weizen", "Lager", "Pale ale", "IPA", "Porter"]
+  end
+```
+
+Metodia voidaan kutsua kontrollerin metodeista <code>new</code>, <code>create</code> ja <code>edit</code>:
+
+```ruby
+  def new
+    @beer = Beer.new
+    set_breweries_and_styles_for_template
+  end
+```
+
+ tai ehkä vielä tyylikkäämpää on hoitaa asia <code>before_action</code> määreellä:
+
+```ruby
+class BeersController < ApplicationController
+  # ...
+  before_action :set_breweries_and_styles_for_template, only: [:new, :edit, :create]
+
+  # ...
+```
+
+tällöin muuttujien <code>@styles</code> ja <code>@breweries</code> arvot asettava metodi siis suoritetaan automaattisesti aina ennen metodien 
+<code>new</code>, <code>create</code> ja <code>edit</code> suoritusta.
 
 ## Testaaminen
 
