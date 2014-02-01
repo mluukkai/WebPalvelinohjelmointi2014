@@ -1230,7 +1230,7 @@ Coverage report generated for RSpec to /Users/mluukkai/kurssirepot/wadror/ratebe
 
 Testien rivikattavuus on siis 89.05 prosenttia. Tarkempi raportti on nähtävissä selaimella osoitteesta coverage/index.html. Kuten kuva paljastaa, on suuria osia ohjelmasta, erityisesti kontrollereista vielä erittäin huonosti testattu:
 
-![kuva](https://github.com/mluukkai/wadror2014-stage/raw/master/images/ratebeer-w4-1.png)
+![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/ratebeer-w4-1.png)
 
 Kun katsomme raporttia tarkemmin, huomaamme, että joitain luokkia ei mainita raportissa ollenkaan! Esim. olutkerhokontrolleria tai modelia ei raportissa mainita. Simplecov jättääkin raportissaan kokonaan huomioimatta niiden luokkien koodin, joihin testit eivät koske ollenkan!
 
@@ -1451,11 +1451,11 @@ Kokeile selaimella, että muutokset toimivat, eli että kirjautumaton käyttäj�
 
 Voit halutessasi tehdä hienosäätöä sovelluksen näkymiin, esim. poistaa resurssien poisto- ja editointilinkit listaussivulta:
 
-![kuva](https://github.com/mluukkai/wadror2014-stage/raw/master/images/ratebeer-w4-2.png)
+![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/ratebeer-w4-2.png)
 
 ja lisätä poistolinkki yksittäisen resurssin sivulle:
 
-![kuva](https://github.com/mluukkai/wadror2014-stage/raw/master/images/ratebeer-w4-3.png)
+![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/ratebeer-w4-3.png)
 
 nämä muutokset eivät ole välttämättömiä ja tulevat viikotkaan eivät muutoksiin nojaa.
 
