@@ -1447,6 +1447,11 @@ Kokeile selaimella, että muutokset toimivat, eli että kirjautumaton käyttäj�
 > irb(main):005:0> u.update_attribute(:admin, true)
 > ```
 
+Jos sovelluksessa on tarvetta monipuolisempaan pääsynhallintaan (engl. authorization), kannattanee asia hoitaa esim. _cancan_-gemin avulla ks. https://github.com/ryanb/cancan ja
+http://railscasts.com/episodes/192-authorization-with-cancan 
+
+Aihetta esittelevä Rails cast on jo aika ikääntynyt, eli tarkemmat ohjeet kannattaa katsoa projektin Github-sivulta.
+
 ## Sovelluksen ulkoasun hienosäätö
 
 Voit halutessasi tehdä hienosäätöä sovelluksen näkymiin, esim. poistaa resurssien poisto- ja editointilinkit listaussivulta:
