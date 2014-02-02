@@ -349,7 +349,7 @@ describe User do
   end
 
   describe "with a proper password" do
-    let(:user){ User.create username"Pekka", password:"Secret1", password_confirmation:"Secret1" }
+    let(:user){ User.create username:"Pekka", password:"Secret1", password_confirmation:"Secret1" }
 
     it "is saved" do
       expect(user).to be_valid
