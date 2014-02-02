@@ -1400,7 +1400,7 @@ Eriyisesti Web-sovellusten yhteydessä jatkuva deployaaminen saattaa olla hyvink
 
 > ## Tehtävä 12
 >
-> Toteuta sovelluksellesi jatkuva deployaaminen Herokuun Travis-CI:n avulla
+> Toteuta sovelluksellesi jatkuva deployaaminen Herokuun Travis-CI:n avulla. Konfiguroi myös migraatiot suoritettavaksi depolymentin yhteydessä
 >
 > Ks. ohjeita seuraavista
 http://about.travis-ci.org/docs/user/deployment/heroku/
@@ -1422,7 +1422,7 @@ luoma hieman ruma koodi, joten jätämme sen paikalleen.
 >Linkitä myös laatumetriikkaraportti repositorion README-tiedostoon:
 >
 >```ruby
->[![Code Climate](https://codeclimate.com/github/mluukkai/ratebeer.png)](https://codeclimate.com/github/mluukkai/ratebeer)
+>[![Code Climate](https://codeclimate.com/github/mluukkai/ratebeer-public.png)](https://codeclimate.com/github/mluukkai/ratebeer-public)
 >```
 >
 >Nyt myös codeclimate aiheuttaa sovelluskehittäjälle sopivasti painetta pitää koodi koko ajan hyvälaatuisena!
