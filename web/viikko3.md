@@ -1134,7 +1134,7 @@ Muutosten jälkeen käyttäjän tietojen muuttamislomake näyttää seuraavalta:
 
 Joskus voi eteen tulla tilanne, jossa herokussa oleva tietokanta on syytä nollata.
 
-**HUOM:** ensisijaisesti järkevämpää kuin nollaaminen on selvittää ongelmien syy.. Todennäköisesti syynä on joissain olioissa olevat <code>nil</code>-arvoiset viitteet tai viitteet, joita vastaavia olioita ei enää ole olemassa. Eli ensisijaisesti tulisi korjata tilanne Herokun Rails-konsolin avulla (avautuu komennolla <code>heroku run console</code>code), ks https://github.com/mluukkai/WebPalvelinohjelmointi2014/blob/master/web/viikko2.md#nilin-etsint%C3%A4%C3%A4. Turvaudu kannan nollaamiseen ainoastaan jos olet todella epätoivoinen ja kurssin deadline painaa päälle. Todellisuudessa ei pitäisi edes tulla tilanteita missä kanta on nollattava.
+**HUOM:** ensisijaisesti järkevämpää kuin nollaaminen on selvittää ongelmien syy. Todennäköisesti syynä on joissain olioissa olevat <code>nil</code>-arvoiset viitteet tai viitteet, joita vastaavia olioita ei enää ole olemassa. Eli ensisijaisesti tulisi korjata tilanne Herokun Rails-konsolin avulla (avautuu komennolla <code>heroku run console</code>code), ks. myös https://github.com/mluukkai/WebPalvelinohjelmointi2014/blob/master/web/viikko2.md#nilin-etsint%C3%A4%C3%A4. **Turvaudu kannan nollaamiseen ainoastaan jos olet todella epätoivoinen ja kurssin deadline painaa päälle. Todellisuudessa ei pitäisi edes tulla tilanteita missä kanta on nollattava.**
 
 Ensin täytyy selvittää tietokannan nimi Herokussa, tämä onnistuu komennolla `heroku pg`.
 ```
