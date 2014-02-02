@@ -1128,7 +1128,7 @@ Muutosten jälkeen käyttäjän tietojen muuttamislomake näyttää seuraavalta:
 
 ![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/ratebeer-w3-8.png)
 
-## Tietokannan nollaus Herokussa
+## Herokun tietokannan nollaaminen
 
 Joskus voi eteen tulla tilanne, jossa herokussa oleva tietokanta on syytä nollata.
 
