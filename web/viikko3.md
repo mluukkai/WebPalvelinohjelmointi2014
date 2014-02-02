@@ -1033,7 +1033,7 @@ Huomaa, että pelkkä **delete**-linkin poistaminen ei estä poistamasta muiden 
 
 Käyttäjän editointitoiminto mahdollistaa nyt myös käyttäjän <code>username</code>:n muuttamisen. Tämä ei ole ollenkaan järkevää. Poistetaan tämä mahdollisuus. 
 
-Uuden käyttäjän luominen ja käyttäjän editoiminen käyttävät molemmat samaa, tiedostossa views/users/_form.html.erb määriteltyä lomaketta. Alaviivalla alkavat näkymätemplatet ovat Railsissa ns. partiaaleja, joita liitetään muihin templateihin <code>render</code>-kutsun avulla. 
+Uuden käyttäjän luominen ja käyttäjän editoiminen käyttävät molemmat samaa, tiedostossa views/users/_form.html.erb määriteltyä lomaketta. Alaviivalla alkavat näkymätemplatet ovat Railsissa ns. [partiaaleja](http://guides.rubyonrails.org/layouts_and_rendering.html#using-partials), joita liitetään muihin templateihin <code>render</code>-kutsun avulla. 
 
 Käyttäjän editointiin tarkoitettu näkymätemplate on seuraavassa:
 
