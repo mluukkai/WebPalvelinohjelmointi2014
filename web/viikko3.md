@@ -906,7 +906,7 @@ irb(main):015:0> u
 => #<User id: 1, username: "mluukkai", created_at: "2014-01-21 22:37:36", updated_at: "2014-01-23 16:14:55", password_digest: "$2a$10$vlNYRqULpGAVpXBYMHcKCeYNRVhLEVaPdlQxwXmpIIO7...">
 ```
 
-Jos komento <code>u.password = "salainen"</code> saa aikaan virheilmoituksen <code>NoMethodError: undefined method `password_digest=' for ...</code>, suorita komentoriviltä <code>rake db:migrate</code>.
+Jos komento <code>u.password = "salainen"</code> saa aikaan virheilmoituksen <code>NoMethodError: undefined method `password_digest=' for ...</code>, käynnistä konsoli uudelleen ja muista myös suorittaa migraatio!
 
 Autentikointi tapahtuu <code>User</code>-olioille lisätyn metodin <code>authenticate</code> avulla seuraavasti:
 
