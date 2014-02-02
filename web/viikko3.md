@@ -977,6 +977,8 @@ Kokeile mitä tapahtuu, jos password confirmatioksi annetaan eri arvo kuin passw
 > 
 > Tee luokalle User-validointi, joka varmistaa, että salasanan pituus on vähintää 4 merkkiä, ja että salasana sisältää vähintään yhden ison kirjaimen (voit unohtaa skandit) ja yhden numeron.
 
+**Huom**: Säännöllisiä lausekkeita Rubyn tapaan voi testailla Rubular sovelluksella: http://rubular.com/
+
 
 ## Vain omien reittausten poisto
 
