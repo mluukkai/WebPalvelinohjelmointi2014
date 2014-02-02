@@ -1172,4 +1172,8 @@ Commitoi kaikki tekemäsi muutokset ja pushaa koodi Githubiin. Deployaa myös uu
 
 Tehtävät kirjataan palautetuksi osoitteeseen http://wadrorstats2014.herokuapp.com
 
+[/sessions/new]: http://localhost:3000/sessions/new "goto: /sessions/new"
+[/signup]: https://localhost:3000/signup "goto: /signup"
+[/signin]: https://localhost:3000/signin "goto: /signin"
+[/users]: https://localhost:3000/users "goto: /users"
 
