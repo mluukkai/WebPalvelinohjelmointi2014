@@ -939,11 +939,11 @@ ja muutetaan sessions-kontrolleria siten, että se varmistaa metodia <code>authe
 ```ruby
     def create
       user = User.find_by username: params[:username]
-      if user.nil? or not user.authenticate params[:password]
-        redirect_to :back, notice: "username and password do not match"
-      else
+      if user && user.authenticate params[:password]
         session[:user_id] = user.id
         redirect_to user_path(user), notice: "Welcome back!"
+      else
+        redirect_to :back, notice: "Username and/or password mismatch"
       end
     end
 ```
@@ -976,6 +976,8 @@ Kokeile mitä tapahtuu, jos password confirmatioksi annetaan eri arvo kuin passw
 > ## Tehtävä 10
 > 
 > Tee luokalle User-validointi, joka varmistaa, että salasanan pituus on vähintää 4 merkkiä, ja että salasana sisältää vähintään yhden ison kirjaimen (voit unohtaa skandit) ja yhden numeron.
+
+**Huom**: Säännöllisiä lausekkeita Rubyn tapaan voi testailla Rubular sovelluksella: http://rubular.com/
 
 
 ## Vain omien reittausten poisto
@@ -1031,7 +1033,7 @@ Huomaa, että pelkkä **delete**-linkin poistaminen ei estä poistamasta muiden 
 
 Käyttäjän editointitoiminto mahdollistaa nyt myös käyttäjän <code>username</code>:n muuttamisen. Tämä ei ole ollenkaan järkevää. Poistetaan tämä mahdollisuus. 
 
-Uuden käyttäjän luominen ja käyttäjän editoiminen käyttävät molemmat samaa, tiedostossa views/users/_form.html.erb määriteltyä lomaketta. Alaviivalla alkavat näkymätemplatet ovat Railsissa ns. partiaaleja, joita liitetään muihin templateihin <code>render</code>-kutsun avulla. 
+Uuden käyttäjän luominen ja käyttäjän editoiminen käyttävät molemmat samaa, tiedostossa views/users/_form.html.erb määriteltyä lomaketta. Alaviivalla alkavat näkymätemplatet ovat Railsissa ns. [partiaaleja](http://guides.rubyonrails.org/layouts_and_rendering.html#using-partials), joita liitetään muihin templateihin <code>render</code>-kutsun avulla. 
 
 Käyttäjän editointiin tarkoitettu näkymätemplate on seuraavassa:
 
@@ -1172,4 +1174,8 @@ Commitoi kaikki tekemäsi muutokset ja pushaa koodi Githubiin. Deployaa myös uu
 
 Tehtävät kirjataan palautetuksi osoitteeseen http://wadrorstats2014.herokuapp.com
 
+[/sessions/new]: http://localhost:3000/sessions/new "goto: /sessions/new"
+[/signup]: https://localhost:3000/signup "goto: /signup"
+[/signin]: https://localhost:3000/signin "goto: /signin"
+[/users]: https://localhost:3000/users "goto: /users"
 
