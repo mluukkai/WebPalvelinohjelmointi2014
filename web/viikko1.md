@@ -363,6 +363,12 @@ Huom: Rubyssä on myös vaihtoehtoinen syntaksi hashien käyttöön, sitä käyt
 
     Brewery.new :name => "Stadin Panimo", :year => 1997
 
+Jos haluat luoda tietueita tai muuten eksperimentoida Railsin käyttöä
+konsolista käsin ilman pysyviä muutoksia tietokantaan, voit ajaa konsolin
+hiekkalaatikko-tilassa komennolla:
+
+```rails console --sandbox``` tai lyhyemmin ```rails c -s```
+
 ## ActiveRecordin hakurajapinta
 
 ActiveRecord tarjoaa monipuoliset mahdollisuudet tietokantahakujen tekemiseen ohjelmallisesti eli SQL:ää kirjoittamatta, ks. http://guides.rubyonrails.org/active_record_querying.html
