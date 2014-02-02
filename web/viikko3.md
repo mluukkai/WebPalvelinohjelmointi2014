@@ -1128,8 +1128,11 @@ Muutosten jälkeen käyttäjän tietojen muuttamislomake näyttää seuraavalta:
 
 ![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/ratebeer-w3-8.png)
 
-## Tietokannan nollaus herokussa
-Ensiki täytyy selvittää tietokannan nimi Herokussa, tämä onnistuu komennolla `heroku pg`.
+## Tietokannan nollaus Herokussa
+
+Joskus voi eteen tulla tilanne, jossa herokussa oleva tietokanta on syytä nollata.
+
+Ensin täytyy selvittää tietokannan nimi Herokussa, tämä onnistuu komennolla `heroku pg`.
 ```
 $ heroku pg
 
@@ -1163,10 +1166,6 @@ heroku run "rake db:migrate && rake db:seed"
 
 Commitoi kaikki tekemäsi muutokset ja pushaa koodi Githubiin. Deployaa myös uusin versio Herokuun.
 
-Tehtävät kirjataan palautetuksi osoitteeseen http://wadrorstats2014.herokuapp.com/courses/1
+Tehtävät kirjataan palautetuksi osoitteeseen http://wadrorstats2014.herokuapp.com
 
-[/sessions/new]: http://localhost:3000/sessions/new "goto: /sessions/new"
-[/signup]: https://localhost:3000/signup "goto: /signup"
-[/signin]: https://localhost:3000/signin "goto: /signin"
-[/users]: https://localhost:3000/users "goto: /users"
 
