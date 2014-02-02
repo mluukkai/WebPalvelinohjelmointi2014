@@ -890,6 +890,8 @@ Tämän jälkeen annetaan komentoriviltä komento <code>bundle install</code> jo
 
 Kokeillaan nyt hieman uutta toiminnallisuutta konsolista (joudut uudelleenkäynnistämään konsolin, jotta se saa käyttöönsä uuden gemin). 
 
+__Muista myös suorittaa migraatio!__
+
 Salasanatoiminnallisuus <code>has_secure_password</code> lisää oliolle  attribuutit <code>password</code> ja <code>password_confirmation</code>. Ideana on, että salasana ja se varmistettuna sijoitetaan näihin attribuutteihin. Kun olio talletetaan tietokantaan esim. metodin <code>save</code> kutsun yhteydessä, lasketaan tiiviste ja se tallettuu tietokantaan olion sarakkeen <code>password_digest</code> arvoksi. Selväkielinen salasana eli attribuutti <code>password</code> ei siis tallennu tietokantaan, vaan on ainoastaan olion muistissa olevassa representaatiossa.
 
 
