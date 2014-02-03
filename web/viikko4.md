@@ -522,7 +522,7 @@ nyt luotaisiin kolme eri olioa, jotka ovat kaikki samansisältöistä. Myös teh
 
 Toteutetaan seuraavaksi test driven -tyylillä (tai behaviour driven niinkuin rspecin luojat sanoisivat) käyttäjälle metodit, joiden avulla saadaan selville käyttäjän lempiolut, lempipanimo ja lempioluttyyli käyttäjän tekemien reittausten perusteella.
 
-Oikeaoppisessa TDD:ssä ei tehdä yhtään koodia ennenkuin minimaalinen testi sen pakottaa. Tehdäänkin ensin testi, jonka avulla vaaditaan että <code>User</code>-olioilla on metodi <code>favorite_beer</code>:
+Oikeaoppisessa TDD:ssä ei tehdä yhtään koodia ennen kuin minimaalinen testi sen pakottaa. Tehdäänkin ensin testi, jonka avulla vaaditaan että <code>User</code>-olioilla on metodi <code>favorite_beer</code>:
 
 ```ruby
   it "has method for determining the favorite_beer" do
@@ -545,7 +545,7 @@ end
 Testi menee nyt läpi. Lisätään seuraavaksi testi, joka varmistaa, että ilman reittauksia ei käyttäjllä ole mieliolutta, eli että metodi palauttaa nil:
 
 ```ruby
-  it "without ratings does not have a favourite beer" do
+  it "without ratings does not have a favorite beer" do
     user = FactoryGirl.create(:user)
     expect(user.favorite_beer).to eq(nil)
   end
