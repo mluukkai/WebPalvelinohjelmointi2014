@@ -164,7 +164,7 @@ Seuraavassa loki eräästä toisesta hyvin tyypillisestä virhetilanteesta:
 2014-02-03T19:04:43.853276+00:00 app[web.1]:     
 ```
 
-Virhe on aiheutunut tiedoston _app/controllers/ratings_controller.rb_ rivillä 15 ja syynä on <code>NoMethodError (undefined method `ratings' for nil:NilClass)</code>. 
+Virhe on aiheutunut tiedoston *app/controllers/ratings_controller.rb* rivillä 15 ja syynä on <code>NoMethodError (undefined method `ratings' for nil:NilClass)</code>. 
 
 Katsotaan ko. tiedostoa ja ongelman aiheuttanutta riviä:
 
@@ -182,7 +182,7 @@ Katsotaan ko. tiedostoa ja ongelman aiheuttanutta riviä:
   end
 ```
 
-eli ongelman aiheutti se, että yritettiin tehdä reittaus tilanteessa missä kukaan ei ollut kirjaantuneena eli <code>current_user</code> oli <code>nil</code>. Ongelma voidaan korjata esim. seuraavasti:
+eli ongelman aiheutti se, että yritettiin tehdä reittaus tilanteessa, jossa kukaan ei ollut kirjaantuneena ja <code>current_user</code> oli <code>nil</code>. Ongelma voidaan korjata esim. seuraavasti:
 
 ```ruby
   def create
@@ -227,7 +227,7 @@ Tarkka silmä huomaa lokin seasta että ongelma on _ActionView::Template::Error 
 
 vaikuttaa siis siltä, että tietokannassa on <code>rating</code>-olio, johon liittyvä <code>user</code> on <code>nil</code>. Kyseessä on siis jo [viikolta 2 tuttu](https://github.com/mluukkai/WebPalvelinohjelmointi2014/blob/master/web/viikko2.md#nilin-etsint%C3%A4%C3%A4) ongelma. 
 
-Ongelman perimmäinen syy on joko se, että jonkin ratingin <code>user_id</code>-kentän arvo on <code>nil</code>, tai että johonkin rating-olion <code>user_id</code>:n arvona on virheellinen id. Tilanteesta selvitään esim. tuohoamalla 'huonot' rating-oliot komennolla <code>heroku run console</code> käynnistyvän Herokun konsolin avulla:
+Ongelman perimmäinen syy on joko se, että jonkin ratingin <code>user_id</code>-kentän arvo on <code>nil</code>, tai että jonkin rating-olion <code>user_id</code>:n arvona on virheellinen id. Tilanteesta selvitään esim. tuohoamalla 'huonot' rating-oliot komennolla <code>heroku run console</code> käynnistyvän Herokun konsolin avulla:
 
 
 ```ruby
