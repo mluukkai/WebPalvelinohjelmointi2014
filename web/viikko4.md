@@ -730,7 +730,7 @@ Refaktoroidaan testiä hieman lisäämällä juuri kirjoitetulle kahdelle testil
   end
 ```
 
-Lisätään sitten testi, joka varmistaa että jos reittauksia on vain yksi, osaa metodi palauttaa reitatun oluen. Testiä varten siis tarvitsemme reittausolion lisäksi panimo-oluen, johon reittaus liittyy. Laajennetaan ensin hieman fikstuureja, lisätään seuraavat:
+Lisätään sitten testi, joka varmistaa että jos reittauksia on vain yksi, osaa metodi palauttaa reitatun oluen. Testiä varten siis tarvitsemme reittausolion lisäksi panimo-olion, johon reittaus liittyy. Laajennetaan ensin hieman fikstuureja, lisätään seuraavat:
 
 ```ruby
   factory :brewery do
