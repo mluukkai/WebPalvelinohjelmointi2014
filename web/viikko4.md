@@ -666,7 +666,6 @@ Muutetaan nyt testimme käyttämään FactoryGirliä.
 ```
 
 
-
 Testi on nyt siistiytynyt jossain määrin. 
 
 Huom: samaa tehdasta voidaan pyytää luomaan useita oliota:
@@ -678,6 +677,8 @@ Huom: samaa tehdasta voidaan pyytää luomaan useita oliota:
 ```
 
 nyt luotaisiin kolme eri olioa, jotka ovat kaikki samansisältöistä. Myös tehtaalta <code>user</code> voitaisiin pyytää kahta eri olioa. Tämä kuitenkin aiheuttaisi poikkeuksen, sillä <code>User</code>-olioiden validointi edellyttää, että username on yksikäsitteinen ja tehdas luo oletusarvoisesti aina "Pekka"-nimisen käyttäjän.
+
+
 
 ## Käyttäjän lempiolut, -panimo ja -oluttyyli
 
@@ -949,6 +950,168 @@ def create_beer_with_rating(score,  user)
   beer
 end  
 ```
+
+### FacotryGirl-troubleshooting
+
+Normaalisti rspec-tyhjentää tietokannan jokaisen testin suorituksen jälkeen. Tämä johtuu sitä, että oletusarvoisesti rspec suorittaa jokaisen testin transaktiossa, joka rollbackataan eli perutaan testin suorituksen jälkeen. Testit eivät siis todellisuudessa edes talleta mitään tietokantaan. 
+
+Joskus testeissä voi kuitenkin mennä kantaan pysyvästi olioita. 
+
+Oletetaan että testaisimme luokkaa <code>Beer</code> seuraavasti: 
+
+```ruby
+  describe "when one beer exists" do
+    beer = FactoryGirl.create(:beer)
+
+    it "is valid" do
+      expect(beer).to be_valid
+    end
+    
+    it "has the default style" do
+      expect(beer.style).to eq("Lager")
+    end
+  end
+```
+
+testin luoma <code>Beer</code>-olio menisi nyt pysyvästi testitietokantaan, sillä komento <code>FactoryGirl.create(:beer)</code>  ei ole minkään testin sisällä, eikä sitä siis suoriteta peruttavan transaktion aikana! 
+
+Testien ulkopuolelle, ei siis tule sijoittaa olioita luovaa koodia (poislukien testeistä kutsuttavat metodit). Olioiden luomisen on tapahduttava testikontekstissa, eli joko metodin <code>it</code> sisällä:
+
+```ruby
+  describe "when one beer exists" do
+    it "is valid" do
+      beer = FactoryGirl.create(:beer)
+      expect(beer).to be_valid
+    end
+    
+    it "has the default style" do
+      beer = FactoryGirl.create(:beer)
+      expect(beer.style).to eq("Lager")
+    end
+  end
+```
+
+komennon <code>let</code> tai <code>let!</code> sisällä:
+
+```ruby
+  describe "when one beer exists" do
+    let(:beer){FactoryGirl.create(:beer)}
+
+    it "is valid" do
+      expect(beer).to be_valid
+    end
+    
+    it "has the default style" do
+      expect(beer.style).to eq("Lager")
+    end
+  end
+```
+
+tai hieman myöhemmin esiteltävissä <code>before</code>-lohkoissa.
+
+Saat poistettua testikantaan vahingossa menneet oluet käynnistämällä konsolin testiympäristössä komennolla <code>rails c test</code>.
+
+Validoinneissa määritellyt uniikkiusehdot saattavat joskus tuottaa yllätyksiä. Käyttäjän käyttäjätunnus on määritelty uniikisi, joten testi
+
+```ruby
+describe "the application" do
+  it "does something with two users" do
+    user1 = FactoryGirl.create(:user)
+    user2 = FactoryGirl.create(:user)
+
+  # …
+  end
+end
+``` 
+
+aiheuttaisi virheilmoituksen
+
+```ruby
+     Failure/Error: user2 = FactoryGirl.create(:user)
+     ActiveRecord::RecordInvalid:
+       Validation failed: Username has already been taken
+```
+
+sillä FactoryGirl yrittää nyt luoda kaksi käyttäjäolioa määritelmän 
+
+```ruby
+  factory :user do
+    username "Pekka"
+    password "Foobar1"
+    password_confirmation "Foobar1"
+  end 
+```
+
+perusteella, eli molemmille tulisi usernameksi 'Pekka'. Ongelma ratkeaisi antamalla toiselle luotavista oliosta joku muu nimi:
+
+```ruby
+describe "the application" do
+  it "does something with two users" do
+    user1 = FactoryGirl.create(:user)
+    user2 = FactoryGirl.create(:user, name:"Arto")
+
+  # …
+  end
+end
+
+Toinen vaihtoehto olisi määritellä FacrotyGirlin käyttämät usernamet ns. sekvenssien avulla, ks.
+https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md#sequences
+
+Joskus validoinnin aiheuttama ongelma voi piillä syvemmällä.
+
+Oletetaan että panimoiden nimet olisi määritelty uniikeiksi:
+
+```ruby
+class Brewery < ActiveRecord::Base
+  validates :name, uniqueness: true
+
+  #...
+end
+```
+
+jos testissä luotaisiin nyt kaksi olutta
+
+```ruby
+describe "the application" do
+  it "does something with two beers" do
+    beer1 = FactoryGirl.create(:beer)
+    beer2 = FactoryGirl.create(:beer)
+
+  # …
+  end
+end
+```
+
+olisi seurauksena virheilmoitus
+
+```ruby
+     Failure/Error: beer2 = FactoryGirl.create(:beer)
+     ActiveRecord::RecordInvalid:
+       Validation failed: Name has already been taken
+```
+
+Virheilmoitus on hieman hämäävä, sillä <code>Name has already been taken</code> viittaa nimenomaan olueeseen liittyvän _panimon_ nimeen!
+
+Syy virheelle on seuraava. Oluttehdas on määritelty seuraavasti:
+
+```ruby
+  factory :beer do
+    name "anonymous"
+    brewery
+    style "Lager"
+  end
+```
+
+eli jokaista olutta kohti luodaan oletusarvoisesti _uusi_ panimo-olio, joka taas luodaan panimotehtaan perusteella:
+
+```ruby
+  factory :brewery do
+    name "anonymous"
+    year 1900
+  end
+```
+
+eli _jokainen_ panimo saa nimekseen 'anonymous' ja jos panimon nimi on määritelty uniikiksi (mikä ei ole järkevää, sillä samannimisia panimoita voi olla useita) seuraa toista olutta luotaessa ongelma, koska oluen luomisen yhteydessä luotava panimo rikkoisi nimen yksikäsitteisyysehdon.
 
 > ## Tehtävä 3
 >
