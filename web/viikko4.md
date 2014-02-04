@@ -982,7 +982,7 @@ end
 
 Jotta gemit saadaan käyttöön, suoritetaan tuttu komento <code>bundle install</code>. 
 
-**HUOM** laitoksen koneilla joudut ennen bundle installia suorittamaan komennon
+**HUOM** jos bundle install ei toimi laitoksen koneella suorita ensin seuraava:
 
     gem install nokogiri -- --with-xml2-include=/usr/include/libxml2/libxml/ --with-xml2-lib=/usr/lib  --with-xslt-include=/usr/include/libxslt --with-xslt-lib=/usr/lib
 
