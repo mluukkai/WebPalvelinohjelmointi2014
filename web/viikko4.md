@@ -340,8 +340,8 @@ Randomized with seed 20792
 
 Komento  <code>rspec spec</code> määrittelee, että suoritetaan kaikki testit, jotka löytyvät hakemiston spec alihakemistoista. Jos testejä on paljon, on myös mahdollista ajaa suppeampi joukko testejä:
 
-    rspec spec/model                # suoritetaan hakemiston model sisältävät testit
-    rspec spec/model/user_spec.rb   # suoritetaan user_spec.rb:n määrittelemät testi
+    rspec spec/models                # suoritetaan hakemiston model sisältävät testit
+    rspec spec/models/user_spec.rb   # suoritetaan user_spec.rb:n määrittelemät testi
 
 rspec-rails luo myös rake-komennot eli taskit testien suorittamiseen. Voit listata kaikki testeihin liittyvät taskit komennolla ```rake -T spec```.
 
