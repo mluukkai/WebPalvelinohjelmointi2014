@@ -1048,7 +1048,7 @@ perusteella, eli molemmille tulisi usernameksi 'Pekka'. Ongelma ratkeaisi antama
 describe "the application" do
   it "does something with two users" do
     user1 = FactoryGirl.create(:user)
-    user2 = FactoryGirl.create(:user, name:"Arto")
+    user2 = FactoryGirl.create(:user, username:"Arto")
 
   # …
   end
