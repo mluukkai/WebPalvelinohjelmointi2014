@@ -1388,7 +1388,7 @@ end
 Testi rakentaa käyttämänsä panimon, kaksi olutta ja käyttäjän metodin <code>let!</code> aiemmin käyttämämme metodin <code>let</code> sijaan. Näin toimitaan siksi että huutomerkitön versio ei suorita operaatiota välittömästi vaan vasta siinä vaiheessa kun koodi viittaa olioon eksplisiittisesti. Olioon <code>beer1</code> viitataan koodissa vasta lopun tarkastuksissa, eli jos olisimme luoneet sen metodilla <code>let</code> olisi reittauksen luomisvaiheessa tullut virhe, sillä olut ei olisi vielä ollut kannassa, eikä vastaavaa select-elementtiä olisi löytynyt.
 
 
-Testin <code>before</code>-lohkossa on koodi, jonka avulla käyttäjä kirjautuu järjestelmään. On todennäköistä, että samaa koodilohkoa tarvittaan useissa eri testitiedostoissa. Useassa eri paikassa tarvittava testikoodi kannattaa eristää omaksi apumetodikseen ja sijoittaa moduuliin, jonka kaikki sitä tarvitsevat testitiedostot voivat sisällyttää itseensä. Luodaan moduli tiedostoon /spec/support/helpers/own_test_helper.rb ja siirretään kirjautumisesta vastaava koodi sinne:
+Testin <code>before</code>-lohkossa on koodi, jonka avulla käyttäjä kirjautuu järjestelmään. On todennäköistä, että samaa koodilohkoa tarvitaan useissa eri testitiedostoissa. Useassa eri paikassa tarvittava testikoodi kannattaa eristää omaksi apumetodikseen ja sijoittaa moduuliin, jonka kaikki sitä tarvitsevat testitiedostot voivat sisällyttää itseensä. Luodaan moduli tiedostoon /spec/support/helpers/own_test_helper.rb ja siirretään kirjautumisesta vastaava koodi sinne:
 
 ```ruby
 module OwnTestHelper
@@ -1768,13 +1768,13 @@ Jätetään testien teko hetkeksi ja palataan muutamaan aiempaan teemaan. Viikol
 
 Luovutaan http basic -autentikoinnin käytöstä ja muutetaan sovellusta siten, että oluita, panimoita ja olutkerhoja voivat luoda, muokata ja poistaa ainoastaan kirjautuneet käyttäjät. 
 
-Aloitetaan poistamalla htt basic -autentikaatio. Eli poistetaan panimokontrollerista rivi
+Aloitetaan poistamalla http basic -autentikaatio. Eli poistetaan panimokontrollerista rivi
 
     before_action :authenticate, only: [:destroy]
 
 sekä metodi <code>authenticate</code>. Nyt kuka tahansa voi jälleen poistaa panimoita.
 
-Aloitetaan suojauksen lisäminen.
+Aloitetaan suojauksen lisääminen.
 
 Näkymistä on helppo poistaa oluiden, olutkerhojen ja panimoiden muokkaus -ja luontilinkit  siinä tapauksessa, jos käyttäjä ei ole kirjautunut järjestelmään. 
 
