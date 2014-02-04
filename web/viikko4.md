@@ -1336,7 +1336,7 @@ Kirjautumisen toteutuksen siirtäminen apumetodiin siis kasvattaa myös testien 
 
 > ## Tehtävä 9
 >
-> Laajenna käyttäjän sivua siten, että siellä näytetään käyttäjän lempioluttyyli sekä lempipanimo. Tee ominaisuudelle myös capybara-testit. Monimutkaista laskentaa testeissä ei kannata testata, sillä yksikkötestit varmistavat toiminnallisuuden jo riittävissä määrin.
+> Jos teit tehtävät 3-4, laajenna käyttäjän sivua siten, että siellä näytetään käyttäjän lempioluttyyli sekä lempipanimo. Tee ominaisuudelle myös capybara-testit. Monimutkaista laskentaa testeissä ei kannata testata, sillä yksikkötestit varmistavat toiminnallisuuden jo riittävissä määrin.
 
 ## RSpecin syntaksin uudet tuulet
 
