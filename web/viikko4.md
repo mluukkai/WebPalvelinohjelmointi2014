@@ -1183,7 +1183,7 @@ group :test do
 end
 ```
 
-Jotta gemit saadaan käyttöön, suoritetaan tuttu komento <code>bundle install</code>. 
+Jotta gemit saadaan käyttöön, suoritetaan tuttu komento <code>bundle install</code>. Laitoksen koneilla saattaa komennon suorittamisessa kulua melko kauan, jopa 15 minuuttia.
 
 **HUOM** jos bundle install ei toimi laitoksen koneella suorita ensin seuraava:
 
@@ -1779,7 +1779,7 @@ ja http://about.travis-ci.org/blog/2013-07-09-introducing-continuous-deployment-
 >
 > **HUOM** on erittäin suositeltavaa että teet konfiguroinnin [travisin komentorivityökalun](http://blog.travis-ci.com/2013-01-14-new-client/) avulla! Huomaa, että asennuksen jälkeen joudut uudelleenkäynnistämään konsolin.
 >
-> > **HUOM2:** aika-ajoin Travisin ja Herokun yhteistoiminnallisuudessa on ilmennyt ongelmia. Tutki tarkkaan virheilmoituksia ja jos et keksi mikä on vikana, kokeile deployaamista jonkin ajan kuluttua uudelleen. Älä siis juutu tähän kohtaan!
+> **HUOM2:**  Travisin ja Herokun yhteistoiminnallisuudessa on ilmennyt aika-ajoin ongelmia. Tutki tarkkaan virheilmoituksia ja jos et keksi mikä on vikana, kokeile deployaamista jonkin ajan (esim. muutaman tunnin) kuluttua uudelleen. Älä siis juutu tähän kohtaan!
 
 ## Koodin laatumetriikat
 
