@@ -268,7 +268,7 @@ Käytämme testaukseen Rspec:iä ks. http://rspec.info/,  https://github.com/rsp
 Otetaan käyttöön rspec-rails gem lisäämällä Gemfileen seuraava:
 
 ```ruby
-group :development, :test do
+group :test do
   gem 'rspec-rails', '~> 2.14.1'
 end
 ```
@@ -952,6 +952,46 @@ end
 ```
 
 ### FactoryGirl-troubleshooting
+
+Kannattaa huomata, että jos määrittelet FactoryGirl-gemin testiympäristön lisäksi kehitysympäristöön, eli 
+
+```ruby
+group :development, :test do
+    gem 'factory_girl_rails'
+    # ...
+end    
+```
+
+jos luot Railsin generaattorilla uusia resursseja, esim:
+
+    rails g scaffold bar name:string 
+
+syntyy nyt samalla myös oletusarvoinen oliotehdas:
+
+```ruby
+mbp-18:ratebeer_temppi mluukkai$ rails g scaffold bar name:string
+      ...
+      invoke    rspec
+      create      spec/models/bar_spec.rb
+      invoke      factory_girl
+      create        spec/factories/bars.rb
+      ...
+```
+
+oletusarvoisen tehtaan sijainti ja sisältö on seuraava:
+
+```ruby
+mbp-18:ratebeer_temppi mluukkai$ cat spec/factories/bars.rb 
+# Read about factories at https://github.com/thoughtbot/factory_girl
+
+FactoryGirl.define do
+  factory :bar do
+    name "MyString"
+  end
+end
+```
+
+Tämä saattaa aiheuttaa yllättäviä tilanteita (jos määrittelet itse saman nimisen tehtaan, käytetään sen sijaan oletusarvoista tehdasta!), eli kannattanee määritellä gemi ainoastaan testausympäristöön luvun https://github.com/mluukkai/WebPalvelinohjelmointi2014/blob/master/web/viikko4.md#testiymp%C3%A4rist%C3%B6t-eli-fixturet ohjeen tapaan.
 
 Normaalisti rspec-tyhjentää tietokannan jokaisen testin suorituksen jälkeen. Tämä johtuu sitä, että oletusarvoisesti rspec suorittaa jokaisen testin transaktiossa, joka rollbackataan eli perutaan testin suorituksen jälkeen. Testit eivät siis todellisuudessa edes talleta mitään tietokantaan. 
 
