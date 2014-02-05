@@ -951,7 +951,7 @@ def create_beer_with_rating(score,  user)
 end  
 ```
 
-### FacotoryGirl-troubleshooting
+### FactoryGirl-troubleshooting
 
 Normaalisti rspec-tyhjentää tietokannan jokaisen testin suorituksen jälkeen. Tämä johtuu sitä, että oletusarvoisesti rspec suorittaa jokaisen testin transaktiossa, joka rollbackataan eli perutaan testin suorituksen jälkeen. Testit eivät siis todellisuudessa edes talleta mitään tietokantaan. 
 
@@ -1053,8 +1053,8 @@ describe "the application" do
   # …
   end
 end
-
-Toinen vaihtoehto olisi määritellä FacrotyGirlin käyttämät usernamet ns. sekvenssien avulla, ks.
+```
+Toinen vaihtoehto olisi määritellä FactoryGirlin käyttämät usernamet ns. sekvenssien avulla, ks.
 https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md#sequences
 
 Joskus validoinnin aiheuttama ongelma voi piillä syvemmällä.
