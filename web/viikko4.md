@@ -1053,6 +1053,7 @@ describe "the application" do
   # …
   end
 end
+```
 
 Toinen vaihtoehto olisi määritellä FacrotyGirlin käyttämät usernamet ns. sekvenssien avulla, ks.
 https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md#sequences
