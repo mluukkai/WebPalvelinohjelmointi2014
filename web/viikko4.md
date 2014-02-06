@@ -10,7 +10,7 @@ Tämä asetus muistetaan jatkossa, joten pelkkä `bundle install` riittää kun 
 
 ## Muutama huomio
 
-### Ongelmia lomakeiden kanssa
+### Ongelmia lomakkeiden kanssa
 
 Viikolla 2 muutimme oluiden luomislomaketta siten, että uuden oluen tyyli ja panimo valitaan pudotusvalikoista. Lomake siis muutettiin käyttämään tekstikentän sijaan _select_:iä: 
 
