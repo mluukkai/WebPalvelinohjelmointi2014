@@ -36,7 +36,7 @@ Kuten huomaamme, vastaus tulee XML-muodossa. Käytänne on hieman vanhahtava, si
 
 Selaimella näemme palautetun XML:n hieman ihmisluettavammassa muodossa:
 
-![kuva](https://github.com/mluukkai/wadror2014-stage/raw/master/images/ratebeer-w5-1.png)
+![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/ratebeer-w5-1.png)
 
 **HUOM: älä käytä tässä näytettyä API-avainta vaan rekisteröi itsellesi oma avain.**
 
@@ -44,7 +44,7 @@ Tehdään nyt sovellukseemme olutravintoloita etsivä tominnallisuus.
 
 Luodaan tätä varten sivu osoitteeseen places, eli määritellään route.rb:hen
 
-    get 'places', to: 'places#index'
+png    get 'places', to: 'places#index'
 
 ja luodaan kontrolleri:
 
@@ -727,7 +727,7 @@ https://devcenter.heroku.com/articles/config-vars
 
 Tehtävän jälkeen sovelluksesi voi näyttää esim. seuraavalta:
 
-![kuva](https://github.com/mluukkai/wadror2014-stage/raw/master/images/ratebeer-w5-2.png)
+![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/ratebeer-w5-2.png)
 
 
 ## Oluen reittaus suoraan oluen sivulta
@@ -783,11 +783,11 @@ Koska lomake on luotu <code>form_for</code>-helperillä, tapahtuu sen lähettäm
 
 Ratkaisussa on pieni ongelma. Jos reittauksessa yritetään antaa epävalidi pistemäärä:
 
-![kuva](https://github.com/mluukkai/wadror2014-stage/raw/master/images/ratebeer-w5-3.png)
+![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/ratebeer-w5-3.png)
 
 renderöi kontrolleri (eli reittauskontrollerin metodi <code>create</code>) oluen näkymän sijaan uuden reittauksen luomislomakkeen: 
 
-![kuva](https://github.com/mluukkai/wadror2014-stage/raw/master/images/ratebeer-w5-4.png)
+![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/ratebeer-w5-4.png)
 
 Ongelman voisi kiertää katsomalla mistä osoitteesta create-metodiin on tultu ja renderöidä sitten oikea sivu riippuen tulo-osoitteesta. Emme kuitenkaan tee nyt tätä muutosta. 
 
@@ -847,7 +847,7 @@ Hienosäädetään olutseuraan liittymistä
 >
 > Muokkaa koodiasi siten (membership-kontrollerin sopivaa metodia), että olutseuraan liittymisen jälkeen selain ohjautuu olutseuran sivulle ja sivu näyttää allaolevan kuvan mukaisen ilmoituksen uuden käyttäjän liittymisestä.
 
-![kuva](https://github.com/mluukkai/wadror2014-stage/raw/master/images/ratebeer-w5-5.png)
+![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/ratebeer-w5-5.png)
 
 ## Mielipanimoiden ja tyylin refaktorointi
 
@@ -1166,7 +1166,7 @@ Olemme käyttäneet Railsin migraatioita jo ensimmäisestä viikosta alkaen. On 
 
 Tehtävän jälkeen oluttyylin sivu voi näyttää esim. seuraavalta
 
-![kuva](https://github.com/mluukkai/wadror2014-stage/raw/master/images/ratebeer-w5-6.png)
+![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/ratebeer-w5-6.png)
 
 **HUOM:** varmista, että uusien oluiden luominen toimii vielä laajennuksen jälkeen!
 
@@ -1200,7 +1200,7 @@ Emme ole vielä toistaiseksi puhuneet mitään Rails-sovellusten tietoturvasta. 
 
 Yo. dokumentista ei käy täysin selväksi se, että Rails _sanitoi_ (eli escapettaa kaikki script- ja html-tagit yms) oletusarvoisesti sivuilla renderöitävän syötteen, eli esim. jos yrittäisimme syöttää javascript-pätkän <code><script>alert('Evil XSS attack');</script></code> oluttyylin kuvaukseen, koodia ei suoriteta, vaan koodi renderöityy sivulle 'tekstinä': 
 
-![kuva](https://github.com/mluukkai/wadror2014-stage/raw/master/images/ratebeer-w5-7.png)
+![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/ratebeer-w5-7.png)
 
 Jos katsomme sivun lähdekoodia, huomaamme, että Rails on korvannut HTML-tägit aloittavat ja sulkevat < -ja > -merkit niitä vastaavilla tulostuvilla merkeillä, jolloin syöte muuttuu selaimen kannalta normaaliksi tekstiksi:
 
@@ -1218,7 +1218,7 @@ Oletusarvoisen sanitoinnin saa 'kytkettyä pois' pyytämällä eksplisiittisesti
 
 suoritetaan javascript-koodi sivun renderöinnion yhteydessä:
 
-wadror2![kuva](https://github.com/mluukkai/wadror2014-stage/raw/master/images/ratebeer-w5-8.png)
+wadror2![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/ratebeer-w5-8.png)
 
 Lisätietoa http://www.railsdispatch.com/posts/security ja http://railscasts.com/episodes/204-xss-protection-in-rails-3
 
