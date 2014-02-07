@@ -582,7 +582,7 @@ Muista aina nimetä testisi niin että ajamalla Rspec dokumentointiformaatissa, 
 > * oluen luonti ei onnistu (eli creatella ei synny validia oliota), jos sille ei anneta nimeä
 > * oluen luonti ei onnistu, jos sille ei määritellä tyyliä
 >
-> Jälkimmäinen testi ei mene läpi. Laajenna koodiasi siten, että se läpäisee testin.
+> Jos jälkimmäinen testi ei mene läpi, laajenna koodiasi siten, että se läpäisee testin.
 > 
 > Jos teet testitiedoston käsin, muista sijoittaa se hakemistoon spec/models
 
