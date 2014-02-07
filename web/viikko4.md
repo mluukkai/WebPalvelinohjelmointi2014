@@ -1526,7 +1526,7 @@ Kirjautumisen toteutuksen siirtäminen apumetodiin siis kasvattaa myös testien 
 
 > ## Tehtävä 7
 >
-> Tee testi joka varmistaa, että käyttäjän reittaukset näytetään käyttäjän sivulla. Käyttäjän sivulla tulee siis näkyä kaikki käyttäjän omat muuttei muiden käyttäjien tekemiä reittauksia. 
+> Tee testi joka varmistaa, että käyttäjän reittaukset näytetään käyttäjän sivulla. Käyttäjän sivulla tulee siis näkyä kaikki käyttäjän omat muttei muiden käyttäjien tekemiä reittauksia. 
 >
 > Huomaa, että navigoidessasi käyttäjän <code>user</code> sivulle, joudut antamaan metodille <code>visit</code> polun määritteleväksi parametriksi <code>user_path(user)</code>, eli yleensä käytetty lyhempi  muoto (olio itse) ei capybaran kanssa toimi.
 
@@ -1534,7 +1534,7 @@ Kirjautumisen toteutuksen siirtäminen apumetodiin siis kasvattaa myös testien 
 >
 >  Tee testi, joka varmistaa että käyttäjän poistaessa oma reittauksensa, se poistuu tietokannasta. 
 >
-> Jos sivulla on useita linkkejä joilla on sama nimi, ei <code>click_link</code>. Joudut tälläisissä tilanteissa yksilöimään mikä linkeistä valitaan, ks. http://rubydoc.info/github/jnicklas/capybara/master/Capybara/Node/Finders ja esim. [tämä](http://stackoverflow.com/questions/6733427/how-to-click-on-the-second-link-with-the-same-text-using-capybara-in-rails-3)
+> Jos sivulla on useita linkkejä joilla on sama nimi, ei <code>click_link</code> toimi. Joudut tälläisissä tilanteissa yksilöimään mikä linkeistä valitaan, ks. http://rubydoc.info/github/jnicklas/capybara/master/Capybara/Node/Finders ja esim. [tämä](http://stackoverflow.com/questions/6733427/how-to-click-on-the-second-link-with-the-same-text-using-capybara-in-rails-3)
 
 
 > ## Tehtävä 9
