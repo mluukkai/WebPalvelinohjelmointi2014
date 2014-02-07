@@ -1,4 +1,4 @@
-Jatkamme sovelluksen rakentamista siitä, mihin jäimme viikon 3 lopussa. Allaoleva materiaali olettaa, että olet tehnyt kaikki edellisen viikon tehtävät. Jos et tehnyt kaikkia tehtäviä, voit ottaa kurssin repositorioista [edellisen viikon mallivastauksen](https://github.com/mluukkai/WebPalvelinohjelmointi2014/tree/master/malliv/viikko4). Jos sait suurimman osan edellisen viikon tehtävistä tehtyä, saattaa olla helpointa, että täydennät vastaustasi mallivastauksen avulla.
+Jatkamme sovelluksen rakentamista siitä, mihin jäimme viikon 4 lopussa. Allaoleva materiaali olettaa, että olet tehnyt kaikki edellisen viikon tehtävät. Jos et tehnyt kaikkia tehtäviä, voit ottaa kurssin repositorioista [edellisen viikon mallivastauksen](https://github.com/mluukkai/WebPalvelinohjelmointi2014/tree/master/malliv/viikko4). Jos sait suurimman osan edellisen viikon tehtävistä tehtyä, saattaa olla helpointa, että täydennät vastaustasi mallivastauksen avulla.
 
 Jos otat edellisen viikon mallivastauksen tämän viikon pohjaksi, kopioi hakemisto muualle kurssirepositorion alta (olettaen että olet kloonannut sen) ja tee sovelluksen sisältämästä hakemistosta uusi repositorio. 
 
@@ -309,7 +309,7 @@ index.html.erb:n paranneltu koodi seuraavassa:
 <% end %>
 ```
 
-Sovelluksessamme on vielä pieni ongelma Jos yritämme etsiä New Yorkin olutravintoloita on seurauksena virhe. Välilyönnit on korvatta URL:ssä koodilla %20. Korvaamista ei kannata tehdä itse 'käsin', välilyönti ei nimittäin ole ainoa merkki joka on koodattava URL:iin. Kuten arvata saattaa, on Railsissa tarjolla tarkoitusta varten valmis metodi <code>ERB::Util.url_encode</code>. Kokeillaan metodia konsolista:
+Sovelluksessamme on vielä pieni ongelma Jos yritämme etsiä New Yorkin olutravintoloita on seurauksena virhe. Välilyönnit on korvattava URL:ssä koodilla %20. Korvaamista ei kannata tehdä itse 'käsin', välilyönti ei nimittäin ole ainoa merkki joka on koodattava URL:iin. Kuten arvata saattaa, on Railsissa tarjolla tarkoitusta varten valmis metodi <code>ERB::Util.url_encode</code>. Kokeillaan metodia konsolista:
 
 ```ruby
 irb(main):063:0> ERB::Util.url_encode("St John's")
