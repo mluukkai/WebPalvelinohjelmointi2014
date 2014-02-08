@@ -1559,7 +1559,8 @@ describe Brewery do
     brewery.name.should == "Schlenkerla"
     brewery.year.should == 1674
     brewery.valid?.should == true
-  endend
+  end
+end
 ```
 
 Viimeinen ehto, eli onko panimo validi ja tallentunut kantaan on ilmaistu kömpelösti. Koska panimon metodi <code>valid?</code> palauttaa totuusarvon, voimme ilmaista asian myös seuraavasti (ks http://rubydoc.info/gems/rspec-expectations/RSpec/Matchers):
