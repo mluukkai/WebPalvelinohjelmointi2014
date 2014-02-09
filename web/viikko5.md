@@ -1217,7 +1217,7 @@ Oletusarvoisen sanitoinnin saa 'kytkettyä pois' pyytämällä eksplisiittisesti
 
 suoritetaan javascript-koodi sivun renderöinnion yhteydessä:
 
-wadror2![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/ratebeer-w5-8.png)
+![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/ratebeer-w5-8.png)
 
 Lisätietoa http://www.railsdispatch.com/posts/security ja http://railscasts.com/episodes/204-xss-protection-in-rails-3
 
