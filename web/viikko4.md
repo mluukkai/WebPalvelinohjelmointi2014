@@ -1761,6 +1761,7 @@ Githubissa olevat Rails-projektit on helppo asettaa Travisin tarkkailtavaksi.
 >```ruby
 >[![Build Status](https://travis-ci.org/mluukkai/ratebeer-public.png)](https://travis-ci.org/mluukkai/ratebeer-public)
 >```
+> Huomaa, että linkin loppuosa on sama kun projektisi Github-repositorion, edellinen siis liittyy Github-repoon https://github.com/mluukkai/ratebeer-public
 >
 >Näin kaikki asianosaiset näkevät sovelluksen tilan ja todennäköisyys ettei sovelluksen testejä rikota kasvaa!
 
@@ -1799,7 +1800,9 @@ luoma hieman ruma koodi, joten jätämme sen paikalleen.
 >[![Code Climate](https://codeclimate.com/github/mluukkai/ratebeer-public.png)](https://codeclimate.com/github/mluukkai/ratebeer-public)
 >```
 >
->Nyt myös codeclimate aiheuttaa sovelluskehittäjälle sopivasti painetta pitää koodi koko ajan hyvälaatuisena!
+> Nyt myös codeclimate aiheuttaa sovelluskehittäjälle sopivasti painetta pitää koodi koko ajan hyvälaatuisena!
+>
+> Huomaa, että linkin loppuosa on sama kun projektisi Github-repositorion, edellinen siis liittyy Github-repoon https://github.com/mluukkai/ratebeer-public
 
 Codeclimaten tekemän staattisen analyysin lisäksi Rails-sovelluskehityksessä kannaa noudattaa yhtenäistä koodaustyyliä. Rails-yhteisön kehittelemä tyyliopas löytyy osoitteesta  https://github.com/bbatsov/rails-style-guide
 
