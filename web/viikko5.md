@@ -136,7 +136,6 @@ Kutsun palauttamat ravintolat sisältävä taulukko saadaan seuraavasti:
 irb(main):042:0> places = response.parsed_response["bmp_locations"]["location"]
 irb(main):043:0> places.size
 => 7
- => 6 
 ```
 
 Helsingistä tunnetaan siis 7 paikkaa. Tutkitaan ensimmäistä:
