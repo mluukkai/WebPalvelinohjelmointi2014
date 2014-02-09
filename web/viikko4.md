@@ -1235,7 +1235,7 @@ Lisätään testi, joka testaa tilannetta, jossa tietokannassa on 3 panimoa:
 
     visit breweries_path
 
-    expect(page).to have_content "number of breweries #{breweries.count}"
+    expect(page).to have_content "Number of breweries: #{breweries.count}"
 
     breweries.each do |brewery_name|
       expect(page).to have_content brewery_name
