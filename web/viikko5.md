@@ -354,7 +354,7 @@ end
 
 Luokka siis määrittelee stattisen metodin, joka palauttaa taulukon parametrina määritellystä kaupungista löydetyistä olutpaikoista. Jos paikkoja ei löydy, on taulukko tyhjä. API:n eristävä luokka ei ole vielä viimeiseen asti hiotussa muodossa, sillä emme vielä täysin tiedä mitä muita metodeja tarvitsemme.
 
-**HUOM:** jos et tehnyt [viikon 2 tehtävää 15](https://github.com/mluukkai/WebPalvelinohjelmointi2014/blob/master/web/viikko2.md#teht%C3%A4v%C3%A4-15) tai sijoitit tehtävässä määritellyn moduulin hakemistoon _app/models/concers_, lisää tiedostoon _config/application.rb_ luokan <code>Application</code> määrittelyn sisälle rivi <code>config.autoload_paths += Dir["#{Rails.root}/lib"]</code>, jotta Rails lataisi lib-hakemistoon sijoitetun koodin sovelluksen luokkien käyttöön.
+**HUOM:** jos et tehnyt [viikon 2 tehtävää 15](https://github.com/mluukkai/WebPalvelinohjelmointi2014/blob/master/web/viikko2.md#teht%C3%A4v%C3%A4-15) tai sijoitit tehtävässä määritellyn moduulin hakemistoon _app/models/concerns_, lisää tiedostoon _config/application.rb_ luokan <code>Application</code> määrittelyn sisälle rivi <code>config.autoload_paths += Dir["#{Rails.root}/lib"]</code>, jotta Rails lataisi lib-hakemistoon sijoitetun koodin sovelluksen luokkien käyttöön.
 
 Kontrollerista tulee nyt siisti:
 
