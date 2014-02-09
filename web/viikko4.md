@@ -886,7 +886,7 @@ Apumetodia käyttämällä saamme siistityksi testiä
 
 Apumetodeja siis voi (ja kannattaa) määritellä rspec-tiedostoihin. Jos apumetodia tarvitaan ainoastaan yhdessä testitiedostossa, voi sen sijoittaa esim. tiedoston loppuun.
 
-Parannetaan vielä edellistä hiukan määrittelemällä toinenkin metodi <code>create_beers_with_ratings</code>, jonka avulla von mahdollista luoda useita reitattuja oluita. Metodi saa reittaukset taulukon tapaan käyttäytyvän vaihtuvamittaisen parametrilistan (ks. http://www.ruby-doc.org/docs/ProgrammingRuby/html/tut_methods.html, kohta "Variable-Length Argument Lists") avulla:
+Parannetaan vielä edellistä hiukan määrittelemällä toinenkin metodi <code>create_beers_with_ratings</code>, jonka avulla on mahdollista luoda useita reitattuja oluita. Metodi saa reittaukset taulukon tapaan käyttäytyvän vaihtuvamittaisen parametrilistan (ks. http://www.ruby-doc.org/docs/ProgrammingRuby/html/tut_methods.html, kohta "Variable-Length Argument Lists") avulla:
 
 ```ruby
 def create_beers_with_ratings(*scores, user)
