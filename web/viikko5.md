@@ -44,7 +44,7 @@ Tehdään nyt sovellukseemme olutravintoloita etsivä tominnallisuus.
 
 Luodaan tätä varten sivu osoitteeseen places, eli määritellään route.rb:hen
 
-png    get 'places', to: 'places#index'
+    get 'places', to: 'places#index'
 
 ja luodaan kontrolleri:
 
