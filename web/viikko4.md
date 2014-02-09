@@ -1591,7 +1591,7 @@ Ilmaisu <code>brewery.should be_valid</code> on lähempänä luonnollista kielt�
 
 Myös muoto <code>brewery.should be_invalid</code> toimisi täsmälleen samoin.
 
-Käytimme yllä shouldin sijaan <code>expect</code>-syntaksia (ks. http://rubydoc.info/gems/rspec-expectations/) joka tuntuu vallanneen alaa shouldilta (vuonna 2010 Rspecin kirjoittamassa kirjassa http://pragprog.com/book/achbd/the-rspec-book käytetään vielä lähes yksinomaan shouldia!). Testimme expectillä olisi seuraava:
+Käytimme yllä shouldin sijaan <code>expect</code>-syntaksia (ks. http://rubydoc.info/gems/rspec-expectations/) joka tuntuu vallanneen alaa shouldilta (vuonna 2010 Rspecin kehittäjien kirjoittamassa kirjassa http://pragprog.com/book/achbd/the-rspec-book käytetään vielä lähes yksinomaan shouldia!). Testimme expectillä olisi seuraava:
 
 ```ruby
   it "has the name and year set correctly and is saved to database" do
