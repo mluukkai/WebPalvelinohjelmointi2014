@@ -268,7 +268,7 @@ Käytämme testaukseen Rspec:iä ks. http://rspec.info/,  https://github.com/rsp
 Otetaan käyttöön rspec-rails gem lisäämällä Gemfileen seuraava:
 
 ```ruby
-group :test do
+group :development, :test do
   gem 'rspec-rails', '~> 2.14.1'
 end
 ```
@@ -369,6 +369,8 @@ Randomized with seed 7711
 ```
 
 Komennon <code>rspec spec</code> ja <code>rake spec</code> erona on se, että rake:lla suoritettaessa testiympäristön tietokanta päivitetään automaattisesti, eli käytettäessä komentoa <code>rake spec</code> ei ole tarvetta komennon <code>rake db:test:prepare</code> suorittamiselle vaikka tietokannan skeemassa olisikin muutoksia. Käytämme materiaalissa jatkossa <code>rspec</code>-komentoa.
+
+Huomaa, että komento <code>rake spec</code> toimii (suoraan) ainoastaan jos gemi <code>rspec-rails</code> on määritelty Gemfilessä testiscopen lisäksi myös tuotantoscopeen.
 
 Testien ajon voi myös automatisoida aina kun testi tai sitä koskeva koodi muuttuu. [guard](https://github.com/guard/guard) on tähän käytetty kirjasto ja siihen löytyy monia laajennoksia.
 
