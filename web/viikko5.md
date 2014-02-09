@@ -160,7 +160,7 @@ class Place
 end
 ```
 
-Koska kyseessä ei ole "normaali" luokan <codeActiveRecord::Base</code> perivä luokka, joudumme määrittelemään metodin <code>attr_accessor</code> avulla olion attribuutit. Metodi luo jokaista parametrina olevaa symbolia kohti "getterin ja setterin", eli metodit attribuutin arvon lukemista ja päivittämistä varten.
+Koska kyseessä ei ole "normaali" luokan <code>ActiveRecord::Base</code> perivä luokka, joudumme määrittelemään metodin <code>attr_accessor</code> avulla olion attribuutit. Metodi luo jokaista parametrina olevaa symbolia kohti "getterin ja setterin", eli metodit attribuutin arvon lukemista ja päivittämistä varten.
 
 Olioon on määritelty attribuutti kaikille beermappingin yhtä ravintolaa kohti palauttamille kentille. 
 
