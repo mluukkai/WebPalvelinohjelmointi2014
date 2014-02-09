@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ratebeer</title>
+  <link data-turbolinks-track="true" href="/assets/application.css" media="all" rel="stylesheet" />
+  <script data-turbolinks-track="true" src="/assets/application.js"></script>
+  
+</head>
+<body>
+
+<div class="navibar">
+  <a href="/breweries">breweries</a>
+  <a href="/beers">beers</a>
+  <a href="/ratings">ratings</a>
+  <a href="/users">users</a>
+  <a href="/beer_clubs">clubs</a>
+  |
+    <a href="/users/1">Pekka</a>
+    <a href="/ratings/new">rate a beer</a>
+    <a href="/memberships/new">join a club</a>
+    <a data-method="delete" href="/signout" rel="nofollow">signout</a>
+</div>
+
+<p id="notice"></p>
+
+<h2> Pekka</h2>
+
+    <p>has made 2 ratings</p>
+
+
+<h3>ratings</h3>
+
+
+<ul>
+      <li> iso 3 10
+            <a data-confirm="Are you sure?" data-method="delete" href="/ratings/1" rel="nofollow">delete</a>
+      </li>
+      <li> Karhu 30
+            <a data-confirm="Are you sure?" data-method="delete" href="/ratings/3" rel="nofollow">delete</a>
+      </li>
+</ul>
+
+  <a href="/users/1/edit">Edit</a>
+  <br>
+  <a data-confirm="Are you sure?" data-method="delete" href="/users/1" rel="nofollow">Remove user account</a>
+
+
+</body>
+</html>
