@@ -293,7 +293,7 @@ Tehdään kokeeksi muutama yksikkötesti luokalle <code>User</code>. Voimme luod
 
     rails generate rspec:model user
 
-Hakemistoon /spec/model tulee tiedosto user_spec.rb
+Hakemistoon /spec/models tulee tiedosto user_spec.rb
 
 ```ruby
 require 'spec_helper'
