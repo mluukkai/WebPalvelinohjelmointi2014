@@ -256,7 +256,7 @@ Jos haluat poistaa scaffold-generaattorin luomat tiedostot, onnistuu tämä kome
 
     rails destroy scaffold resursin_nimi
     
-missä _resurssin_nimi_ on scaffoldilla luomasi resurssin nimi. **HUOM:** jos suoritit jo huonoon scaffoldiin liittyvän migraation, tee ehdottomasti ennen scaffoldin tuhoamista <coderake db:rollback</code>  
+missä _resurssin_nimi_ on scaffoldilla luomasi resurssin nimi. **HUOM:** jos suoritit jo huonoon scaffoldiin liittyvän migraation, tee ehdottomasti ennen scaffoldin tuhoamista <code>rake db:rollback</code>  
 
 
 ## Testaaminen
