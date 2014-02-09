@@ -1758,7 +1758,7 @@ Githubissa olevat Rails-projektit on helppo asettaa Travisin tarkkailtavaksi.
 >
 >Kun seuraavan kerran pushaat koodia githubiin, suorittaa Travis automaattisesti buildausskriptin, joka siis määrittelee testit suoritettaviksi. Saat sähköpostitse tiedotuksen jos buildin status muuttuu.
 >
->Lisää repositoriosi README.md-tiedostoon linkki sovelluksen TravisCI-sivulle:
+>Lisää repositoriosi README.md-tiedostoon (**huom:** tiedoston päätteen on oltava md!) linkki sovelluksen TravisCI-sivulle:
 >
 >```ruby
 >[![Build Status](https://travis-ci.org/mluukkai/ratebeer-public.png)](https://travis-ci.org/mluukkai/ratebeer-public)
