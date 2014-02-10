@@ -639,7 +639,7 @@ irb(main):030:0>
 
 Välimuistin käytön ongelmana on mahdollinen tiedon epäajantasaisuus. Eli jos joku lisää ravintoloita beermappingin sivuille, välimuistissamme säilyy edelleen vanha data. Jollain tavalla tulisi siis huolehtia, että välimuistiin ei pääse jäämään liian vanhaa dataa. 
 
-Yksi ratkasiu olisi aika ajoin nollata välimuistissa oleva data komennolla:
+Yksi ratkaisu olisi aika ajoin nollata välimuistissa oleva data komennolla:
 
     Rails.cache.clear
 
