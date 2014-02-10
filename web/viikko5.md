@@ -40,6 +40,13 @@ Selaimella näemme palautetun XML:n hieman ihmisluettavammassa muodossa:
 
 **HUOM: älä käytä tässä näytettyä API-avainta vaan rekisteröi itsellesi oma avain.**
 
+**HUOM2:** palvelu on ajoittain erittäin hidas. Voitkin käyttää sen sijaan saman datan tarjoavaa kurssia varten tehtyä 'välimuistipalvelinta', joka on osoitteessa
+http://stark-oasis-9187.herokuapp.com/api/ Esim. Helsingin tiedot saat välimuistipalvelimelta urlista 
+[http://stark-oasis-9187.herokuapp.com/api/helsinki]
+(http://stark-oasis-9187.herokuapp.com/api/helsinki)
+
+Välimuistipalvelin toimii siten, että jos siltä haetaan kaupunkia, jota on haettu jo aiemmin, palauttaa se tallettamansa tuloksen. Jos taas haetaan on kaupunkia, jonka tulosta välimuistpalvelin ei tiedä, kysyy se tuloksen ensin Beermapping-palvelulta. Tällöin operaatio kestää huomattavasti kauemmin. 
+
 Tehdään nyt sovellukseemme olutravintoloita etsivä toiminnallisuus.
 
 Luodaan tätä varten sivu osoitteeseen places, eli määritellään route.rb:hen
@@ -101,6 +108,8 @@ irb(main):002:0>  url = "http://beermapping.com/webservice/loccity/#{api_key}/"
 irb(main):003:0> HTTParty.get url+"helsinki"
 => #<HTTParty::Response:0x7fd778a6d590 …>
 ```
+
+**HUOM:** voit siis nyt ja jatkossa käyttää vaihtoehtoisesti välimuistipalvelinta eli määritellä <code>url = http://stark-oasis-9187.herokuapp.com/api/</code>
 
 Kutsu siis palauttaa luokan <code>HTTParty::Response</code>-olion. Oliolta voidaan kysyä esim. vastaukseen liittyvät headerit:
 
@@ -186,7 +195,8 @@ class PlacesController < ApplicationController
   def search
     api_key = "96ce1942872335547853a0bb3b0c24db"
     url = "http://beermapping.com/webservice/loccity/#{api_key}/"
-    response = HTTParty.get "#{url}helsinki"
+    # tai vaihtoehtoisesti
+    # url = http://stark-oasis-9187.herokuapp.com/api/
     places_from_api = response.parsed_response["bmp_locations"]["location"]
     @places = [ Place.new(places_from_api.first) ]
 
