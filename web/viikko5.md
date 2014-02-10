@@ -40,7 +40,7 @@ Selaimella näemme palautetun XML:n hieman ihmisluettavammassa muodossa:
 
 **HUOM: älä käytä tässä näytettyä API-avainta vaan rekisteröi itsellesi oma avain.**
 
-Tehdään nyt sovellukseemme olutravintoloita etsivä tominnallisuus.
+Tehdään nyt sovellukseemme olutravintoloita etsivä toiminnallisuus.
 
 Luodaan tätä varten sivu osoitteeseen places, eli määritellään route.rb:hen
 
@@ -495,7 +495,7 @@ describe "BeermappingApi" do
 end
 ```
 
-Testi siis ensin määrittelee, että URL:iin joka loppuu merkkijonoon "tampere" (määritelty regexpillä <code>/.*tampere/</code>) kohdistuvan  HTTP GET -kutsun palauttamaan kovakoodatun XML:n, HTTP-kutsun palauttamaan headeriin määritellään, että palautettu tieto on XML-muodossa. Ilman tätä määritystä HTTParty-kirjasto ei osaa parsia HTTP-pyynnön palauttamaa dataa oiken. 
+Testi siis ensin määrittelee, että URL:iin joka loppuu merkkijonoon "tampere" (määritelty regexpillä <code>/.*tampere/</code>) kohdistuvan  HTTP GET -kutsun palauttamaan kovakoodatun XML:n, HTTP-kutsun palauttamaan headeriin määritellään, että palautettu tieto on XML-muodossa. Ilman tätä määritystä HTTParty-kirjasto ei osaa parsia HTTP-pyynnön palauttamaa dataa oikein. 
 
 Itse testi tapahtuu suoraviivaisesti tarkastelemalla BeermappingApi:n metodin <code>places_in</code> palauttamaa taulukkoa.
 
