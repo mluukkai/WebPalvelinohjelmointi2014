@@ -419,7 +419,7 @@ mbp-18:ratebeer mluukkai$ rspec spec/features/places_spec.rb
 …
 ```
 
-Syynä tälle on se, että testiympäristössä ei ole suoritettu kaikkia tietokantamigraatioita. Ongelma korjaantuu komennolla <code>rake db:test:prepare</code>
+Syynä tälle on se, että testiympäristössä ei ole suoritettu kaikkia tietokantamigraatioita. Ongelma korjaantuu komennolla <code>rake db:test:prepare</code>. Jos törmäät johonkin gemien versioihin liittyvään virheeseen (näin kävi itselläni kertaalleen), suorita <code>bundle update</code>.
 
 > ## Tehtävä 2
 >
