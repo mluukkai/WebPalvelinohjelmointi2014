@@ -40,12 +40,12 @@ Selaimella näemme palautetun XML:n hieman ihmisluettavammassa muodossa:
 
 **HUOM: älä käytä tässä näytettyä API-avainta vaan rekisteröi itsellesi oma avain.**
 
-**HUOM2:** palvelu on ajoittain erittäin hidas. Voitkin käyttää sen sijaan saman datan tarjoavaa kurssia varten tehtyä 'välimuistipalvelinta', joka on osoitteessa
-http://stark-oasis-9187.herokuapp.com/api/ Esim. Helsingin tiedot saat välimuistipalvelimelta urlista 
+**HUOM2:** palvelu on ajoittain _erittäin_ hidas. Voitkin käyttää sen sijaan saman datan tarjoavaa kurssia varten tehtyä,  osoitteessa
+http://stark-oasis-9187.herokuapp.com/api/ toimivaa 'välimuistipalvelinta'. Esim. Helsingin tiedot saat välimuistipalvelimelta urlista 
 [http://stark-oasis-9187.herokuapp.com/api/helsinki]
 (http://stark-oasis-9187.herokuapp.com/api/helsinki)
 
-Välimuistipalvelin toimii siten, että jos siltä haetaan kaupunkia, jota on haettu jo aiemmin, palauttaa se tallettamansa tuloksen. Jos taas haetaan on kaupunkia, jonka tulosta välimuistpalvelin ei tiedä, kysyy se tuloksen ensin Beermapping-palvelulta. Tällöin operaatio kestää huomattavasti kauemmin. 
+Välimuistipalvelin toimii siten, että jos siltä haetaan kaupunkia, jota on haettu jo aiemmin, palauttaa se tallettamansa tuloksen. Jos taas haetaan on kaupunkia, jonka tietoja välimuistpalvelin ei tiedä, kysyy se kaupungin tiedot ensin Beermapping-palvelulta. Tällöin operaatio kestää huomattavasti kauemmin. Välimuistipalvelinta ei ole testattu kovin paljoa, joten sen toiminnassa voi ilmetä ongelmia. Jos näin tapahtuu, ilmoita asiasta.  
 
 Tehdään nyt sovellukseemme olutravintoloita etsivä toiminnallisuus.
 
