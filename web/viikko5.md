@@ -1233,5 +1233,4 @@ Commitoi kaikki tekemäsi muutokset ja pushaa koodi Githubiin. Deployaa myös uu
 
 Tehtävät kirjataan palautetuksi osoitteeseen http://wadrorstats2014.herokuapp.com/
 
-Tehtävien palauttaminen on mahdollista vasta 10.2.
 
