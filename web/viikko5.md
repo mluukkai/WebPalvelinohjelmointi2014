@@ -667,7 +667,7 @@ require 'spec_helper'
 describe "BeermappingApi" do
   describe "in case of cache miss" do
 
-    before :all do
+    before :each do
       Rails.cache.clear
     end
 
