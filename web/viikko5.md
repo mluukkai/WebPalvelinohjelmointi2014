@@ -577,9 +577,9 @@ irb(main):018:0>
 
 Ensimmäinen metodikutsu siis aiheuttaa tietokantahaun ja tallettaa olion välimuistiin. Seuraava kutsu saa avainta vastaavan olion suoraan välimuistista.
 
-Oletusarvoisesti Railsin cache tallettaa avain-arvo-parit keskusmuistiin. Cachen käyttämä talletustapa on kuitenkin konfiguroitavissa, ks. http://guides.rubyonrails.org/caching_with_rails.html#cache-stores 
+Oletusarvoisesti Railsin cache tallettaa avain-arvo-parit tiedostojärjestelmään. Cachen käyttämä talletustapa on kuitenkin konfiguroitavissa, ks. http://guides.rubyonrails.org/caching_with_rails.html#cache-stores 
 
-Huom: tuotantokäytössä voi olla riskialtista käyttää Railsin oletusarvoista keskusmuistia käyttävää cachea, sillä cache saattaa pahimmillaan käyttää todella suuren määrän muistia. Parempi ratkaisu onkin esim. [Memcached](http://memcached.org/), ks. tarkemmin esim. https://devcenter.heroku.com/articles/building-a-rails-3-application-with-memcache
+Huom: tuotantokäytössä välimuistin datan tallettaminen tiedostojärjestelmään ei ole suorituskyvyn kannalta optimaalista. Parempi ratkaisu onkin esim. [Memcached](http://memcached.org/), ks. tarkemmin esim. https://devcenter.heroku.com/articles/building-a-rails-3-application-with-memcache
 
 Viritellään luokkaa <code>BeermappingApi</code> siten, että se tallettaa tehtyjen kyselyjen tulokset välimuistiin. Jos kysely kohdistuu jo välimuistissa olevaan kaupunkiin, palautetaan tulos välimuistista.
 
