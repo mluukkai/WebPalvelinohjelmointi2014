@@ -535,7 +535,7 @@ Kuten virheilmoitus antaa ymmärtää, voidaan komennon <code>stub_request</code
 
 Erilaisten lavastekomponenttien tekeminen eli metodien ja kokonaisten olioiden stubaus sekä mockaus on hyvin laaja aihe. Voit lukea aiheesta Rspeciin liittyen seuraavasta http://rubydoc.info/gems/rspec-mocks/
 
-Nimityksiä stub- ja mock-olio tai "stubaaminen ja mockaaminen" käytetään usein varsin huolettomasti. Onneksi Rails-yhteisö käyttää termejä oikein. Lyhyesti ilmaistuna stubit ovat olioita, joihin on kovakoodattu valmiiksi metodien vastauksia. Mockit taas toimivat myös stubien tapaan kovakoodattujen vastausten antajana, mutta sen lisäksi mockien avulla voidaan määritellä odotuksia siitä miten niiden metodeja kutsutaan. Jos testattavana olevat olit eivät kutsu odotetulla tavalla mockien metodeja, aiheutuu tästä testivirhe.
+Nimityksiä stub- ja mock-olio tai "stubaaminen ja mockaaminen" käytetään usein varsin huolettomasti. Onneksi Rails-yhteisö käyttää termejä oikein. Lyhyesti ilmaistuna stubit ovat olioita, joihin on kovakoodattu valmiiksi metodien vastauksia. Mockit taas toimivat myös stubien tapaan kovakoodattujen vastausten antajana, mutta sen lisäksi mockien avulla voidaan määritellä odotuksia siitä miten niiden metodeja kutsutaan. Jos testattavana olevat oliot eivät kutsu odotetulla tavalla mockien metodeja, aiheutuu tästä testivirhe.
 
 Mockeista ja stubeista lisää esim. seuraavassa: http://martinfowler.com/articles/mocksArentStubs.html
 
@@ -649,7 +649,7 @@ Tilanteeseemme paremmin sopiva ratkaisu on määritellä välimuistiin talletett
 >
 > ### tämä ei ole viikon tärkein tehtävä, joten älä jää jumittamaan tähän jos kohtaat ongelmia  
 >
-> Määrittele välimustiin talletettaville ravintolatiedoille enimmäiselinikä, esim. 1 viikko. Testatessasi tehtävän toimintaa, kannattaa kuitenkin käyttää pienempää elinikää, esim. yhtä minuuttia.
+> Määrittele välimuistiin talletettaville ravintolatiedoille enimmäiselinikä, esim. 1 viikko. Testatessasi tehtävän toimintaa, kannattaa kuitenkin käyttää pienempää elinikää, esim. yhtä minuuttia.
 >
 > Tehtävän tekeminen ei edellytä kovin suuria muutoksia koodiisi, oikeastaan muutoksia tarvitaan vain _yhdelle_ riville. Tarvittavat vihjeet löydät sivulta http://guides.rubyonrails.org/caching_with_rails.html#activesupport-cache-store Ajan käsittelyssä auttaa http://guides.rubyonrails.org/active_support_core_extensions.html#time
 >
@@ -766,7 +766,7 @@ Näkymätemplatea /views/beers/show.html.erb muutetaan seuraavasti:
 </p>
 
 <% if @beer.ratings.empty? %>
-  <p>beer does not have yet been rated!</p>
+  <p>beer has not yet been rated!</p>
 <% else %>
   <p>has been rated <%= @beer.ratings.count %> times, average score <%= @beer.average_rating %></p>
 <% end %>
