@@ -1167,6 +1167,14 @@ heroku pg:reset TIETOKANNANNIMI
 heroku run "rake db:migrate && rake db:seed"
 ```
 
+Joskus migraatioiden peräkkäinen suorittaminen ensimmäisestä viimeiseen saattaa tuottaa ongelmia. Tällöin voi kokeilla toista vaihtoehtoa:
+
+```
+heroku pg
+heroku pg:reset TIETOKANNANNIMI
+heroku "rake db:schema:load && rake db:seed"
+
+Komento <code>rake db:schema:load</code> lukee tietokannan skeeman suoraan tiedostossa <code>db/schema.rb</code> olevasta migraatioiden avulla rakentuneesta tietokantaskeemasta. Komennon avulla saadaan siis tietokantaskeema päivitettyä ilman tarvetta migraatioden suorittamiselle.
 
 ## Tehtävien palautus
 

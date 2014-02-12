@@ -1304,7 +1304,7 @@ Olemme käyttäneet Railsin migraatioita jo ensimmäisestä viikosta alkaen. On 
 > * liitä konsolista käsin oluet _style_-olioihin käyttäen hyväksi oluilla vielä olevaa old_style-saraketta
 > * tuhoa oluiden taulusta migraation avulla _old_style_
 >
-> Huomaa, että heroku-instanssin ajantasaistaminen kannattaa tehdä samalla!
+> **Huomaa, että Heroku-instanssin ajantasaistaminen kannattaa tehdä samalla!** Jos joudut liian suuriin ongelmiin Herokun kanssa, voit hätätapauksessa turvautua viikon 3 lopun ohjeeseen Herokun kannan nollaamisesta. Muista että tuotantokannan nollaaminen on äärimmäinen toimenpide, johon ei tulisi _ikinä_ olla syytä turvautua. 
 >
 > Voit myös suorittaa siirtymisen uusiin tietokannassa oleviin tyyleihin suoraviivaisemmin eli poistamalla oluilta _style_-sarakkeen ja asettamalla oluiden tyylit esim. konsolista.
 >
