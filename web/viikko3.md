@@ -1174,7 +1174,7 @@ heroku pg
 heroku pg:reset TIETOKANNANNIMI
 heroku "rake db:schema:load && rake db:seed"
 
-Komento <code>rake db:schema:load</code> lukee tietokannan skeeman suoraan tiedostossa <code>db/schema.rb</code> olevasta migraatioiden avulla rakentuneesta tietokantaskeemasta. Komennon avulla saadaan siis tietokantaskeema päivitettyä ilman tarvetta migraatioden suorittamiselle.
+Komento <code>rake db:schema:load</code> lukee tietokannan skeeman suoraan tiedostossa <code>db/schema.rb</code> olevasta migraatioiden avulla rakentuneesta tietokantaskeemasta. Komennon avulla saadaan siis tietokantaskeema päivitettyä ilman tarvetta migraatioden suorittamiselle. Huomaa, että komento luo tietokantataulut uudestaan, eli käytännössä se tyhjentää kannan sisällön.
 
 ## Tehtävien palautus
 
