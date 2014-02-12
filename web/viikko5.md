@@ -771,6 +771,85 @@ irb(main):002:0> ENV['APIKEY']
 Ympäristömuuttujille on helppo asettaa arvo myös Herokussa, ks. 
 https://devcenter.heroku.com/articles/config-vars
 
+## Lisäselvennys kontrollerin toiminnasta
+
+Muutamien osalla on ollut havaittavissa hienoista epäselvyyttä kontrollereiden <code>show</code>-metodien toimintaperiaatteessa. Seuraavaakin tehtävää silmälläpitäen kerrataan asiaa hieman.
+
+Tarkastellaan panimon kontorolleria. Ykisttäisen panimon näyttämisestä vastaava kontrollerimetodi ei sisällä mitään koodia:
+
+```ruby
+  def show
+  end
+```
+
+oletusarvoisesti renderöityvä näkymätemplate app/views/breweries/show.html.erb kuitenkin viittaa muuttujaan <code>@brewery</code>:
+
+```ruby
+    <h2><%= @brewery.name %>
+    </h2>
+
+    <p>
+      <em>Established year:</em>
+      <%= @brewery.year %>
+    </p>
+```
+
+eli miten muuttuja saa arvonsa? Arvo asetetaan kontrollerissa esifiltteriksi määritellyssä metodissa <code>set_brewery</code>.
+
+```ruby
+class BreweriesController < ApplicationController
+  before_action :set_brewery, only: [:show, :edit, :update, :destroy]
+  #...
+
+  def set_brewery
+    @brewery = Brewery.find(params[:id])
+  end
+ end
+```
+
+kontrolleri siis määrittelee, että aina ennen metodin <code>show</code> suorittamista suoritetaan koodi 
+
+```ruby
+@brewery = Brewery.find(params[:id])
+```
+
+joka lataa panimo-olion muistista ja tallettaa sen näkymää varten muuttujaan. 
+
+Kuten koodista on pääteltävissä, kontrolleri pääsee käsiksi panimon id:hen <code>params</code>-hashin kautta. Mihin tämä perustuu?
+
+Kun katsomme sovelluksen routeja joko komennolla <code>rake routes</code> tai selaimesta (menemällä mihin tahansa epävalidiin osoitteeseen), huomaamme, että yksittäiseen panimoon liittyvä routetieto on seuraava
+
+```ruby
+brewery_path	 GET	 /breweries/:id(.:format)	 breweries#show
+```
+
+eli yksittäisen panimon URL on muotoa _breweries/42_ missä lopussa oleva luku on panimon id. Kuten polkumäärittely vihjaa, sijoitetaan panimon id <code>params</code>-hashin avaimen <code>:id</code> arvoksi. 
+
+Voisimme määritellä 'parametrillisen' polun myös käsin. Jos lisäisimme routes.rb:hen seuraavan
+
+```ruby
+   get 'panimo/:id', to: 'breweries#show'
+```
+
+pääsisi yksittäisen panimon sivulle osoitteesta http://localhost:3000/panimo/42. Osoitteen käsittelisi edelleen kontrollerin metodi <code>show</code>, joka pääsisi käsiksi id:hen tuttuun tapaan <code>params</code>-hashin kautta.
+
+Jos taas päättäisimme käyttää jotain muuta kontrollerimetodia, ja määrittelisimme reitin seuraavasti
+
+```ruby
+   get 'panimo/:panimo_id', to: 'breweries#nayta'
+```
+
+kontrollerimetodi voisi olla esim. seuraava:
+
+```ruby
+   def nayta
+     @brewery = Brewery.find(params[:panimo_id])
+     render :index
+   end
+```
+
+eli tällä kertaa routeissa määriteltiin, että panimon id:hen viitataan <code>params</code>-hashin avaimella <code>:panimo_id</code>.
+
 ## Ravintolan sivu
 
 > ## Tehtävät 5-6 (vastaa kahta tehtävää)
@@ -779,8 +858,11 @@ https://devcenter.heroku.com/articles/config-vars
 >* ravintolan urliksi kannattaa vailta Rails-konvention mukainen places/:id, routes.rb voi näyttää esim. seuraavalta:
 >
 >    resources :places, only:[:index, :show]
+>    # mikä generoi samat polut kuin seuraavat kaksi     
+>    # get 'places', to:'places#index'
+>    # get 'places/:id', to:'places#show'
 >
->    post "places", to:"places#search"
+>    post 'places', to:'places#search'
 >  
 >* HUOM: ravintolan tiedot löytyvät hieman epäsuorasti cachesta siinä vaiheessa kun ravintolan sivulle ollaan menossa. Jotta pääset tietoihin käsiksi on ravintolan id:n lisäksi "muistettava" kaupunki, josta ravintolaa etsittiin, tai edelliseksi tehdyn search-operaation tulos. Yksi tapa muistamiseen on käyttää sessiota, ks. https://github.com/mluukkai/WebPalvelinohjelmointi2014/blob/master/web/viikko3.md#k%C3%A4ytt%C3%A4j%C3%A4-ja-sessio
 >
