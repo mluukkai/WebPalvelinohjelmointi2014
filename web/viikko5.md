@@ -775,7 +775,7 @@ https://devcenter.heroku.com/articles/config-vars
 
 Muutamien osalla on ollut havaittavissa hienoista epäselvyyttä kontrollereiden <code>show</code>-metodien toimintaperiaatteessa. Seuraavaakin tehtävää silmälläpitäen kerrataan asiaa hieman.
 
-Tarkastellaan panimon kontorolleria. Ykisttäisen panimon näyttämisestä vastaava kontrollerimetodi ei sisällä mitään koodia:
+Tarkastellaan panimon kontorolleria. Yksittäisen panimon näyttämisestä vastaava kontrollerimetodi ei sisällä mitään koodia:
 
 ```ruby
   def show
