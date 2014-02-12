@@ -857,13 +857,15 @@ eli tällä kertaa routeissa määriteltiin, että panimon id:hen viitataan <cod
 > Tee sovellukselle ominaisuus, jossa ravintolan nimeä klikkaamalla avautuu oma sivu, jossa on näkyvillä ravintolan tiedot. Sisällytä sivulle (esim. iframena) myös kartta, johon on merkattu ravintolan sijainti. Huomaa, että kartan url löytyy suoraan ravintolan tiedoista.
 >* ravintolan urliksi kannattaa vailta Rails-konvention mukainen places/:id, routes.rb voi näyttää esim. seuraavalta:
 >
->    resources :places, only:[:index, :show]
->    # mikä generoi samat polut kuin seuraavat kaksi     
->    # get 'places', to:'places#index'
->    # get 'places/:id', to:'places#show'
+>```ruby
+> resources :places, only:[:index, :show]
+> # mikä generoi samat polut kuin seuraavat kaksi     
+> # get 'places', to:'places#index'
+> # get 'places/:id', to:'places#show'
 >
->    post 'places', to:'places#search'
->  
+> post 'places', to:'places#search'
+> ``` 
+> 
 >* HUOM: ravintolan tiedot löytyvät hieman epäsuorasti cachesta siinä vaiheessa kun ravintolan sivulle ollaan menossa. Jotta pääset tietoihin käsiksi on ravintolan id:n lisäksi "muistettava" kaupunki, josta ravintolaa etsittiin, tai edelliseksi tehdyn search-operaation tulos. Yksi tapa muistamiseen on käyttää sessiota, ks. https://github.com/mluukkai/WebPalvelinohjelmointi2014/blob/master/web/viikko3.md#k%C3%A4ytt%C3%A4j%C3%A4-ja-sessio
 >
 > Toinen tapa toiminnallisuuden toteuttamiseen on sivulla http://beermapping.com/api/reference/ oleva "Locquery Service"
