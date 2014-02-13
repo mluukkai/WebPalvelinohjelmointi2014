@@ -441,11 +441,16 @@ Siirrytään sitten luokan <code>BeermappingApi</code> testaamiseen. Luokka siis
 
 Parempi vaihtoehto onkin käyttää gemiä _webmock_ https://github.com/bblimke/webmock/ sillä se mahdollistaa stubauksen HTTPartyn käyttämän kirjaston tasolla.
 
-Otetaan gem käyttöön lisäämällä Gemfilen **test-scopeen** rivi
+Otetaan gem käyttöön lisäämällä Gemfilen **test-scopeen** rivi <code>gem 'webmock'</code>;
 
+group :test do
+    # ...
     gem 'webmock'
+end
 
-ja suoritetaan <code>bundle install</code>.
+**HUOM:** webmock on määriteltävä _ainoastaan_ test-scopeen, muuten se estää kaikki sovelluksen tekemät HTTP-kutsut!
+
+Suoritetaan <code>bundle install</code>.
 
 Tiedostoon ```spec/spec_helper.rb``` pitää vielä lisätä rivi:
 
