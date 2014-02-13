@@ -423,6 +423,7 @@ Komento "kovakoodaa" luokan <code>BeermappingApi</code> metodin <code>places_in<
 Kun nyt testissä tehdään HTTP-pyyntö places-kontrollerille, ja kontrolleri kutsuu API:n metodia <code>places_in</code>, metodin todellisen koodin suorittamisen sijaan places-kontrollerille palautetaankin kovakoodattu vastaus.
 
 Jos törmäät testejä suorittaessasi virheeseen
+
 ```ruby
 mbp-18:ratebeer mluukkai$ rspec spec/features/places_spec.rb 
 /Users/mluukkai/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/activerecord-4.0.2/lib/active_record/migration.rb:379:in `check_pending!': Migrations are pending; run 'bin/rake db:migrate RAILS_ENV=test' to resolve this issue. (ActiveRecord::PendingMigrationError)
@@ -443,10 +444,12 @@ Parempi vaihtoehto onkin käyttää gemiä _webmock_ https://github.com/bblimke/
 
 Otetaan gem käyttöön lisäämällä Gemfilen **test-scopeen** rivi <code>gem 'webmock'</code>;
 
+```ruby
 group :test do
     # ...
     gem 'webmock'
 end
+```
 
 **HUOM:** webmock on määriteltävä _ainoastaan_ test-scopeen, muuten se estää kaikki sovelluksen tekemät HTTP-kutsut!
 
