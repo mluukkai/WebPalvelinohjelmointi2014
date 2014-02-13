@@ -451,7 +451,7 @@ group :test do
 end
 ```
 
-**HUOM:** webmock on määriteltävä _ainoastaan_ test-scopeen, muuten se estää kaikki sovelluksen tekemät HTTP-kutsut!
+**HUOM: webmock on määriteltävä _ainoastaan_ test-scopeen, muuten se estää kaikki sovelluksen tekemät HTTP-pyynnöt!**
 
 Suoritetaan <code>bundle install</code>.
 
