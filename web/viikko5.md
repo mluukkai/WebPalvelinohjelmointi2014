@@ -197,6 +197,8 @@ class PlacesController < ApplicationController
     url = "http://beermapping.com/webservice/loccity/#{api_key}/"
     # tai vaihtoehtoisesti
     # url = http://stark-oasis-9187.herokuapp.com/api/
+
+    response = HTTParty.get "#{url}helsinki"
     places_from_api = response.parsed_response["bmp_locations"]["location"]
     @places = [ Place.new(places_from_api.first) ]
 
