@@ -580,7 +580,7 @@ Rekisteröimme vielä järjestämisen suorittavat tapahtumankuuntelijat linkeill
 var BEERS = {};
 
 BEERS.show = function(){
-    $("#beertable tr:gt(0)").remove()
+    $("#beertable tr:gt(0)").remove();
 
     var table = $("#beertable");
 
@@ -632,7 +632,7 @@ $(document).ready(function () {
 
     $.getJSON('beers.json', function (beers) {
         BEERS.list = beers;
-        BEERS.sort_by_name;
+        BEERS.sort_by_name();
         BEERS.show();
     });
 
