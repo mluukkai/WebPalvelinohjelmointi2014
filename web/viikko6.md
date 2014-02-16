@@ -1327,7 +1327,7 @@ Tutkitaan hieman panimokontrolleria. Sekä uuden oluen luominen, että oluen tie
 ```
 
 Kuten [viikolla 2 totesimme](
-https://github.com/mluukkai/WebPalvelinohjelmointi2014/blob/master/web/viikko2.md#reittauksen-talletus) on jokainen massasijoitettavaksi tarkoitettu attrivuutti eksplisiittisesti sallittava <code>permit</code> metodin avulla. Muuetaan metodia <code>brewery_params</code> seuraavasti:
+https://github.com/mluukkai/WebPalvelinohjelmointi2014/blob/master/web/viikko2.md#reittauksen-talletus) on jokainen massasijoitettavaksi tarkoitettu attribuutti eksplisiittisesti sallittava <code>permit</code> metodin avulla. Muuetaan metodia <code>brewery_params</code> seuraavasti:
 ```ruby
   def brewery_params
     params.require(:brewery).permit(:name, :year, :active)
