@@ -1,0 +1,21 @@
+o: ActiveSupport::Cache::Entry:@value[o:
+Place:@idI"	6742:ET:
+@nameI"Pullman Bar;	T:@statusI"Beer Bar;	T:@reviewlinkI"?http://beermapping.com/maps/reviews/reviews.php?locid=6742;	T:@proxylinkI"=http://beermapping.com/maps/proxymaps.php?locid=6742&d=5;	T:@blogmapI"Ghttp://beermapping.com/maps/blogproxy.php?locid=6742&d=1&type=norm;	T:@streetI"Kaivokatu 1;	T:
+@cityI"Helsinki;	T:@state0:	@zipI"
+00100;	T:@countryI"Finland;	T:@phoneI"+358 9 0307 22;	T:@overallI"72.500025;	T:@imagecountI"0;	To;;I"	6743;	T;
+I"
+Belge;	T;I"Beer Bar;	T;I"?http://beermapping.com/maps/reviews/reviews.php?locid=6743;	T;I"=http://beermapping.com/maps/proxymaps.php?locid=6743&d=5;	T;I"Ghttp://beermapping.com/maps/blogproxy.php?locid=6743&d=1&type=norm;	T;I"Kluuvikatu 5;	T;I"Helsinki;	T;0;I"
+00100;	T;I"Finland;	T;I"+358 10 766 35;	T;I"67.499925;	T;I"1;	To;;I"	6919;	T;
+I"Suomenlinnan Panimo;	T;I"Brewpub;	T;I"?http://beermapping.com/maps/reviews/reviews.php?locid=6919;	T;I"=http://beermapping.com/maps/proxymaps.php?locid=6919&d=5;	T;I"Ghttp://beermapping.com/maps/blogproxy.php?locid=6919&d=1&type=norm;	T;I"Rantakasarmi;	T;I"Helsinki;	T;0;I"
+00190;	T;I"Finland;	T;I"+358 9 228 5030;	T;I"69.166625;	T;I"0;	To;;I"
+12408;	T;
+I"St. Urho's Pub;	T;I"Beer Bar;	T;I"@http://beermapping.com/maps/reviews/reviews.php?locid=12408;	T;I">http://beermapping.com/maps/proxymaps.php?locid=12408&d=5;	T;I"Hhttp://beermapping.com/maps/blogproxy.php?locid=12408&d=1&type=norm;	T;I"Museokatu 10;	T;I"Helsinki;	T;0;I"
+00100;	T;I"Finland;	T;I"+358 9 5807 7222;	T;I"95;	T;I"0;	To;;I"
+12409;	T;
+I"Kaisla;	T;I"Beer Bar;	T;I"@http://beermapping.com/maps/reviews/reviews.php?locid=12409;	T;I">http://beermapping.com/maps/proxymaps.php?locid=12409&d=5;	T;I"Hhttp://beermapping.com/maps/blogproxy.php?locid=12409&d=1&type=norm;	T;I"Vilhonkatu 4;	T;I"Helsinki;	T;0;I"
+00100;	T;I"Finland;	T;I"+358 10 76 63850;	T;I"83.3334;	T;I"0;	To;;I"
+12410;	T;
+I"Pikkulintu;	T;I"Beer Bar;	T;I"@http://beermapping.com/maps/reviews/reviews.php?locid=12410;	T;I">http://beermapping.com/maps/proxymaps.php?locid=12410&d=5;	T;I"Hhttp://beermapping.com/maps/blogproxy.php?locid=12410&d=1&type=norm;	T;I"Klaavuntie 11;	T;I"Helsinki;	T;0;I"
+00910;	T;I"Finland;	T;I"+358 9 321 5040;	T;I"91.6667;	T;I"0;	To;;I"
+18418;	T;
+I"Bryggeri Helsinki;	T;I"Brewpub;	T;I"@http://beermapping.com/maps/reviews/reviews.php?locid=18418;	T;I">http://beermapping.com/maps/proxymaps.php?locid=18418&d=5;	T;I"Hhttp://beermapping.com/maps/blogproxy.php?locid=18418&d=1&type=norm;	T;I"Sofiankatu 2;	T;I"Helsinki;	T;0;I"FI-00170;	T;I"Finland;	T;I"010 235 2500;	T;I"0;	T;I"0;	T:@created_atf1391471727.6343539:@expires_inf6.048e5

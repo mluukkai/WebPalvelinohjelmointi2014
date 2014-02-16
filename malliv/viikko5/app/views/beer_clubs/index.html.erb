@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Beer clubs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Founded</th>
+      <th>City</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @beer_clubs.each do |beer_club| %>
+      <tr>
+        <td><%= link_to beer_club.name, beer_club %></td>
+        <td><%= beer_club.founded %></td>
+        <td><%= beer_club.city %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Create a new club', new_beer_club_path %>

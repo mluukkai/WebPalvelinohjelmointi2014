@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ratebeer</title>
+  <link data-turbolinks-track="true" href="/assets/application.css" media="all" rel="stylesheet" />
+  <script data-turbolinks-track="true" src="/assets/application.js"></script>
+  
+</head>
+<body>
+
+<div class="navibar">
+  <a href="/breweries">breweries</a>
+  <a href="/beers">beers</a>
+  <a href="/ratings">ratings</a>
+  <a href="/users">users</a>
+  <a href="/beer_clubs">clubs</a>
+  <a href="/places">places</a>
+  |
+    <a href="/signin">signin</a>
+    <a href="/signup">signup</a>
+</div>
+
+<p id="notice"></p>
+
+<form accept-charset="UTF-8" action="/places" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+    city <input id="city" name="city" type="text" />
+    <input name="commit" type="submit" value="Search" />
+</form>
+
+
+</body>
+</html>

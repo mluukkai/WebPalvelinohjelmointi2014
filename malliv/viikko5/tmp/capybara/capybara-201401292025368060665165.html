@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ratebeer</title>
+  <link data-turbolinks-track="true" href="/assets/application.css" media="all" rel="stylesheet" />
+  <script data-turbolinks-track="true" src="/assets/application.js"></script>
+  
+</head>
+<body>
+
+<div class="navibar">
+  <a href="/breweries">breweries</a>
+  <a href="/beers">beers</a>
+  <a href="/ratings">ratings</a>
+  <a href="/users">users</a>
+  <a href="/beer_clubs">clubs</a>
+  |
+    <a href="/users/1">Pekka</a>
+    <a href="/ratings/new">rate a beer</a>
+    <a href="/memberships/new">join a club</a>
+    <a data-method="delete" href="/signout" rel="nofollow">signout</a>
+</div>
+
+<h2>List of ratings</h2>
+
+<p>Number of ratings 3</p>
+
+<ul>
+      <li> iso 3 10 <a href="/users/1">Pekka</a> </li>
+      <li> iso 3 20 <a href="/users/1">Pekka</a> </li>
+      <li> Karhu 30 <a href="/users/1">Pekka</a> </li>
+</ul>
+
+<a href="/ratings/new">create new rating</a>
+
+
+
+</body>
+</html>

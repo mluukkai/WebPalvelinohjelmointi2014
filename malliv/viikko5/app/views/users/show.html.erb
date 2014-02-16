@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<h2> <%= @user.username %></h2>
+
+<% if @user.ratings.empty? %>
+    <p>has not yet made ratings</p>
+<% else %>
+    <p>has made <%= pluralize( @user.ratings.count, 'rating') %></p>
+<% end %>
+
+<% if @user.beer_clubs.any? %>
+  <p>
+  member of
+    <% @user.beer_clubs.each do |club| %>
+      <%= link_to club.name, club %>
+    <% end %>
+  </p>
+<% end %>
+
+<% if @user.ratings.any? %>
+    <p>Favorite beer: <%= link_to @user.favorite_beer, @user.favorite_beer %> </p>
+    <p>Favorite brewery: <%= link_to @user.favorite_brewery.name, @user.favorite_brewery %> </p>
+    <p>Preferred style: <%= link_to @user.favorite_style, @user.favorite_style %> </p>
+<% end %>
+
+<h3>ratings</h3>
+
+<% if @user.ratings.empty? %>
+    <p>none so far</p>
+<% end %>
+
+<ul>
+  <% @user.ratings.each do |rating| %>
+      <li> <%= rating %>
+        <% if @user == current_user %>
+            <%= link_to 'delete', rating, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </li>
+  <% end %>
+</ul>
+
+<% if @user == current_user %>
+  <%= link_to 'Edit', edit_user_path(@user) %>
+  <br>
+  <%= link_to 'Remove user account', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
