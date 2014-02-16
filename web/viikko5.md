@@ -543,6 +543,14 @@ Kuten virheilmoitus antaa ymmärtää, voidaan komennon <code>stub_request</code
 >
 > Stubatut vastaukset kannattaa jälleen muodostaa curl-komennon avulla API:n tehdyillä kyselyillä
 
+**Huom:** jos testit käyttävät Rails.cachea, kannattaa se konfiguroida käyttämään testien aikana talletuspaikkanaan tiedostojärjestelmän sijaan __keskusmuistia__. Tämä tapahtuu lisäämällä tiedostoon _config/environments/test.rb_ rivi
+
+```ruby
+config.cache_store = :memory_store
+```
+
+Jos et tee muutosta, cachea käyttävät testit eivät toimi Travisissa, sillä Travisin käytössä on readonly-tiedostojärjestelmä. 
+
 Erilaisten lavastekomponenttien tekeminen eli metodien ja kokonaisten olioiden stubaus sekä mockaus on hyvin laaja aihe. Voit lukea aiheesta Rspeciin liittyen seuraavasta http://rubydoc.info/gems/rspec-mocks/
 
 Nimityksiä stub- ja mock-olio tai "stubaaminen ja mockaaminen" käytetään usein varsin huolettomasti. Onneksi Rails-yhteisö käyttää termejä oikein. Lyhyesti ilmaistuna stubit ovat olioita, joihin on kovakoodattu valmiiksi metodien vastauksia. Mockit taas toimivat myös stubien tapaan kovakoodattujen vastausten antajana, mutta sen lisäksi mockien avulla voidaan määritellä odotuksia siitä miten niiden metodeja kutsutaan. Jos testattavana olevat oliot eivät kutsu odotetulla tavalla mockien metodeja, aiheutuu tästä testivirhe.
