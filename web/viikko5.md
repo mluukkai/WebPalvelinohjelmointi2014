@@ -872,7 +872,7 @@ eli tällä kertaa routeissa määriteltiin, että panimon id:hen viitataan <cod
 
 > ## Tehtävät 5-6 (vastaa kahta tehtävää)
 >
-> Tee sovellukselle ominaisuus, jossa ravintolan nimeä klikkaamalla avautuu oma sivu, jossa on näkyvillä ravintolan tiedot. Sisällytä sivulle (esim. iframena) myös kartta, johon on merkattu ravintolan sijainti. Huomaa, että kartan url löytyy suoraan ravintolan tiedoista.
+> Tee sovellukselle ominaisuus, jossa ravintolan nimeä klikkaamalla avautuu oma sivu, jossa on näkyvillä ravintolan tiedot. Sisällytä sivulle (esim. iframena) myös kartta, johon on merkattu ravintolan sijainti. Huomaa, että kartan url löytyy suoraan ravintolan tiedoista. Huom: iframejen käyttö ei ole tietoturvasyistä järkevää. Parempi vaihtoehto olisi käyttää suoraan [Googlen Map APIa](https://developers.google.com/maps/).
 >* ravintolan urliksi kannattaa vailta Rails-konvention mukainen places/:id, routes.rb voi näyttää esim. seuraavalta:
 >
 >```ruby
