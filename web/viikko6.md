@@ -26,7 +26,7 @@ Koetta ajatellen selainpuolella toteutettu toiminnallisuus ja etenkin bootstrap 
 
 ## Muistutus debuggerista
 
-Viikolla 2 tutustuimme [byebug-debuggerin](https://github.com/mluukkai/WebPalvelinohjelmointi2014/blob/master/web/viikko2.md#debuggeri). Valitettavasti debuggeri ei ole vielä löytänyt tietänsä jokaisen kurssilaisen työkaluvalikoimaan.
+Viikolla 2 tutustuimme [byebug-debuggeriin](https://github.com/mluukkai/WebPalvelinohjelmointi2014/blob/master/web/viikko2.md#debuggeri). Valitettavasti debuggeri ei ole vielä löytänyt tietänsä jokaisen kurssilaisen työkaluvalikoimaan.
 
 Debuggerin käyttö on erittäin helppoa. Riittää kirjoittaa komento <code>byebug</code> _mihin tahansa_ kohtaan sovelluksen koodia. Seuraavassa esimerkki:
 
@@ -242,7 +242,7 @@ Jotta saamme JQueryn toimimaan hyvin yhteen Railsin ns. [turbolinks](https://git
 
     gem 'jquery-turbolinks'
 
-tämän lisäksi tiedoston app/assets/javascripts/application.js on **lisättävä** rivien
+tämän lisäksi tiedostoon app/assets/javascripts/application.js on **lisättävä** rivien
 
     //= require jquery
     //= require jquery_ujs
@@ -355,7 +355,7 @@ $(document).ready(function () {
 
 Koodin ensimmäinen rivi (joka siis suoritetaan heti kun sivu on latautunut) tekee HTTP GET -kyselyn palvelimen osoitteeseen beers.json ja määrittelee takaisinkutsufunktion, jota selain kutsuu siinä vaiheessa kun GET-kyselyyn tulee vastaus palvelimelta. Takaisinkutsufunktion parametrissa <code>beers</code> on palvelimelta tullut data, eli json-muodossa oleva oluiden lista. Muuttujan sisältö sijoitetaan globaaliin muuttujaan <code>oluet</code> ja oluiden listan pituus näytetään www-sivulla id:n beers omaavassa elementissä. 
 
-Koska sijoitimme viitteen oluiden listan globaaliin muuttujaan, voimme tarkastella sitä selaimen konsolista käsin (muistutuksena että konsolin saa avattua chromessa tools-valikosta tai painamalla alt, shift ja i):
+Koska sijoitimme viitteen oluiden listan globaaliin muuttujaan, voimme tarkastella sitä selaimen konsolista käsin (muistutuksena että konsolin saa avattua chromessa tools-valikosta tai painamalla ctrl, shift, j (linux) tai alt, cmd, i (mac)):
 
 ```ruby
 > oluet
@@ -1094,7 +1094,7 @@ end
 Otetaan gemit käyttöön komennolla <code>bundle install</code>.
 
 Generoidaan seuraavaksi sovellukselle Bootstrapin tarvitsemat tiedostot.
-**Ota kuitenkin ensin talteen sovelluksen navigaatiopalkin generoiva koodi.** Suoritetaan sitten bootstrapin tarvitsemien tiedostojen generoidaan bootstrapin tarvitsevat tiedostot (mm. tiedoston application.html.erb ylikirjottavalla) komennolla
+**Ota kuitenkin ensin talteen sovelluksen navigaatiopalkin generoiva koodi.** Suoritetaan sitten bootstrapin tarvitsemien tiedostojen generointi (mm. tiedoston application.html.erb ylikirjottavalla) komennolla
 
     rails generate layout:install bootstrap3 --force
 
