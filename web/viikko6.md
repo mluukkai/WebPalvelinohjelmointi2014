@@ -1925,7 +1925,7 @@ User.all.each do |u|
   n = rand(ratings_per_user)
   beers = Beer.all.shuffle
   (1..n).each do |i|
-    r = Rating.new! score:(1+rand(50))
+    r = Rating.new score:(1+rand(50))
     beers[i].ratings << r
     u.ratings << r
   end
