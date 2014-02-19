@@ -4,7 +4,8 @@ Kurssin koe pidetään tiistaina 25.2. klo 9-12 (kokeen kesto 2h 30 min) salissa
 
 Kokeessa ei ole juurikaan tarvetta muistaa yksityiskohtaisesti Railsin komentoja. Tärkeämpää ovat suuret linjat ja koodin lukutaito. Kokeessa joutunee tosin myös hiukan kirjoittamaan luonnosmaista koodia. Näyttöjen koodia _ei_ kokeessa ole tarvettaa kirjoittaa.
 
-Kokeessa saa olla mukana _kymmenen_ A4-sivun (molemmat puolet saa käyttää) pituinen **käsin** itse kirjoitettu lunttilappu. Lunttilapun mukaanottaminen kokeeseen kuitenkin lienee aivan turhaa. Lapun kirjoittamisesta voi olla hyötyä. **Lunttilappu tulee palauttaa!**
+Kokeessa saa olla mukana _sadan_ A4-sivun (molemmat puolet saa käyttää) pituinen **käsin** itse kirjoitettu lunttilappu. Lunttilapusta on tuskin kokeessa mitään suoranaista hyötyä, lapun kirjoittaminen voi kuitenkin olla hyödyllinen prosessi. **Lunttilappu tulee palauttaa!** 
+
 
 Jos olet tehnyt kurssin tehtävät ajatuksella, kokeeseen tuskin tarvitsee lukea. Viimeisen yön paniikkilukemisesta ei todennäköisesti ole kokeessa mitään hyötyä.
 
