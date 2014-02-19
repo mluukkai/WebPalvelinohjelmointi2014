@@ -1038,6 +1038,7 @@ Nyt capybara odottaa taulukon valmistumista ja siirtyy sivun avaavaan komentoon 
 > * klikattaessa saraketta 'brewery' järjestyvät oluet panimon nimen mukaiseen aakkosjärjestykseen
 
 **Huom.** Travis ei osaa suoraan ajaa Selenium-testejä. Ongelmaan löytyy vastaus täältä  http://about.travis-ci.org/docs/user/gui-and-headless-browsers/#Using-xvfb-to-Run-Tests-That-Require-GUI-(e.g.-a-Web-browser)
+Travisin toimintaansaattaminen muutosten jälkeen on vapaaehtoista.
 
 ## Bootstrap
 
