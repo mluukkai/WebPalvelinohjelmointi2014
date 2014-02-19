@@ -1910,13 +1910,12 @@ end
   Brewery.create! name:"brewery_#{i}", year:1900, active:true
 end
 
-bulk = Style.create name:"bulk", description:"cheap, not much taste"
+bulk = Style.create! name:"bulk", description:"cheap, not much taste"
 
 Brewery.all.each do |b|
   n = rand(beers_in_brewery)
   (1..n).each do |i|
-    beer = Beer.create! name:"beer #{b.id} -- #{i}"
-    beer.style = bulk
+    beer = Beer.create! name:"beer #{b.id} -- #{i}", style:bulk
     b.beers << beer
   end
 end
@@ -1936,13 +1935,15 @@ Käytämme tiedostossa normaalien olioiden luovien metodien <code>create</code>c
 
 **Kopioi sitten vanha tietokanta _db/development.db_ talteen**, jotta voimme palata vanhaan tilanteeseen suorituskyvyn virittelyn jälkeen. Voimme ottaa vanhan tietokannan käyttöön muuttamalla sen nimeksi jälleen development.db
 
-*Huom:* tämä ei ole välttämättä paras mahdollinen tapa tehdä suorituskykytestausta oikeille Rails-sovelluksille, ks. lisää tietoa seuraavasta http://guides.rubyonrails.org/v3.2.13/performance_testing.html (guidesta ei ole Rails 4:lle päivitettyä versiota.)
+**Huom:** tämä ei ole välttämättä paras mahdollinen tapa tehdä suorituskykytestausta oikeille Rails-sovelluksille, ks. lisää tietoa seuraavasta http://guides.rubyonrails.org/v3.2.13/performance_testing.html (guidesta ei ole Rails 4:lle päivitettyä versiota.)
 
 Suorita seedaus komennolla 
 
     rake db:seed
 
-Skriptin suorittamisessa kuluu tovi.
+Skriptin suorittamisessa kuluu tovi. 
+
+**Huom:** ojs skriptin suoritus päättyy virheeseen, kannattaa vian korjaamisen jälkeen palauttaa vanha tietokanta ennen skriptin uutta suorittamista. Eräs potentiaalinen ongelma skriptin suorituksessa on validoinnin rikkovat duplikaattinimet. Jos muutat komennon <code>create!</code> muotoon <code>create</code> ei skriptin suoritus keskeydy.
 
 Nyt tietokannassamme on runsaasti dataa ja sivujen lataaminen alkaa olla hitaampaa.
 
@@ -2235,6 +2236,12 @@ Käytännössä <code>belongs_to</code>-yhteyteen liitetty <code>touch: true</co
 > ## Tehtävä 16
 >
 > Toteuta yksittäisen panimon sivulle fragmentticachays. Huomaa, että edellisen esimerkin tapaan panimon sivufragmentin on ekspiroiduttava automaattisesti jos panimon oluisiin tulee muutoksia.
+
+Välimuistin eksplisiittinen ekspiroiminen, kuten kaikkien oluiden sivun suhteen joudumme tekemään, on hieman ikävää sillä on aina pieni riski, että koodissa ei muisteta ekspiroida fragmenttia kaikissa tarpeellisissa kohdissa.
+
+Käyttäessämme suoraan olioa (kuten yksittäisen oluen sivulla tehtiin) fragmentin avaimena, ekspiroitui cache automaattisesti olion päivittyessä. Myös kaikkien oluiden sivulle olisi mahdollista tehdä automaattisesti ekspiroituva cache generoimalla fragmentin avain tarkoitukseen sopivan metodin avulla, katso 
+http://guides.rubyonrails.org/caching_with_rails.html#fragment-caching
+kohta "If you want to avoid expiring the fragment manually..."
 
 ## Selainpuolen cachays
 
