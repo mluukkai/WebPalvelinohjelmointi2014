@@ -1081,7 +1081,7 @@ Määrittelimme viikolla 2 navigointipalkille tyylin lisäämällä hakemistossa
 
 CSS:ää käyttämällä koko sivuston ulkoasu voitaisiin muotoilla sivuston suunnittelijan haluamalla tavalla, jos silmää ja kykyä muotoiluun löytyy.
 
-Sivuston muotoilunkaan suhteen ei onneksi ole enää tarvetta keksiä pyörää uudelleen. Bootstrap (vanhala nimetään Twitter Bootstrap) http://getbootstrap.com/ on "kehys", joka sisältää suuren määrän web-sivujen ulkoasun muotoiluun tarkoitettuja CSS-tyylitiedostoja ja javascriptiä. Bootstrap onkin noussut nopeasti suuureen suosioon web-sivujen ulkoasun muotoilussa. Otetaan bootstrap käyttöön sovelluksessamme sivun http://railsapps.github.io/twitter-bootstrap-rails.html ohjeita noudatellen.
+Sivuston muotoilunkaan suhteen ei onneksi ole enää tarvetta keksiä pyörää uudelleen. Bootstrap (vanhalta nimeltään Twitter Bootstrap) http://getbootstrap.com/ on "kehys", joka sisältää suuren määrän web-sivujen ulkoasun muotoiluun tarkoitettuja CSS-tyylitiedostoja ja javascriptiä. Bootstrap onkin noussut nopeasti suuureen suosioon web-sivujen ulkoasun muotoilussa. Otetaan bootstrap käyttöön sovelluksessamme sivun http://railsapps.github.io/twitter-bootstrap-rails.html ohjeita noudatellen.
 
 Aloitetaan sitten sovelluksemme bootstrappaaminen gemin https://github.com/twbs/bootstrap-sass. Lisätään Gemfileen seuraavat:
 
@@ -1932,7 +1932,7 @@ User.all.each do |u|
 end
 ```
 
-Käytämme tiedostossa normaalien olioiden luovien metodien <code>create</code>code> sijaan huutomerkillistä versiota <code>create!</code>code>. Metodien erona on niiden käyttäytyminen tilanteesa, jossa olion luominen ei onnistu. Huutomerkitön metodi palauttaa tällöin arvon <code>nil</code>, huutomerkillinen taas aiheuttaa poikkeuksen. Seedauksessa poikkeuksen aiheuttaminen on parempi vaihtoehto, muuten luomisen epäonnistuminen jää herkästi huomaamatta.
+Käytämme tiedostossa normaalien olioiden luovien metodien <code>create</code> sijaan huutomerkillistä versiota <code>create!</code>. Metodien erona on niiden käyttäytyminen tilanteessa, jossa olion luominen ei onnistu. Huutomerkitön metodi palauttaa tällöin arvon <code>nil</code>, huutomerkillinen taas aiheuttaa poikkeuksen. Seedauksessa poikkeuksen aiheuttaminen on parempi vaihtoehto, muuten luomisen epäonnistuminen jää herkästi huomaamatta.
 
 **Kopioi sitten vanha tietokanta _db/development.db_ talteen**, jotta voimme palata vanhaan tilanteeseen suorituskyvyn virittelyn jälkeen. Voimme ottaa vanhan tietokannan käyttöön muuttamalla sen nimeksi jälleen development.db
 
