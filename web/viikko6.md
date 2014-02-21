@@ -803,13 +803,13 @@ Lisäsimme myös järjestämistä varten otsikot jotka ovat a-tagin sisällä, e
 </div>
 ```
 
-Lisäsimme koodiin muutaman asian. Määrittelimme scopeen metodin <code>click</code> (todella huono metodin nimi), jota klikkaamalla voidaan määritellä scopeen lisätyn muuttujan <code>order</code> arvo. Oletusarvoisesti arvona on 'name', mutta klikkaamalla panimosarakkeen otsikkoa, muuttuu arvoksi 'brewery.name' ja vastaavasti klikkaamalla tyylisarakkeen otsikkoa arvoksi muuttuu 'brewery.style'. ng-repeatiin on tehty seuraava lisäys:
+Lisäsimme koodiin muutaman asian. Määrittelimme scopeen metodin <code>click</code> (todella huono metodin nimi), jota klikkaamalla voidaan määritellä scopeen lisätyn muuttujan <code>order</code> arvo. Oletusarvoisesti arvona on 'name', mutta klikkaamalla panimosarakkeen otsikkoa, muuttuu arvoksi 'brewery.name' ja vastaavasti klikkaamalla tyylisarakkeen otsikkoa arvoksi muuttuu 'style.name'. ng-repeatiin on tehty seuraava lisäys:
 
 ```javascript
 ng-repeat="beer in beers| orderBy:order"
 ```
 
-nyt muuttujassa oleva kokoelma <code>beers</code> järjestetään <code>orderBy</code>-filtterin avulla muuttujan <code>order</code> arvon nimisen kentän perusteella.
+Nyt muuttujassa oleva kokoelma <code>beers</code> järjestetään <code>orderBy</code>-filtterin avulla muuttujan <code>order</code> arvon nimisen kentän perusteella.
 
 Tehdään vielä bonuksena sovellukseen ominaisuus, jonka avulla näytettävien oluiden listan voi rajata:
 
@@ -953,7 +953,7 @@ Ikävä seuraus tästä on se, että testien tietokantaan tallettama data ei nyt
 
 Huom: joudumme käyttämään gemistä hieman vanhempaa versiota koska uusin versio ei ainakaan 14.4.2014 toiminut Railsin oletusarvoisen SQLite-tietokannan kanssa. Suoritetaan sitten tuttu <code>bundle install</code>.
 
-Konfiguroidaan testit siten, että _ennen kaikkia testejä_ (<code>before :all</code>) laitetaan transaktionaalisuus pois päältä, sallitaan HTTP-yhteydet paikalliselle palvelimelle ja määritellään DatabaseCleanerille käytettävä strategia (ks. http://stackoverflow.com/questions/10904996/difference-between-truncation-transaction-and-deletion-database-strategies). _Jokaisen testin alussa_ (<code>before :each</code>) käynnistetään DatabaseCleaner ja jokaisen testin lopussa (<code>after :each</code>) pyydetään DatabseCleaneria tyhjentämään tietokanta. Kun kaikki testit on suoritettu (<code>after :all</code>) palautetaan normaali transaktionaalisuus:
+Konfiguroidaan testit siten, että _ennen kaikkia testejä_ (<code>before :all</code>) laitetaan transaktionaalisuus pois päältä, sallitaan HTTP-yhteydet paikalliselle palvelimelle ja määritellään DatabaseCleanerille käytettävä strategia (ks. http://stackoverflow.com/questions/10904996/difference-between-truncation-transaction-and-deletion-database-strategies). _Jokaisen testin alussa_ (<code>before :each</code>) käynnistetään DatabaseCleaner ja jokaisen testin lopussa (<code>after :each</code>) pyydetään DatabaseCleaneria tyhjentämään tietokanta. Kun kaikki testit on suoritettu (<code>after :all</code>) palautetaan normaali transaktionaalisuus:
 
 ```ruby
 require 'spec_helper'
@@ -1081,7 +1081,7 @@ Määrittelimme viikolla 2 navigointipalkille tyylin lisäämällä hakemistossa
 
 CSS:ää käyttämällä koko sivuston ulkoasu voitaisiin muotoilla sivuston suunnittelijan haluamalla tavalla, jos silmää ja kykyä muotoiluun löytyy.
 
-Sivuston muotoilunkaan suhteen ei onneksi ole enää tarvetta keksiä pyörää uudelleen. Bootstrap (vanhalta nimeltään Twitter Bootstrap) http://getbootstrap.com/ on "kehys", joka sisältää suuren määrän web-sivujen ulkoasun muotoiluun tarkoitettuja CSS-tyylitiedostoja ja javascriptiä. Bootstrap onkin noussut nopeasti suuureen suosioon web-sivujen ulkoasun muotoilussa. Otetaan bootstrap käyttöön sovelluksessamme sivun http://railsapps.github.io/twitter-bootstrap-rails.html ohjeita noudatellen.
+Sivuston muotoilunkaan suhteen ei onneksi ole enää tarvetta keksiä pyörää uudelleen. Bootstrap (vanhalta nimeltään Twitter Bootstrap) http://getbootstrap.com/ on "kehys", joka sisältää suuren määrän web-sivujen ulkoasun muotoiluun tarkoitettuja CSS-tyylitiedostoja ja javascriptiä. Bootstrap onkin noussut nopeasti suureen suosioon web-sivujen ulkoasun muotoilussa. Otetaan bootstrap käyttöön sovelluksessamme sivun http://railsapps.github.io/twitter-bootstrap-rails.html ohjeita noudatellen.
 
 Aloitetaan sitten sovelluksemme bootstrappaaminen gemin https://github.com/twbs/bootstrap-sass. Lisätään Gemfileen seuraavat:
 
@@ -1328,7 +1328,7 @@ Tutkitaan hieman panimokontrolleria. Sekä uuden oluen luominen, että oluen tie
 ```
 
 Kuten [viikolla 2 totesimme](
-https://github.com/mluukkai/WebPalvelinohjelmointi2014/blob/master/web/viikko2.md#reittauksen-talletus) on jokainen massasijoitettavaksi tarkoitettu attribuutti eksplisiittisesti sallittava <code>permit</code> metodin avulla. Muuetaan metodia <code>brewery_params</code> seuraavasti:
+https://github.com/mluukkai/WebPalvelinohjelmointi2014/blob/master/web/viikko2.md#reittauksen-talletus) on jokainen massasijoitettavaksi tarkoitettu attribuutti eksplisiittisesti sallittava <code>permit</code> metodin avulla. Muutetaan metodia <code>brewery_params</code> seuraavasti:
 ```ruby
   def brewery_params
     params.require(:brewery).permit(:name, :year, :active)
@@ -1444,7 +1444,7 @@ Kontrollerista tulee nyt elegantti:
   end
 ```
 
-Ratkaisu on luettavuuden lisäksi parempi myös olioiden vastuujaon kannalta. Ei ole järkevää laittaa kontrollerin vastuulle sen kertomista _miten_ aktiiviset ja eläköityneet panimot tulee hakea kannasta, sensijaan tämä on hyvin luontevaa antaa modelin vastuulle, sillä modelin rooli on nimenomaan toimia abstraktiokerroksena muun sovelluksen ja tietokannan välillä.
+Ratkaisu on luettavuuden lisäksi parempi myös olioiden vastuujaon kannalta. Ei ole järkevää laittaa kontrollerin vastuulle sen kertomista _miten_ aktiiviset ja eläköityneet panimot tulee hakea kannasta, sen sijaan tämä on hyvin luontevaa antaa modelin vastuulle, sillä modelin rooli on nimenomaan toimia abstraktiokerroksena muun sovelluksen ja tietokannan välillä.
 
 ## Partiaalit
 
@@ -1770,7 +1770,7 @@ Suorita <code>bundle install</code> ja käynnistä rails server uudelleen. Kun m
 
 ![kuva](https://github.com/mluukkai/WebPalvelinohjelmointi2014/raw/master/images/ratebeer-w6-7.png)
 
-Raportti kertoo että <code>Executing action: index</code> eli kontrollerimetodin suoritus aiheuttaa yhden SQL-kyselyn <code>SELECT "beers".* FROM "beers"</code>. Sensijaan  
+Raportti kertoo että <code>Executing action: index</code> eli kontrollerimetodin suoritus aiheuttaa yhden SQL-kyselyn <code>SELECT "beers".* FROM "beers"</code>. Sen sijaan  
  <code>Rendering: beers/index</code> eli näkymätemplaten suoritus aiheuttaa peräti 9 SQL-kyselyä!
 
 Kyselyjä klikkaamalla päästään tarkastelemaan syytä:
@@ -1832,7 +1832,7 @@ SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1
 ja syynä sille on 
 
 ```ruby
-app/controllers/application_controller.rb:10:in `current_user'
+app/controllers/application_controller.rb:10:in 'current_user'
 ```
 eli näytön muuttujan <code>current_user</code> avulla tekemä viittaus kirjautuneena olevaan käyttäjään. Tämä ei kuitenkaan ole hirveän vakavaa.
 
@@ -1865,7 +1865,7 @@ Muutetaan seuraavaa tehtävää varten kaikki käyttäjät listaava template  mu
 
 > ## Tehtävä 14
 >
-> Muutos aiheuttaa n+1-ongelman käyäjien sivulle. Korjaa ongelma edellisen esimerkin tapaan eager loadaamalla tarvittavat oliot käyttäjien hakemisen yhteydessä. Varmista optimointisi onnistuminen miniprofilerilla. 
+> Muutos aiheuttaa n+1-ongelman käyttäjien sivulle. Korjaa ongelma edellisen esimerkin tapaan eager loadaamalla tarvittavat oliot käyttäjien hakemisen yhteydessä. Varmista optimointisi onnistuminen miniprofilerilla. 
 
 **Huom:** jos taulukkoon liitettäisi myös suosikkioluen kertova sarake
   
@@ -1880,7 +1880,7 @@ Muuttuisi tilanne hieman hankalammaksi SQL:n optimoinnin suhteen. Metodimme viim
   end
 ```
 
-Nyt edes eager loadaaminen ei auta, sillä metodikutsu auheuttaa joka tapauksessa SQL-kyselyn. Jos sensijaan toteuttaisimme metodin keskusmuistissa olueeseen liittyviä reittauksia (kuten teimme aluksi viikolla 4):
+Nyt edes eager loadaaminen ei auta, sillä metodikutsu auheuttaa joka tapauksessa SQL-kyselyn. Jos sen sijaan toteuttaisimme metodin keskusmuistissa olueeseen liittyviä reittauksia (kuten teimme aluksi viikolla 4):
 
 ```ruby
   def favorite_beer
@@ -1944,7 +1944,7 @@ Suorita seedaus komennolla
 
 Skriptin suorittamisessa kuluu tovi. 
 
-**Huom:** ojs skriptin suoritus päättyy virheeseen, kannattaa vian korjaamisen jälkeen palauttaa vanha tietokanta ennen skriptin uutta suorittamista. Eräs potentiaalinen ongelma skriptin suorituksessa on validoinnin rikkovat duplikaattinimet. Jos muutat komennon <code>create!</code> muotoon <code>create</code> ei skriptin suoritus keskeydy.
+**Huom:** jos skriptin suoritus päättyy virheeseen, kannattaa vian korjaamisen jälkeen palauttaa vanha tietokanta ennen skriptin uutta suorittamista. Eräs potentiaalinen ongelma skriptin suorituksessa on validoinnin rikkovat duplikaattinimet. Jos muutat komennon <code>create!</code> muotoon <code>create</code> ei skriptin suoritus keskeydy.
 
 Nyt tietokannassamme on runsaasti dataa ja sivujen lataaminen alkaa olla hitaampaa.
 
@@ -1973,7 +1973,7 @@ Datamäärän ollessa suuri, ei pelkkä kyselyjen optimointi riitä, vaan on ets
 
 Vaihtoehdoksi nousee tällöin cachaus eli välimuistien käyttö. 
 
-Web-sovelluksessa cachaystä voidaan suorittaa sekä selaimen, että palvelimen puolella. Tarkastellaan nyt palvelimen puolella tapahtuvaa cachaystä. Toteutimme jo viime viikollä "käsin" beermapping-apista haettujen tietojen cachaystä Rails.cachen avulla. Tutkitaan nyt muutamaa hieman automaattisempaa cachaysmekanismia.
+Web-sovelluksessa cachaystä voidaan suorittaa sekä selaimen, että palvelimen puolella. Tarkastellaan nyt palvelimen puolella tapahtuvaa cachaystä. Toteutimme jo viime viikolla "käsin" beermapping-apista haettujen tietojen cachaystä Rails.cachen avulla. Tutkitaan nyt muutamaa hieman automaattisempaa cachaysmekanismia.
 
 Rails tarjoaa palvelinpuolen cachaystä kolmella tasolla:
 * kokonaisten sivujen cachays (page cache)
@@ -1986,11 +1986,11 @@ Rails 4:ssä kaksi ensimmäistä edellisistä on poistettu Railsin coresta mutta
 
 Tutustutaan näistä kahteen käytetyimpään, ja aloitetaan kontrollerin metodien cachayksestä eli action cachayksetä.
 
-Cahays ei ole oletusarvoisesti päällä kun sovellusta suoritetaan development-moodissa. Saat cachayksen päälle muuttamalla tiedostosta _config/environment/development.rb_ seuraavan rivin arvoksi <code>true</code>:
+Cachays ei ole oletusarvoisesti päällä kun sovellusta suoritetaan development-moodissa. Saat cachayksen päälle muuttamalla tiedostosta _config/environment/development.rb_ seuraavan rivin arvoksi <code>true</code>:
 
     config.action_controller.perform_caching = false
 
-Käynistä nyt sovellus uudelleen.
+Käynnistä nyt sovellus uudelleen.
 
 Päätetään cachata oluiden listan näyttäminen. 
 
@@ -2004,7 +2004,7 @@ Fragmentticachays tapahtuu sisällyttämällä näkymätemplaten cachattavan osa
 
 Kuten arvata saattaa, <code>avain</code> on avain jolla cachattava näkymäfragmentti talletetaan. Avaimena voi olla merkkijono tai olio .<code>skip_digest: true</code> liittyy [näyttötemplatejen versiointiin](http://blog.remarkablelabs.com/2012/12/russian-doll-caching-cache-digests-rails-4-countdown-to-2013) jonka haluamme nyt jättää huomioimatta. Tämä kuitenkin tarkoittaa, että välimuisti on syytä tyhjentää (komennolla <code>Rails.cache.clear</code>) _jos_ näkymätemplaten koodia muutetaan.
 
-Fragmentticachayksen lisääminen oluiden listalle views/beers/index.html on helppoa, cachataan sivulta sen dynaminen osa eli oluiden taulukko:
+Fragmentticachayksen lisääminen oluiden listalle views/beers/index.html on helppoa, cachataan sivulta sen dynaaminen osa eli oluiden taulukko:
 
 ```erb
 <h1>Listing beers</h1>
@@ -2167,7 +2167,7 @@ Exist fragment? views/beerlist-name (0.1ms)
 
 > ## Tehtävä 15
 >
-> Toteuta panimot listaavalle sivulle fragmentticashays. Varmista, että sivun sisältöön vaikuttava muutos ekspiroi cachen.
+> Toteuta panimot listaavalle sivulle fragmentticachays. Varmista, että sivun sisältöön vaikuttava muutos ekspiroi cachen.
 
 Jos haluaisimme cachata yksittäisen oluen sivun, kannattaa fragmentin avaimeksi laittaa itse cachattava olio:
 
@@ -2353,13 +2353,13 @@ Lisää säikeistettyjen Rails-sovellusten tekemisestä [Rails-castista] (https:
 
 Sovelluksen suorituskyvyn skaalaaminen onnistuu vain tiettyyn pisteeseen asti, jos sovellus on monoliittinen, kokonaan yhden tietokannan varassa, yhdellä palvelimella suoritettava kokonaisuus. Sovellusta voidaan toki optimoida ja sitä voidaan skaalata __horisontaalisesti__ eli palvelimen fyysisiä resursseja kasvattamalla.
 
-Parempaan skaalautuvuuteen päästään kuitenkin __vertikaalisella__ skaalautuvuudella, eli sensijaan että palvelimen fyysisiä resursseja yritettäisiin kasvattaa, otetaankin sovelluksen käyttöön useita palvelimia, jotka suorittavat sovelluksen toimintoja rinnakkain. Vertikaalinen skaalaaminen ei välttämättä onnistu triviaalisti, sovelluksen arkkitehtuuria on mukautettava. Jos sovellusta palvelee edelleen ainoastaan yksi tietokanta, voi siitä tuolla pullonkaula vertikaalisesta skaalaamisesta huolimatta, erityisesti jos kyseessä on relaatiotietokanta, joiden hajauttaminen ja näin ollen vertikaalinen skaalaaminen ei ole helppoa.
+Parempaan skaalautuvuuteen päästään kuitenkin __vertikaalisella__ skaalautuvuudella, eli sen sijaan että palvelimen fyysisiä resursseja yritettäisiin kasvattaa, otetaankin sovelluksen käyttöön useita palvelimia, jotka suorittavat sovelluksen toimintoja rinnakkain. Vertikaalinen skaalaaminen ei välttämättä onnistu triviaalisti, sovelluksen arkkitehtuuria on mukautettava. Jos sovellusta palvelee edelleen ainoastaan yksi tietokanta, voi siitä tulla pullonkaula vertikaalisesta skaalaamisesta huolimatta, erityisesti jos kyseessä on relaatiotietokanta, joiden hajauttaminen ja näin ollen vertikaalinen skaalaaminen ei ole helppoa.
 
 Sovelluksen skaalaaminen (ja joissain tapauksissa myös sen ylläpitäminen ja laajentaminen) on helpompaa, jos sovellus on koostettu useammista erillisistä itsenäisenä toimivista keskenään esim. HTTP-protokollalla kommunikoivista __palveluista__. Sovelluksemme itseasiassa hyödyntää jo toista palvelua eli BeermappingAPI:a. Vastaavasti sovelluksen toiminnallisuutta voitaisiin laajentaa integroimalla siihen uusia palveluja.
 
 Jos haluaisimme esim. että sovelluksemme tekisi käyttäjälle suosikkioluttyyleihin ja sijaintiin (joka saadaan selvitettyä esim. käyttäjän tekemien HTTP-kutsujen IP-osotteen perusteella, ks http://www.iplocation.net/) perustuvia ruokareseptisuosituksia, kannattaisi suosittelijasta tehdä kokonaan oma palvelunsa. Sovelluksemme keskustelisi sitten palvelun kanssa HTTP-protokollaa käyttäen. 
 
-Jos haluaisimme vastaavasti että sovelluksemme näyttäisi käyttäjälle olutsuosituksia käyttäjän oman suosikkityylin perusteella, olisi tämän toiminnallisuuden eriyttäminen omaksi, erillisellä palvelimella toimivaksi palveluksi hieman haastavampaa, sillä suositukset todennäköisesti riippuisivat muiden ihmisten tekemistä reittauksista ja tähän tietoon käsillepääsy taas edellyttäisi olutsuosittelijalta pääsyä sovelluksemme tietokantaan. Eli jos oluiden suosittelija haluttaisiin toteuttaa omana erillisenä palvelunaan, olisi sovelluksemme rakennetta kenties mietittävä kokonaan uudelleen, jotta tieto reittauksista saataisiin jaettua ratebeer-sovelluksen ja olutsuosituspalvelun kesken.
+Jos haluaisimme vastaavasti, että sovelluksemme näyttäisi käyttäjälle olutsuosituksia käyttäjän oman suosikkityylin perusteella, olisi tämän toiminnallisuuden eriyttäminen omaksi, erillisellä palvelimella toimivaksi palveluksi hieman haastavampaa, sillä suositukset todennäköisesti riippuisivat muiden ihmisten tekemistä reittauksista ja tähän tietoon käsille pääsy taas edellyttäisi olutsuosittelijalta pääsyä sovelluksemme tietokantaan. Eli jos oluiden suosittelija haluttaisiin toteuttaa omana erillisenä palvelunaan, olisi sovelluksemme rakennetta kenties mietittävä kokonaan uudelleen, jotta tieto reittauksista saataisiin jaettua ratebeer-sovelluksen ja olutsuosituspalvelun kesken.
 
 ## Single sign on
 
