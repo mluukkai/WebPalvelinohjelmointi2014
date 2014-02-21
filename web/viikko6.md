@@ -2107,7 +2107,7 @@ Voisimme siistiä ratkaisua aavistuksen palauttamalla metodin <code>index</code>
   before_action :skip_if_cached, only:[:index]
 
   def skip_if_cached
-    return render :index if fragment_exist?( 'beerlist' )
+    render :index if fragment_exist?( 'beerlist' )
   end
 ```
 
@@ -2129,7 +2129,7 @@ Järjestys talletetaan siis muuttujaan <code>@order</code> kontrollerissa. Seura
 ```ruby
   def skip_if_cached
     @order = params[:order] || 'name'
-    return render :index if fragment_exist?( "beerlist-#{params[:order]}"  )
+    render :index if fragment_exist?( "beerlist-#{params[:order]}"  )
   end
 
   def index
