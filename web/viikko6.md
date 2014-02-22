@@ -1306,7 +1306,7 @@ Kokeillaan. Huomaamme kuitenkin että aktiivisuuden muuttaminen ei toimi.
 
 Syynä tälle on se, että attribuuttia <code>active</code> ei ole lueteltu  massasijoitettavaksi sallittujen attribuuttien joukossa. 
 
-Tutkitaan hieman panimokontrolleria. Sekä uuden oluen luominen, että oluen tietojen muuttaminen hakevat olueen liittyvät tiedot metodin <code>brewery_params</code> avulla:
+Tutkitaan hieman panimokontrolleria. Sekä uuden panimon luominen, että panimon tietojen muuttaminen hakevat panimoon liittyvät tiedot metodin <code>brewery_params</code> avulla:
 
 ```ruby
 
