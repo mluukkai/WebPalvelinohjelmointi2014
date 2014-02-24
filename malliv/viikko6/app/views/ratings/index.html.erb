@@ -1,0 +1,52 @@
+<h2>Rating statistics</h2>
+
+<div class="row">
+  <div class="col-md-4">
+    <h3>Best beers</h3>
+    <%= render 'toplist', items:@beers %>
+  </div>
+  <div class="col-md-4">
+    <h3>Best breweries</h3>
+    <%= render 'toplist', items:@breweries %>
+  </div>
+  <div class="col-md-4">
+    <h3>Best styles</h3>
+    <%= render 'toplist', items:@styles %>
+  </div>
+</div>
+
+<h3>Most active users</h3>
+
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th></th>
+    <th>favorite beer</th>
+    <th>prefered style</th>
+    <th>favorite brewery</th>
+    <th>ratings</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.username, user %></td>
+        <td><%= user.favorite_beer %></td>
+        <td><%= user.favorite_style %></td>
+        <td><%= user.favorite_brewery.name %></td>
+        <td><%= user.ratings.count %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<h3>Recent ratings</h3>
+
+<ul>
+  <% @ratings.each do |rating| %>
+      <li> <%= rating %> <%= link_to rating.user.username, rating.user %> </li>
+  <% end %>
+</ul>
+
+

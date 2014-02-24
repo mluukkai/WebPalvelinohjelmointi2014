@@ -1,0 +1,55 @@
+o: ActiveSupport::Cache::Entry:@valueI"²
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th> <a href="/beers?order=name">Name</a> </th>
+        <th> <a href="/beers?order=style">Style</a> </th>
+        <th> <a href="/beers?order=brewery">Brewery</a> </th>
+      </tr>
+      </thead>
+
+      <tbody>
+          <tr>
+            <td><a href="/beers/6">Hefeweizen</a></td>
+            <td><a href="/styles/4">Weizen</a></td>
+            <td><a href="/breweries/3">Weihenstephaner</a></td>
+          </tr>
+          <tr>
+            <td><a href="/beers/7">Helles</a></td>
+            <td><a href="/styles/1">European pale lager</a></td>
+            <td><a href="/breweries/3">Weihenstephaner</a></td>
+          </tr>
+          <tr>
+            <td><a href="/beers/4">Huvila Pale Ale</a></td>
+            <td><a href="/styles/2">American pale ale</a></td>
+            <td><a href="/breweries/2">Malmgard</a></td>
+          </tr>
+          <tr>
+            <td><a href="/beers/1">Iso 3</a></td>
+            <td><a href="/styles/1">European pale lager</a></td>
+            <td><a href="/breweries/1">Koff</a></td>
+          </tr>
+          <tr>
+            <td><a href="/beers/2">Karhu</a></td>
+            <td><a href="/styles/1">European pale lager</a></td>
+            <td><a href="/breweries/1">Koff</a></td>
+          </tr>
+          <tr>
+            <td><a href="/beers/8">Sierra Nevada Pale Ale</a></td>
+            <td><a href="/styles/2">American pale ale</a></td>
+            <td><a href="/breweries/6">Sierra Nevada  Brewing</a></td>
+          </tr>
+          <tr>
+            <td><a href="/beers/3">Tuplahumala</a></td>
+            <td><a href="/styles/1">European pale lager</a></td>
+            <td><a href="/breweries/1">Koff</a></td>
+          </tr>
+          <tr>
+            <td><a href="/beers/5">X Porter</a></td>
+            <td><a href="/styles/3">Baltic porter</a></td>
+            <td><a href="/breweries/2">Malmgard</a></td>
+          </tr>
+      </tbody>
+    </table>
+
+:ET:@created_atf1392218713.1431072:@expires_in0

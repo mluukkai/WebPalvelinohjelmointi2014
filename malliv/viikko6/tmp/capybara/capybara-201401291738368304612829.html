@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ratebeer</title>
+  <link data-turbolinks-track="true" href="/assets/application.css" media="all" rel="stylesheet" />
+  <script data-turbolinks-track="true" src="/assets/application.js"></script>
+  
+</head>
+<body>
+
+<div class="navibar">
+  <a href="/breweries">breweries</a>
+  <a href="/beers">beers</a>
+  <a href="/ratings">ratings</a>
+  <a href="/users">users</a>
+  <a href="/beer_clubs">clubs</a>
+  |
+    <a href="/signin">signin</a>
+    <a href="/signup">signup</a>
+</div>
+
+<h1>Listing breweries</h1>
+
+<p> Number of breweries: 3 </p> 
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Year</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><a href="/breweries/1">Koff</a></td>
+        <td>1897</td>
+        <td><a href="/breweries/1/edit">Edit</a></td>
+        <td><a data-confirm="Are you sure?" data-method="delete" href="/breweries/1" rel="nofollow">Destroy</a></td>
+      </tr>
+      <tr>
+        <td><a href="/breweries/2">Karjala</a></td>
+        <td>1898</td>
+        <td><a href="/breweries/2/edit">Edit</a></td>
+        <td><a data-confirm="Are you sure?" data-method="delete" href="/breweries/2" rel="nofollow">Destroy</a></td>
+      </tr>
+      <tr>
+        <td><a href="/breweries/3">Schlenkerla</a></td>
+        <td>1899</td>
+        <td><a href="/breweries/3/edit">Edit</a></td>
+        <td><a data-confirm="Are you sure?" data-method="delete" href="/breweries/3" rel="nofollow">Destroy</a></td>
+      </tr>
+  </tbody>
+</table>
+
+<br>
+
+<a href="/breweries/new">New Brewery</a>
+
+
+
+</body>
+</html>

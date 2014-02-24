@@ -1,0 +1,19 @@
+o: ActiveSupport::Cache::Entry:@valueI":
+    <h2>Weihenstephaner
+    </h2>
+
+    <p>
+      <em>Established year:</em>
+      1042
+    </p>
+
+    <p>Number of beers 2 </p>
+
+    <ul>
+          <li><a href="/beers/6">Hefeweizen</a></li>
+          <li><a href="/beers/7">Helles</a></li>
+    </ul>
+
+        <p>beers of the brewery have not yet been rated! </p>
+
+:ET:@created_atf1392218983.383169:@expires_in0
