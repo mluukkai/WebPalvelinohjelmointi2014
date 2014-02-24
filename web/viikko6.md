@@ -1101,7 +1101,7 @@ Generoidaan seuraavaksi sovellukselle Bootstrapin tarvitsemat tiedostot.
 
 Käynnistetään rails server uudelleen. Kun nyt avaamme sovelluksen selaimella, huomaamme jo pienen muutoksen esim. fonteissa. Myös navigointipalkki on hävinnyt.
 
-**HUOM:** jos hakemistoon app/assets/stylesheets jäi vielä tiedosto application.css, saatat joutua poistamaan sen!
+**HUOM:** jos hakemistoon app/assets/stylesheets jäi vielä tiedosto application.css, saatat joutua poistamaan sen sillä yo. skripti on luonut korvaavan tiedoston _application.css.scss_ (jonka rooli )
 
 Edellä suorittamamme komento on luonut navigointipalkkia varten hakemistoon app/views/layout tiedostot *&#95;navigation.html.erb* ja *&#95;navigation&#95;links.html.erb*
 
