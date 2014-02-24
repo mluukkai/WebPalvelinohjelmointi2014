@@ -1139,6 +1139,7 @@ Joskus voi eteen tulla tilanne, jossa herokussa oleva tietokanta on syytä nolla
 **HUOM:** ensisijaisesti järkevämpää kuin nollaaminen on selvittää ongelmien syy. Todennäköisesti syynä on joissain olioissa olevat <code>nil</code>-arvoiset viitteet tai viitteet, joita vastaavia olioita ei enää ole olemassa. Eli ensisijaisesti kannattaa tutkia herokun logeja komennon <code>heroku logs</code> ja korjata tilanne Herokun Rails-konsolin avulla (avautuu komennolla <code>heroku run console</code>), ks. myös https://github.com/mluukkai/WebPalvelinohjelmointi2014/blob/master/web/viikko2.md#nilin-etsint%C3%A4%C3%A4. **Turvaudu kannan nollaamiseen ainoastaan jos olet todella epätoivoinen ja kurssin deadline painaa päälle. Todellisuudessa ei pitäisi edes tulla tilanteita missä kanta on nollattava.**
 
 Ensin täytyy selvittää tietokannan nimi Herokussa, tämä onnistuu komennolla `heroku pg`.
+
 ```
 $ heroku pg
 
@@ -1173,6 +1174,7 @@ Joskus migraatioiden peräkkäinen suorittaminen ensimmäisestä viimeiseen saat
 heroku pg
 heroku pg:reset TIETOKANNANNIMI
 heroku "rake db:schema:load && rake db:seed"
+```
 
 Komento <code>rake db:schema:load</code> lukee tietokannan skeeman suoraan tiedostossa <code>db/schema.rb</code> olevasta migraatioiden avulla rakentuneesta tietokantaskeemasta. Komennon avulla saadaan siis tietokantaskeema päivitettyä ilman tarvetta migraatioden suorittamiselle. Huomaa, että komento luo tietokantataulut uudestaan, eli käytännössä se tyhjentää kannan sisällön.
 
