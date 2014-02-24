@@ -1103,7 +1103,7 @@ Käynnistetään rails server uudelleen. Kun nyt avaamme sovelluksen selaimella,
 
 **HUOM:** jos hakemistoon app/assets/stylesheets jäi vielä tiedosto application.css, saatat joutua poistamaan sen!
 
-Edellä suorittamamme komento on luonut navigointipalkkia varten hakemistoon app/views/layout tiedostot *_navigation.html.erb* ja *_navigation_links.html.erb*
+Edellä suorittamamme komento on luonut navigointipalkkia varten hakemistoon app/views/layout tiedostot *&#95;navigation.html.erb* ja *&#95;navigation&#95;links.html.erb*
 
 Kuten arvata saattaa, navigointipalkkiin tulevat linkit sijoitetaan tiedostoon *&#95;navigation&#95;links.html.erb*. Jokainen linkki tulee sijoittaa li-tagin sisälle. Lisää tiedostoon seuraavat:  
 
