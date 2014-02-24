@@ -1101,9 +1101,11 @@ Generoidaan seuraavaksi sovellukselle Bootstrapin tarvitsemat tiedostot.
 
 Käynnistetään rails server uudelleen. Kun nyt avaamme sovelluksen selaimella, huomaamme jo pienen muutoksen esim. fonteissa. Myös navigointipalkki on hävinnyt.
 
-Edellä suorittamamme komento on luonut navigointipalkkia varten hakemistoon app/views/layout tiedostot _navigation.html.erb ja _navigation_links.html.erb
+**HUOM:** jos hakemistoon app/assets/stylesheets jäi vielä tiedosto application.css, saatat joutua poistamaan sen!
 
-Kuten arvata saattaa, navigointipalkkiin tulevat linkit sijoitetaan tiedostoon *_navigation_links.html.erb*. Jokainen linkki tulee sijoittaa li-tagin sisälle. Lisää tiedostoon seuraavat:  
+Edellä suorittamamme komento on luonut navigointipalkkia varten hakemistoon app/views/layout tiedostot <code>_navigation.html.erb</code>code> ja <code>_navigation_links.html.erb</code>
+
+Kuten arvata saattaa, navigointipalkkiin tulevat linkit sijoitetaan tiedostoon <code>_navigation_links.html.erb</code>. Jokainen linkki tulee sijoittaa li-tagin sisälle. Lisää tiedostoon seuraavat:  
 
 ```erb
 <li><%= link_to 'breweries', breweries_path %></li>
