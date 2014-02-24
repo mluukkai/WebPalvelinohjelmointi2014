@@ -1105,7 +1105,7 @@ Käynnistetään rails server uudelleen. Kun nyt avaamme sovelluksen selaimella,
 
 Edellä suorittamamme komento on luonut navigointipalkkia varten hakemistoon app/views/layout tiedostot *_navigation.html.erb* ja *_navigation_links.html.erb*
 
-Kuten arvata saattaa, navigointipalkkiin tulevat linkit sijoitetaan tiedostoon *_navigation_links.html.erb*. Jokainen linkki tulee sijoittaa li-tagin sisälle. Lisää tiedostoon seuraavat:  
+Kuten arvata saattaa, navigointipalkkiin tulevat linkit sijoitetaan tiedostoon *&#95;navigation&#95;links.html.erb*. Jokainen linkki tulee sijoittaa li-tagin sisälle. Lisää tiedostoon seuraavat:  
 
 ```erb
 <li><%= link_to 'breweries', breweries_path %></li>
