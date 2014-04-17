@@ -1675,7 +1675,7 @@ Jotta simplecov saadaan käyttöön tulee tiedoston spec_helper.rb alkuun, **kah
 
 ```ruby
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start('rails')
 ```
 
 Sitten ajetaan testit (ongelmatilanteessa ks. ylempi huomautus)
