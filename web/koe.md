@@ -1,14 +1,10 @@
-# Web-palvelinohjelmointi Ruby on Rails, kurssikoe 25.2.2014
+# Web-palvelinohjelmointi Ruby on Rails, uusintaikoe 16.4.2016
 
 *Kaikki tehtävät liittyvät koepaperin lopusta löytyvään koodiin.*
 
 Kirjoita jokaiseen palauttamaasi paperiin nimesi ja opiskelijanumerosi  sekä kurssin nimi.
 
-**Vastaa tehtävät 3 ja 4 omalle konseptilleen.** Tehtävät 1 ja 2 voivat olla samalla konseptilla.
-
 **Selitä jokaisessa tehtävässä asiat kooditasolla *sekä* abstraktimmalla tasolla, eli selitä myös mikä on kunkin tehtävän kannalta relevantin sovelluksen komponentin rooli toiminnallisuuden kannalta.** 
-
-Kokeessa on jaossa 15 pistettä. Koeaika on 180 minuuttia. Käytettävissäsi on siis keskimäärin 14 minuttia per piste, eli älä juutu liian kauaksi aikaa mihinkään yksittäiseen tehtävään!
 
 ## tehtävä 1 (3p)
 
@@ -118,7 +114,7 @@ end
 ```
 
 ```erb
-# app/views/teams/index.erb.html
+# app/views/teams/index.html.erb
 
 <h1>Teams</h1>
 
@@ -128,7 +124,7 @@ end
   <% end %>
 </ul>
 
-# app/views/teams/new.erb.html
+# app/views/teams/new.html.erb
 
 <h1>Create a new team</h1>
 
@@ -143,7 +139,7 @@ end
   <%= f.submit %>
 <% end %>
 
-# app/views/teams/show.erb.html
+# app/views/teams/show.html.erb
 
 <h2> <%= @team.name %> </h2>
 
